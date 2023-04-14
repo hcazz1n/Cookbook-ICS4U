@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const connectionString = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_CLUSTER}.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
+const connectionString = `mongodb+srv://fredhe56:ieatdogs69420@datacool.sduylk1.mongodb.net/cookbook?retryWrites=true&w=majority`
 
 mongoose.connect(connectionString,{
     useNewUrlParser: true,

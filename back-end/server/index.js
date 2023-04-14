@@ -3,43 +3,47 @@ const cors = require('cors');
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
 const db = require('./db');
-const Product = require('./models/Product')
+const User = require('./models/Users')
 
 const app = express();
 
+app.use(cors());
+app.use(bodyParser.json());
 
-app.get('/api/products', async(req, res)=>{
+/*User endpoints*/
+
+//Gets all users//
+app.get('/api/users', async(req, res)=>{
     try{
-        const products = await Product.find({});
-        res.json(products);
+        const users = await User.find({});
+        res.json(users);
     }catch(err){
         res.status(500).json({error: err.message});
     }
 })
- 
-app.get('/api/products/:id', async(req, res)=>{
+
+//Gets user by id//
+app.get('/api/users/:id', async(req, res)=>{
     try{
-        const product = await Product.findById(req.params.id);
-        res.json(product);
+        const user = await User.findById(req.params.id);
+        res.json(user);
     }catch(err){
         res.status(500).json({error:err.message})
     }
 })
 
-app.post('/api/products', async(req, res)=>{
+//Creates a new user//
+app.post('/api/users', async(req, res)=>{
     try{
-        const product = new Product(req.body);
-        await product.save();
-        res.json(product)
+        const user = new User(req.body);
+        await user.save();
+        res.json(user)
     }catch(err){
         res.status(500).json
     }
 })
-
-const PORT = process.env.PORT||3000;
-
-app.use(cors());
-app.use(bodyParser.json());
+ 
+const PORT = process.env.PORT||5000;
 
 app.listen(PORT, ()=>{
     console.log(`Server running on port ${PORT}`);
