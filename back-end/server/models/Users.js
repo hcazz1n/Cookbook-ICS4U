@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         required: true,
     },
-    id: {
+    _id: {
         type: Number,
         required: true,
     },

@@ -1,4 +1,6 @@
-var Recipes = new Schema({
+const mongoose = require('mongoose')
+
+const recipeSchema = new mongoose.Schema({
     Recipes: [
         {
             type: String
@@ -22,3 +24,7 @@ var Recipes = new Schema({
         }
     ]
 });
+
+const Recipe = mongoose.model('Recipe', recipeSchema);
+
+module.exports = Recipe;

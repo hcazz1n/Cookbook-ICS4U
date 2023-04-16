@@ -1,4 +1,6 @@
-var Posts = new Schema({
+const mongoose = require('mongoose')
+
+const Posts = new mongoose.Schema({
     date: {
         type: Date
     },
@@ -20,3 +22,7 @@ var Posts = new Schema({
         type: Schema.Types.ObjectId
     }
 });
+
+const Post = mongoose.model('Post', postSchema);
+
+module.exports = Post;
