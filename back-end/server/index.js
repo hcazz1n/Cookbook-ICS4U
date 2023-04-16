@@ -4,6 +4,11 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
 const db = require('./db');
 const User = require('./models/Users')
+const Recipe = require('./models/Recipes')
+const Rating = require('./models/Rating')
+const Post = require('./models/Posts')
+const Favourite = require('./models/Favourites')
+const Comments = require('./models/Comments')
 
 const app = express();
 
