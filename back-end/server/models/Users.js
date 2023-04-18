@@ -13,10 +13,6 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         required: true,
     },
-    _id: {
-        type: Number,
-        required: true,
-    },
     profilePic: {
         type: String,
     },
