@@ -5,13 +5,7 @@ const commentsSchema = new mongoose.Schema({
         {
             type: String
         }
-    ],
-    postID: {
-        type: Schema.Types.ObjectId
-    },
-    userID: {
-        type: Schema.Types.ObjectId
-    }
+    ]
 });
 
 const Comment = mongoose.model('Comments', commentsSchema);

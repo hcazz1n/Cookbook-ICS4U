@@ -6,12 +6,6 @@ const recipeSchema = new mongoose.Schema({
             type: String
         }
     ],
-    userID: {
-        type: Schema.Types.ObjectId
-    },
-    recipeID: {
-        type: Schema.Types.ObjectId
-    },
     ingredients: {
         type: String
     },

@@ -6,7 +6,6 @@ const favouritesSchema = new mongoose.Schema({
     },
     favRecipes: [
         {
-            type: Schema.Types.ObjectId
         }
     ]
 });
