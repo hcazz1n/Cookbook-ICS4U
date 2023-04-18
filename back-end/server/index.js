@@ -15,6 +15,65 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+const ejs = require('ejs')
+
+//*Link MongoDB database here maybe?
+
+app.set('view-engine', 'ejs');
+app.set('views', '../views')
+app.use(express.urlencoded({ extended: false }));
+
+app.get('/', (req, res) => {
+    res.render('register.ejs')
+});
+
+app.get('/login', (req, res) => {
+    res.render('./views/login.ejs');
+});
+
+app.get('/register', (req,res)=>{
+    res.render('./views/register.ejs')
+})
+
+app.post('/login', async (req, res) => {
+
+});
+
+//Gets all users//
+app.get('/api/users', async(req, res)=>{
+    try{
+        const users = await User.find({});
+        res.json(users);
+    }catch(err){
+        res.status(500).json({error: err.message});
+    }
+})
+
+app.post('/register', async (req, res) => {
+    try{
+    console.log(req.body);
+    const data = {
+        name: req.body.Username,
+        password: req.body.password,
+        isAdmin: true,
+        bio: req.body.description
+    }
+    const user = await User.create(data)
+
+    res.send(user);
+    }catch(err){
+        res.status(500).send(err.message)
+    }
+});
+
+
+
+const PORT = process.env.PORT||3000;
+
+app.listen(PORT, ()=>{
+    console.log(`Server running on port ${PORT}`);
+})
+
 /*User endpoints*/
 
 //Gets all users//
@@ -46,11 +105,5 @@ app.post('/api/users', async(req, res)=>{
     }catch(err){
         res.status(500).json
     }
-})
- 
-const PORT = process.env.PORT||5000;
-
-app.listen(PORT, ()=>{
-    console.log(`Server running on port ${PORT}`);
 })
 
