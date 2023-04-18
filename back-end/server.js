@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-//*Link MongoDB database here
+//*Link MongoDB database here maybe?
 
 app.set('view-engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
@@ -23,7 +23,7 @@ app.get('/register', (req, res) => {
 });
 
 app.post('/register', (req, res) => {
-    req.body.name
+
 });
 
-app.listen(3000);
+app.listen(3000); //Server will run on port 3000
