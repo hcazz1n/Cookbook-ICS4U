@@ -1,3 +1,4 @@
+//Setup
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser')
@@ -15,40 +16,28 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const ejs = require('ejs')
-
-//*Link MongoDB database here maybe?
-
 app.set('view-engine', 'ejs');
 app.set('views', '../views')
 app.use(express.urlencoded({ extended: false }));
 
+//Login and Register endpoints
 app.get('/', (req, res) => {
     res.render('register.ejs')
 });
 
 app.get('/login', (req, res) => {
-    res.render('./views/login.ejs');
+    res.render('login.ejs');
 });
 
 app.get('/register', (req,res)=>{
-    res.render('./views/register.ejs')
+    res.render('register.ejs')
 })
 
 app.post('/login', async (req, res) => {
-
+    //Get user information, if info = input, login
 });
 
-//Gets all users//
-app.get('/api/users', async(req, res)=>{
-    try{
-        const users = await User.find({});
-        res.json(users);
-    }catch(err){
-        res.status(500).json({error: err.message});
-    }
-})
-
+//Creates a new user per registration
 app.post('/register', async (req, res) => {
     try{
     console.log(req.body);
@@ -61,20 +50,13 @@ app.post('/register', async (req, res) => {
     const user = await User.create(data)
 
     res.send(user);
+
+
+    //Authentication here if preexisting user -> prompt login
     }catch(err){
         res.status(500).send(err.message)
     }
 });
-
-
-
-const PORT = process.env.PORT||3000;
-
-app.listen(PORT, ()=>{
-    console.log(`Server running on port ${PORT}`);
-})
-
-/*User endpoints*/
 
 //Gets all users//
 app.get('/api/users', async(req, res)=>{
@@ -96,14 +78,12 @@ app.get('/api/users/:id', async(req, res)=>{
     }
 })
 
-//Creates a new user//
-app.post('/api/users', async(req, res)=>{
-    try{
-        const user = new User(req.body);
-        await user.save();
-        res.json(user)
-    }catch(err){
-        res.status(500).json
-    }
+
+//Port info
+const PORT = process.env.PORT||3000;
+
+app.listen(PORT, ()=>{
+    console.log(`Server running on port ${PORT}`);
 })
+
 
