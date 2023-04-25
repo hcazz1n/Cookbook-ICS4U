@@ -1,7 +1,6 @@
 <template>
   <TheNavigation/>
   <div class="container has-text-centered">
-
     <router-view></router-view>
   </div>
 </template>
