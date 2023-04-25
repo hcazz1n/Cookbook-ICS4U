@@ -1,9 +1,9 @@
 <template>
 <div id="nav">
-    <AppLink to="/">
+    <router-link to="/">
         <img src="../../public/placeholder.png" id="logo">
-    </AppLink>
-    <AppLink to="/" >Home</AppLink>
+    </router-link>
+    <router-link to="/" >Home</router-link>
 </div>
 </template>
 
