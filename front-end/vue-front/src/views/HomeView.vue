@@ -3,8 +3,6 @@
     <button class="button has-background-primary-dark has-text-white-ter">Green</button>
 </template>
 
-<script>
-    export default{
-        
-    }
+<script setup>
+    
 </script>
