@@ -1,12 +1,47 @@
 <template>
-<div id="nav">
-    <router-link to="/">
-        <img src="../../public/placeholder.png" id="logo">
-    </router-link>
-    <router-link to="/" >Home</router-link>
-</div>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <router-link class="navbar-item" to="/">
+            <img src="../../public/placeholder.png" id="logo">
+    </router-link> 
+  </div>
+
+  <div class="navbar-menu">
+
+    <div class="navbar-end">
+        
+        <router-link class="navbar-item" to="/" >
+            Home
+        </router-link>
+
+        <router-link class="navbar-item" to="/" >
+            Recipes
+        </router-link>
+
+        <router-link class="navbar-item" to="/" >
+            Contact Us
+        </router-link>
+
+        <div class="navbar-item">
+          <a class="button" id="login">
+            <strong>Sign up</strong>
+          </a>
+      </div>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+    </div>
+  </div>
+</nav>
+
+
+
 </template>
 
 <script setup>
 
 </script>
+
