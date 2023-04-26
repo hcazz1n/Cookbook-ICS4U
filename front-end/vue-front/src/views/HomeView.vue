@@ -1,9 +1,12 @@
 <template>
-    <div id="homepage-container" class="container">
+    <div id="homepage-container">
         <h1 class="homepage-title has-text-white">COOKBOOK</h1>
     </div>
     <div class="circle-container"></div>
-    <div class="circle-container-2"></div>    
+    <div class="circle-container-2"></div>
+    <span class="circle-button-icon">
+        <i class="fa-solid fa-arrow-down has-text-danger"></i>
+    </span>
 </template>
 
 <script setup> 
@@ -18,17 +21,21 @@
                 container.appendChild(circle)
                 generatedDistance += 45
             }
-        })
-        
-        onMounted(() => {
-            let container = document.querySelector('.circle-container-2')
-            let generatedDistance = 0
+            container = document.querySelector('.circle-container-2')
+            generatedDistance = 0
             while(generatedDistance < window.innerWidth / 2){
                 let circle = document.createElement('div')
                 circle.classList.add('circle1')
                 container.appendChild(circle)
                 generatedDistance += 45
             }
+        })
+        
+        onMounted(() => {
+            let container = document.getElementById('homepage-container')
+            let circle = document.createElement('div')
+            circle.classList.add('circle-button')
+            container.appendChild(circle)
         })
 </script>
 
