@@ -7,11 +7,11 @@
     </router-link> 
   </div>
 
-  <div class="navbar-menu">
+  <div id="navbar" class="navbar-menu">
 
     <div class="navbar-end">
         
-        <router-link class="navbar-item" to="/" >
+        <router-link class="navbar-item" to="/HomeView.vue" >
             Home
         </router-link>
 
@@ -28,7 +28,7 @@
             <strong>Sign up</strong>
           </a>
       </div>
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>

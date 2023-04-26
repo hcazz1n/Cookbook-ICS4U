@@ -44,3 +44,16 @@ html, body{
     border-radius: 50%
 }
 
+/** navbar item hover color */
+a.navbar-item:hover {
+    background-color: #fafafa;
+    color: brown !important;
+}
+
+a.navbar-item:focus, a.navbar-item:focus-within{
+    color: #343434;
+}
+
+.footer {
+    padding: 1rem;
+}
