@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
-html, body{
-    background-color: #343434;
+*{
     font-family: 'Lato', sans-serif;
     box-sizing: border-box;
-    background-image: url('../public/breadwallpapermedium.jpg');
-    background-size: contain;
+}
+
+body{
+    background-color: rgba(0,0,0,1);
 }
 
 /*TheNavigation*/
@@ -25,9 +26,9 @@ html, body{
     margin-bottom: 70px;
 }
 
-
 #homepage-container{
     height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,6 +36,7 @@ html, body{
     top: -32px;
 }
 
+/* 
 .circle-container{
     position: absolute;
     top: 69%;
@@ -67,7 +69,7 @@ html, body{
     margin: 0 15px;
     background: red;
     border-radius: 50%
-}
+} */
 
 /** navbar item hover color */
 a.navbar-item:hover {
