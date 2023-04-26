@@ -10,7 +10,7 @@
 
 </template>
 
-<scrip setup>
+<script setup>
 
+</script>
 
-</scrip>
