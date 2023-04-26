@@ -6,11 +6,11 @@
 }
 
 body{
-    background-image: url('../public/noodles.jpg');
+    background-image: url('../public/tbone.jpg');
     background-size: 150%;    
     background-color: rgba(0,0,0,.6);
     background-blend-mode: multiply;
-    animation: pan-image 50s linear infinite;                                                                                              
+    animation: pan-image 40s linear infinite, switch-image 40s linear infinite;                                                                                              
 }
 
 /*TheNavigation*/
@@ -60,43 +60,40 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     0%{
         background-position: 0% 0%;
     }
-    25%{
-        background-position: 100% 100%;
-        background-image: url('../public/chocolatestrawberry.jpg');
-    }
+
     50%{
-        background-position: 100% 0%;
-        background-image: url('../public/steak.jpg');
-    }
-    75%{
         background-position: 0% 100%;
-        background-image: url('../public/tart.jpg');
     }
+
     100%{
         background-position: 0% 0%;
-        background-image: url('../public/noodles.jpg');
     }
 }
 
 @keyframes switch-image{
-    0%{
-        background-position: 0% 0%;
+    20%{
+        background-image: url('../public/tbone.jpg');
     }
     25%{
-        background-position: 100% 100%;
-        background-image: url('../public/chocolatestrawberry.jpg');
+        background-image: url('../public/noodles.jpg');
+    }
+    45%{
+        background-image: url('../public/noodles.jpg');
     }
     50%{
-        background-position: 100% 0%;
+        background-image: url('../public/steak.jpg');
+    }
+    70%{
         background-image: url('../public/steak.jpg');
     }
     75%{
-        background-position: 0% 100%;
-        background-image: url('../public/tart.jpg');
+        background-image: url('../public/macaroncoffee.jpg');
+    }
+    95%{
+        background-image: url('../public/macaroncoffee.jpg');
     }
     100%{
-        background-position: 0% 0%;
-        background-image: url('../public/noodles.jpg');
+        background-image: url('../public/tbone.jpg');
     }
 }
 
