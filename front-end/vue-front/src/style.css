@@ -6,7 +6,11 @@
 }
 
 body{
-    background-color: rgba(0,0,0,1);
+    background-image: url('../public/noodles.jpg');
+    background-size: 150%;    
+    background-color: rgba(0,0,0,.6);
+    background-blend-mode: multiply;
+    animation: pan-image 50s linear infinite;                                                                                              
 }
 
 /*TheNavigation*/
@@ -36,42 +40,7 @@ body{
     top: -32px;
 }
 
-/* 
-.circle-container{
-    position: absolute;
-    top: 69%;
-    display: flex;
-}
-
-.circle-container-2{
-    position: absolute;
-    top: 69%;
-    right: 0;
-    display: flex;
-}
-
-.circle-button-icon{
-    position: absolute;
-    top: 67.652%;
-    left: 49.48%;
-}
-
-.circle-button{
-    width: 35px;
-    height: 35px;
-    background: blue;
-    border-radius: 50%
-}
-
-.circle1{
-    width: 3px;
-    height: 3px;
-    margin: 0 15px;
-    background: red;
-    border-radius: 50%
-} */
-
-/** navbar item hover color */
+/* navbar item hover color */
 a.navbar-item:hover {
     background-color: #fafafa;
     color: brown !important;
@@ -84,3 +53,54 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 .footer {
     padding: 1rem;
 }
+
+
+/*keyframes*/
+@keyframes pan-image{
+    0%{
+        background-position: 0% 0%;
+    }
+    25%{
+        background-position: 100% 100%;
+        background-image: url('../public/chocolatestrawberry.jpg');
+    }
+    50%{
+        background-position: 100% 0%;
+        background-image: url('../public/steak.jpg');
+    }
+    75%{
+        background-position: 0% 100%;
+        background-image: url('../public/tart.jpg');
+    }
+    100%{
+        background-position: 0% 0%;
+        background-image: url('../public/noodles.jpg');
+    }
+}
+
+@keyframes switch-image{
+    0%{
+        background-position: 0% 0%;
+    }
+    25%{
+        background-position: 100% 100%;
+        background-image: url('../public/chocolatestrawberry.jpg');
+    }
+    50%{
+        background-position: 100% 0%;
+        background-image: url('../public/steak.jpg');
+    }
+    75%{
+        background-position: 0% 100%;
+        background-image: url('../public/tart.jpg');
+    }
+    100%{
+        background-position: 0% 0%;
+        background-image: url('../public/noodles.jpg');
+    }
+}
+
+
+
+
+
