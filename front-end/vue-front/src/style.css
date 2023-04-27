@@ -72,28 +72,28 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 
 @keyframes switch-image{
     20%{
-        background-image: url('../public/tbone.jpg');
+        background-image: url('../public/tbonescaled.jpg');
     }
     25%{
-        background-image: url('../public/noodles.jpg');
+        background-image: url('../public/noodlesscaled.jpg');
     }
     45%{
-        background-image: url('../public/noodles.jpg');
+        background-image: url('../public/noodlesscaled.jpg');
     }
     50%{
-        background-image: url('../public/steak.jpg');
+        background-image: url('../public/steakscaled.jpg');
     }
     70%{
-        background-image: url('../public/steak.jpg');
+        background-image: url('../public/steakscaled.jpg');
     }
     75%{
-        background-image: url('../public/macaroncoffee.jpg');
+        background-image: url('../public/macaroncoffeescaled.jpg');
     }
     95%{
-        background-image: url('../public/macaroncoffee.jpg');
+        background-image: url('../public/macaroncoffeescaled.jpg');
     }
     100%{
-        background-image: url('../public/tbone.jpg');
+        background-image: url('../public/tbonescaled.jpg');
     }
 }
 
