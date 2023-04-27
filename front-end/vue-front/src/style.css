@@ -6,7 +6,7 @@
 }
 
 body{
-    background-image: url('../public/tbone.jpg');
+    background-image: url('../public/tbonescaled.jpg');
     background-size: 150%;    
     background-color: rgba(0,0,0,.6);
     background-blend-mode: multiply;
@@ -72,7 +72,7 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 
 @keyframes switch-image{
     20%{
-        background-image: url('../public/tbone.jpg');
+        background-image: url('../public/tbonescaled.jpg');
     }
     25%{
         background-image: url('../public/noodlesscaled.jpg');
@@ -93,7 +93,7 @@ a.navbar-item:focus, a.navbar-item:focus-within{
         background-image: url('../public/macaroncoffeescaled.jpg');
     }
     100%{
-        background-image: url('../public/tbone.jpg');
+        background-image: url('../public/tbonescaled.jpg');
     }
 }
 
