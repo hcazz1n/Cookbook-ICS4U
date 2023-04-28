@@ -31,6 +31,8 @@ app.get('/login', (req, res) => {
 
 app.get('/register', (req,res)=>{
     res.render('register.ejs')
+
+    console.log(db.users.find( { "isAdmin": true } ));
 })
 
 app.post('/login', async (req, res) => {
@@ -49,7 +51,7 @@ app.post('/register', async (req, res) => {
     }
     const user = await User.create(data)
 
-    res.send(user);
+    res.redirect('/login');
 
 
     //Authentication here if preexisting user -> prompt login
