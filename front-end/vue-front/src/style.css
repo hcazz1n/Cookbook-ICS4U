@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-body{
+.home-title-hero{
     background-image: url('../public/tbonescaled.jpg');
     background-size: 150%;    
     background-color: rgba(0,0,0,.6);
