@@ -1,44 +1,40 @@
 <template>
-
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <router-link class="navbar-item" to="/">
-            <img src="../../public/placeholder.png" id="logo">
-    </router-link> 
-  </div>
-
-  <div id="navbar" class="navbar-menu">
-
-    <div class="navbar-end">
-        
-        <router-link class="navbar-item" to="/HomeView.vue" >
-            Home
-        </router-link>
-
-        <router-link class="navbar-item" to="/" >
-            Recipes
-        </router-link>
-
-        <router-link class="navbar-item" to="/" >
-            Contact Us
-        </router-link>
-
-        <div class="navbar-item">
-          <a class="button" id="login">
-            <strong>Sign up</strong>
-          </a>
-      </div>
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <router-link class="navbar-item" to="/">
+          <img src="../../public/placeholder.png" id="logo">
+      </router-link> 
     </div>
-  </div>
-</nav>
 
+    <div id="navbar" class="navbar-menu">
 
+      <div class="navbar-end">
+          
+          <router-link class="navbar-item" to="/HomeView.vue" >
+              Home
+          </router-link>
 
+          <router-link class="navbar-item" to="/" >
+              Recipes
+          </router-link>
+
+          <router-link class="navbar-item" to="/" >
+              Contact Us
+          </router-link>
+
+          <div class="navbar-item">
+            <a class="button" id="login">
+              <strong>Sign up</strong>
+            </a>
+        </div>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+      </div>
+    </div>
+  </nav>
 </template>
 
 <script setup>

@@ -5,14 +5,6 @@
     box-sizing: border-box;
 }
 
-.home-title-hero{
-    background-image: url('../public/tbonescaled.jpg');
-    background-size: 150%;    
-    background-color: rgba(0,0,0,.6);
-    background-blend-mode: multiply;
-    animation: pan-image 40s linear infinite, switch-image 40s linear infinite;                                                                                              
-}
-
 /*TheNavigation*/
 #logo{
     width: 100%;
@@ -21,23 +13,6 @@
 #login {
     background-color: green;
     color: white;
-}
-
-/*HomeView*/
-.homepage-title{
-    font-size: 150px;
-    font-weight: 700;
-    margin-bottom: 70px;
-}
-
-#homepage-container{
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
-    top: -32px;
 }
 
 /* navbar item hover color */
@@ -54,6 +29,49 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     padding: 1rem;
 }
 
+
+/*HomeView*/
+#home-title-hero{
+    background-image: url('../public/tbonescaled.jpg');
+    background-size: 150%;    
+    background-color: rgba(0,0,0,.6);
+    background-blend-mode: multiply;
+    animation: pan-image 40s linear infinite, switch-image 40s linear infinite;                                                                                              
+}
+
+#home-about-us{
+
+}
+
+.homepage-title{
+    font-size: 150px;
+    font-weight: 700;
+    padding-bottom: 50px;
+}
+
+.homepage-container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+}
+
+/*this code for the button animation is from https://ianlunn.github.io/Hover/*/
+.hvr-float {
+    display: inline-block;
+    vertical-align: middle;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    transition-duration: 0.8s;
+    transition-property: transform;
+    transition-timing-function: ease-out;
+}
+  
+.hvr-float:hover, .hvr-float:focus, .hvr-float:active {
+    transform: translateY(-8px);
+}
 
 /*keyframes*/
 @keyframes pan-image{
