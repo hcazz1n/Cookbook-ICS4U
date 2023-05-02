@@ -58,19 +58,59 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     justify-content: center; 
 }
 
+.learn-more{
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.3);
+    height: 5vh;
+    color: white;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    border-left: none;
+    border-right: none;
+}
+
 /*this code for the button animation is from https://ianlunn.github.io/Hover/*/
-.hvr-float {
+.hvr-fade {
     display: inline-block;
     vertical-align: middle;
     transform: perspective(1px) translateZ(0);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    transition-duration: 0.8s;
-    transition-property: transform;
-    transition-timing-function: ease-out;
+    overflow: hidden;
+    transition-duration: 1s;
+    transition-property: color, background-color;
 }
-  
-.hvr-float:hover, .hvr-float:focus, .hvr-float:active {
-    transform: translateY(-8px);
+
+.hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {
+    background-color: rgb(255, 255, 255);
+    color: black;
+}
+
+/* Back Pulse */
+@keyframes hvr-back-pulse {
+    50% {
+        background-color: rgba(255, 255, 255, 0.75);
+    }
+}
+
+.hvr-back-pulse {
+    display: inline-block;
+    vertical-align: middle;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    overflow: hidden;
+    transition-duration: 0.5s;
+    transition-property: color, background-color;
+}
+
+.hvr-back-pulse:hover, .hvr-back-pulse:focus, .hvr-back-pulse:active {
+    animation-name: hvr-back-pulse;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    background-color: #ffffff;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
 }
 
 /*keyframes*/
