@@ -39,7 +39,7 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     animation: pan-image 40s linear infinite, switch-image 40s linear infinite;                                                                                              
 }
 
-#home-about-us{
+#home-mission-statement{
 
 }
 
@@ -47,6 +47,10 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     font-size: 150px;
     font-weight: 700;
     padding-bottom: 50px;
+}
+
+.mission-title{
+    
 }
 
 .homepage-container{
@@ -81,36 +85,8 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 }
 
 .hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255, 0.7);
     color: black;
-}
-
-/* Back Pulse */
-@keyframes hvr-back-pulse {
-    50% {
-        background-color: rgba(255, 255, 255, 0.75);
-    }
-}
-
-.hvr-back-pulse {
-    display: inline-block;
-    vertical-align: middle;
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    overflow: hidden;
-    transition-duration: 0.5s;
-    transition-property: color, background-color;
-}
-
-.hvr-back-pulse:hover, .hvr-back-pulse:focus, .hvr-back-pulse:active {
-    animation-name: hvr-back-pulse;
-    animation-duration: 1s;
-    animation-delay: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    background-color: #ffffff;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
 }
 
 /*keyframes*/
