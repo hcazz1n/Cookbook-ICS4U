@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
-html, body{
-    background-color: #343434;
+*{
     font-family: 'Lato', sans-serif;
     box-sizing: border-box;
 }
@@ -16,44 +15,7 @@ html, body{
     color: white;
 }
 
-/*HomeView*/
-.homepage-title{
-    font-size: 150px;
-    font-weight: 700;
-}
-
-
-#homepage-container{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
-    top: -32px;
-}
-
-.circle-container{
-    position: absolute;
-    bottom: 250px;
-    display: flex;
-}
-
-.circle-container-2{
-    position: absolute;
-    bottom: 250px;
-    right: 0px;
-    display: flex;
-}
-
-.circle1{
-    width: 3px;
-    height: 3px;
-    margin: 0 15px;
-    background: red;
-    border-radius: 50%
-}
-
-/** navbar item hover color */
+/* navbar item hover color */
 a.navbar-item:hover {
     background-color: #fafafa;
     color: brown !important;
@@ -66,3 +28,110 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 .footer {
     padding: 1rem;
 }
+
+
+/*HomeView*/
+#home-title-hero{
+    background-image: url('../public/tbonescaled.jpg');
+    background-size: 150%;    
+    background-color: rgba(0,0,0,.6);
+    background-blend-mode: multiply;
+    animation: pan-image 40s linear infinite, switch-image 40s linear infinite;                                                                                              
+}
+
+#home-mission-statement{
+
+}
+
+.homepage-title{
+    font-size: 150px;
+    font-weight: 700;
+    padding-bottom: 50px;
+}
+
+.mission-title{
+    
+}
+
+.homepage-container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+}
+
+.learn-more{
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.3);
+    height: 5vh;
+    color: white;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    border-left: none;
+    border-right: none;
+}
+
+/*this code for the button animation is from https://ianlunn.github.io/Hover/*/
+.hvr-fade {
+    display: inline-block;
+    vertical-align: middle;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    overflow: hidden;
+    transition-duration: 1s;
+    transition-property: color, background-color;
+}
+
+.hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {
+    background-color: rgb(255, 255, 255, 0.7);
+    color: black;
+}
+
+/*keyframes*/
+@keyframes pan-image{
+    0%{
+        background-position: 0% 0%;
+    }
+
+    50%{
+        background-position: 0% 100%;
+    }
+
+    100%{
+        background-position: 0% 0%;
+    }
+}
+
+@keyframes switch-image{
+    20%{
+        background-image: url('../public/tbonescaled.jpg');
+    }
+    25%{
+        background-image: url('../public/noodlesscaled.jpg');
+    }
+    45%{
+        background-image: url('../public/noodlesscaled.jpg');
+    }
+    50%{
+        background-image: url('../public/steakscaled.jpg');
+    }
+    70%{
+        background-image: url('../public/steakscaled.jpg');
+    }
+    75%{
+        background-image: url('../public/macaroncoffeescaled.jpg');
+    }
+    95%{
+        background-image: url('../public/macaroncoffeescaled.jpg');
+    }
+    100%{
+        background-image: url('../public/tbonescaled.jpg');
+    }
+}
+
+
+
+
+
