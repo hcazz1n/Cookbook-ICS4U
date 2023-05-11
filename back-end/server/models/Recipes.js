@@ -1,11 +1,6 @@
 const mongoose = require('mongoose')
 
 const recipeSchema = new mongoose.Schema({
-    Recipes: [
-        {
-            type: String
-        }
-    ],
     ingredients: {
         type: String
     },
@@ -13,6 +8,11 @@ const recipeSchema = new mongoose.Schema({
         type: String
     },
     images: [
+        {
+            type: String
+        }
+    ],
+    keywords: [
         {
             type: String
         }
