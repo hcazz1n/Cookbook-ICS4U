@@ -34,7 +34,7 @@ app.use('/api/auth', auth)
 
 //Login and Register endpoints
 app.get('/', (req, res) => {
-    res.render('register.ejs')
+    res.render('index.ejs');
 });
 app.get('/login', (req, res) => {
     res.render('login.ejs');
@@ -79,8 +79,49 @@ app.get('/api/users/:id', async(req, res)=>{
     }
 })
 
+// Recipe methods
+app.get('/recipe', (req, res) => {
+    res.render('recipemaker.ejs')
+})
+
+app.post('/recipe', async(req, res) => {
+    try {
+        console.log(req.body);
+        const data = {
+            name: req.body.name,
+            author: req.body.author,
+            description: req.body.description,
+            ingredients: ingredientArray(req.body.ingredients)
+        }
+
+        const recipe = await Recipe.create(data);
+        res.send(recipe);
+
+    }catch (err) {
+        res.status(500).send(err.message);
+    }
+})
+
 //Port info
 const PORT = process.env.PORT||3000;
 app.listen(PORT, ()=>{
     console.log(`Server running on port ${PORT}`);
 })
+
+//Functions
+function ingredientArray(str) {
+    let n = 0;
+    let ingredients = [];
+    let modStr = '';
+
+    for (let i = 0; i < str.length; i++) {
+
+        if(str.charAt(i) === ',') {
+            n++;
+        }
+    }
+
+    for (let i = 0; i < n; i++) {
+        let temp = str.substring()
+    }
+}
