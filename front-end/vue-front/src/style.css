@@ -40,6 +40,10 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 }
 
 #home-mission-statement{
+    background-image: url('../public/macaroncoffeescaled.jpg');
+    background-size: 105%;
+    background-color: rgba(0,0,0,0.75);
+    background-blend-mode: multiply;
 
 }
 
@@ -50,7 +54,19 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 }
 
 .mission-title{
-    
+    font-size: 75px;
+    padding-top: 4%;
+    font-weight: 700;
+}
+
+.mission{
+    padding-top: 2%;
+    padding-left: 5%;
+    line-height: 25px;
+}
+
+.mp1{
+    animation: fade-in 1s;
 }
 
 .homepage-container{
@@ -62,15 +78,20 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     justify-content: center; 
 }
 
+.homepage-container-2{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
 .learn-more{
     display: flex;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.2);
     height: 5vh;
     color: white;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
-    border-left: none;
-    border-right: none;
+    border: 1px solid white;
 }
 
 /*this code for the button animation is from https://ianlunn.github.io/Hover/*/
@@ -128,6 +149,15 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     }
     100%{
         background-image: url('../public/tbonescaled.jpg');
+    }
+}
+
+@keyframes fade-in{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
     }
 }
 
