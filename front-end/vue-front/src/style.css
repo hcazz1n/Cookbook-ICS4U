@@ -61,20 +61,11 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 
 .mission{
     padding-top: 2%;
-    padding-left: 5%;
     line-height: 25px;
 }
 
-.mission-p1{
-
-}
-
-.mission-p2{
-    
-}
-
-.mission-p3{
-    
+.mission-p{
+    padding-bottom: 25px;
 }
 
 .homepage-container{
