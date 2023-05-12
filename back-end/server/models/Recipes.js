@@ -1,18 +1,26 @@
 const mongoose = require('mongoose')
 
 const recipeSchema = new mongoose.Schema({
-    ingredients: {
+    name: {
         type: String
     },
-    description: {
+    author: {
         type: String
     },
-    images: [
+    ingredients: [
         {
             type: String
         }
     ],
+    description: {
+        type: String
+    },
     keywords: [
+        {
+            type: String
+        }
+    ],
+    images: [
         {
             type: String
         }
