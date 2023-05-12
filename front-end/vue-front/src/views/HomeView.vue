@@ -17,6 +17,5 @@
     </section>
 </template>
 
-<script setup> 
-    
+<script setup>
 </script>
