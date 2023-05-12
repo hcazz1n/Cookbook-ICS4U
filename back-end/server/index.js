@@ -91,7 +91,9 @@ app.post('/recipe', async(req, res) => {
             name: req.body.name,
             author: req.body.author,
             description: req.body.description,
-            ingredients: ingredientArray(req.body.ingredients)
+            ingredients: req.body.ingredients, //strToArr(req.body.ingredients)
+            keywords: req.body.keywords, //strToArr(req.body.keywords)
+            images: req.body.images
         }
 
         const recipe = await Recipe.create(data);
@@ -109,7 +111,7 @@ app.listen(PORT, ()=>{
 })
 
 //Functions
-function ingredientArray(str) {
+function strToArr(str) {
     let n = 0;
     let ingredients = [];
     let modStr = '';
