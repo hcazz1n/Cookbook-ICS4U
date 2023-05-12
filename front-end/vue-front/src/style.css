@@ -65,8 +65,16 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     line-height: 25px;
 }
 
-.mp1{
-    animation: fade-in 1s;
+.mission-p1{
+
+}
+
+.mission-p2{
+    
+}
+
+.mission-p3{
+    
 }
 
 .homepage-container{
@@ -149,15 +157,6 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     }
     100%{
         background-image: url('../public/tbonescaled.jpg');
-    }
-}
-
-@keyframes fade-in{
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
     }
 }
 
