@@ -1,5 +1,8 @@
 <template>
     <TheNavigation/>
+    <section class="recipe-container hero is-fullheight-with-navbar has-background-dark">
+        
+    </section>
 </template>
 
 <script setup>
