@@ -159,6 +159,22 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 }
 
 
+#contact-hero{
+    min-height: 36.15vh;
+}
 
+#contact-columns{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    min-height: 50vh
+}
 
-
+.circle {
+    width: 200px;
+    height: 200px;
+    background: #92961c;
+    border-radius: 50%;
+    /* background-image: ; */
+    
+}

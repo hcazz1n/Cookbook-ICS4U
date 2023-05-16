@@ -1,13 +1,33 @@
-<template>
+<template id>
     <TheNavigation/>
     <router-view>
-        <section id="home-title-hero" class="hero is-fullheight">
-            <div class="homepage-container container">
-                <h1 class="homepage-title has-text-black">COOKBOOK</h1>
-            </div>
+        <section class="hero is-halfheight" >
+                <div class="columns">
+                    <div id="contact-columns" class="column">
+                        
+                    </div>
+                    <div id="contact-columns" class="column">
+                        <div class="circle"></div>
+
+                        
+                    </div>
+                    <div id="contact-columns" class="column">
+                        <div class="circle"></div>
+                    </div>
+                    <div id="contact-columns" class="column">
+                        <div class="circle"></div>
+                    </div>
+                    <div id="contact-columns" class="column">
+                        <div class="circle"></div>
+                    </div>
+                    <div id="contact-columns" class="column">
+                        
+                    </div>
+                </div>
+        </section>
+        <section id="contact-hero" class="hero">
         </section>
     </router-view>
-  
 </template>
 
 <script setup>
