@@ -14,13 +14,13 @@
         <a class="fa-brands fa-instagram"></a>
       </span>
       <span class="icon">
-        <a class="fa-brands fa-youtube"></a>
+        <a href="https://youtu.be/7eWKhurDEDQ" class="fa-brands fa-youtube" target="_blank"></a>
       </span>
       <span class="icon">
         <a class="fa-brands fa-tiktok"></a>
       </span>
       <span class="icon">
-        <a class="fa-brands fa-github"></a>
+        <a href="https://github.com/hcazz1n/Cookbook-ICS4U" class="fa-brands fa-github" target="_blank"></a>
       </span>
       
   </div>

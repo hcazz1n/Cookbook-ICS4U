@@ -10,17 +10,18 @@
 
       <div class="navbar-end">
           
-          <router-link class="navbar-item" to="/HomeView.vue" >
+          <router-link class="navbar-item" to="/" >
               Home
           </router-link>
 
-          <router-link class="navbar-item" to="/" >
+          <router-link class="navbar-item" to="/recipes" >
               Recipes
           </router-link>
 
-          <router-link class="navbar-item" to="/" >
+          <router-link class="navbar-item" to="/contact" >
               Contact Us
           </router-link>
+          
 
           <div class="navbar-item">
             <a class="button" id="login">

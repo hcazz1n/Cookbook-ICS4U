@@ -129,7 +129,9 @@ app.post('/recipe', async(req, res) => {
             name: req.body.name,
             author: req.body.author,
             description: req.body.description,
-            ingredients: ingredientArray(req.body.ingredients)
+            ingredients: req.body.ingredients.split(', '), 
+            keywords: req.body.keywords.split(', '), 
+            images: req.body.images.split(', ')
         }
 
         const recipe = await Recipe.create(data);
@@ -145,21 +147,3 @@ const PORT = process.env.PORT||3000;
 app.listen(PORT, ()=>{
     console.log(`Server running on port ${PORT}`);
 })
-
-//Functions
-function ingredientArray(str) {
-    let n = 0;
-    let ingredients = [];
-    let modStr = '';
-
-    for (let i = 0; i < str.length; i++) {
-
-        if(str.charAt(i) === ',') {
-            n++;
-        }
-    }
-
-    for (let i = 0; i < n; i++) {
-        let temp = str.substring()
-    }
-}
