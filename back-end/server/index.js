@@ -1,6 +1,8 @@
 //Setup
 const express = require('express');
 const session = require('express-session')
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 const passport = require('./passport/setup');
 const LocalStrategy = require('passport-local').Strategy;
 const cors = require('cors');
@@ -14,7 +16,9 @@ const Recipe = require('./models/Recipes')
 const Rating = require('./models/Rating')
 const Post = require('./models/Posts')
 const Favourite = require('./models/Favourites')
-const Comments = require('./models/Comments')
+const Comments = require('./models/Comments');
+const { hashSync } = require('bcryptjs');
+const connectEnsureLogin = require('connect-ensure-login')
 
 const app = express();
 app.use(cors());
@@ -24,38 +28,71 @@ app.set('views', '../views')
 app.use(express.urlencoded({ extended: false }));
 app.use(session({
     secret: 'secret',
-    store: MongoStore.create({mongoUrl: 'mongodb+srv://fredhe56:ieatdogs69420@datacool.sduylk1.mongodb.net/cookbook?retryWrites=true&w=majority'})
+    store: MongoStore.create({mongoUrl: 'mongodb+srv://fredhe56:ieatdogs69420@datacool.sduylk1.mongodb.net/cookbook?retryWrites=true&w=majority'}),
+    resave: false,
+    saveUninitialized: true
   }));
 
 app.use(passport.initialize());
 app.use(passport.session())
 
-app.use('/api/auth', auth)
+app.post('/login', (req, res, next) =>{
+    passport.authenticate("local", function(err, user, info){
+        if(err){
+            console.log(err);
+            return res.status(400).json({errors: err})
+        }
+        if(!user){
+            return res.status(400).json({errors: "No user found"});
+        }
+        req.logIn(user, function(err){
+            if(err){
+                return res.status(400).json({errors: err})
+            }
+            console.log(user.id)
+            return res.status(200).render('index.ejs')
+        })
+    })(req, res, next)
+});
 
 //Login and Register endpoints
 app.get('/', (req, res) => {
+    console.log(4)
     res.render('index.ejs');
 });
 app.get('/login', (req, res) => {
     res.render('login.ejs');
 });
 app.get('/register', (req,res)=>{
+    
     res.render('register.ejs')
 })
-//Creates a new user per registration
-app.post('/register', async (req, res) => {
-    try{
-    console.log(req.body);
-    const data = {
-        name: req.body.Username,
-        password: req.body.password,
-        isAdmin: true,
-        bio: req.body.description
-    }
-    const user = await User.create(data)
-    res.send(user);
 
-    //Authentication here if preexisting user -> prompt login
+app.get('/logout', function(req, res){
+    req.logout(function(err){
+        if(err){return next(err)}
+        console.log("logged out")
+        res.redirect('/')
+    });
+})
+
+app.get('/secret', connectEnsureLogin.ensureLoggedIn(), (req, res)=>
+    res.render('secret.ejs')
+)
+
+//Creates a new user per registration
+app.post('/register', (req, res) => {
+    try{
+    bcrypt.hash(req.body.password, saltRounds, (err, hash)=>
+    {
+        const user = User.create({
+            name: req.body.Username,
+            password: hash,
+            isAdmin: true,
+            bio: req.body.description
+        })
+        res.send(user)
+    })        
     }catch(err){
         res.status(500).send(err.message)
     }
@@ -81,6 +118,7 @@ app.get('/api/users/:id', async(req, res)=>{
 
 // Recipe methods
 app.get('/recipe', (req, res) => {
+    console.log('zzzzz')
     res.render('recipemaker.ejs')
 })
 
