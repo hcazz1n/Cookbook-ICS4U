@@ -112,7 +112,7 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 
 .recipe-container{
     display: grid;
-    grid-template-columns: repeat(3, 2fr) 0.25fr 1.75fr;
+    grid-template-columns: 1.75fr repeat(2, 2fr) 0.25fr 1.75fr;
     grid-template-rows: 0.75fr 3fr 3fr 0.5fr;
 }
 
