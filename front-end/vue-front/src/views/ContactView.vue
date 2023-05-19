@@ -1,5 +1,4 @@
 <template id>
-    <TheNavigation/>
     <router-view>
         <section class="hero is-halfheight" >
                 <div class="columns">
@@ -31,5 +30,4 @@
 </template>
 
 <script setup>
-    import TheNavigation from '../components/TheNavigation.vue';
 </script>

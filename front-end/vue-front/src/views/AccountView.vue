@@ -1,7 +1,8 @@
 <template>
-    <TheNavigation/>
+    <div class="container">
+        <h1>Account</h1>
+    </div>
 </template>
 
 <script setup>
-    import TheNavigation from '../components/TheNavigation.vue';
 </script>
