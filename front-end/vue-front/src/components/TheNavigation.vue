@@ -25,7 +25,7 @@
 
           <div class="navbar-item">
             <a class="button" id="login">
-              <strong>Sign up</strong>
+              <strong>Sign Up</strong>
             </a>
         </div>
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar">
