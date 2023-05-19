@@ -2,7 +2,7 @@
     <section id="home-title-hero" class="hero is-fullheight">
         <div class="homepage-container container">
             <h1 class="homepage-title has-text-white">COOKBOOK</h1>
-            <router-link to="/recipes" class="hvr-fade" v-scroll-to="{/*element: '#home-mission-statement', easing: [0.65, 0, 0.35, 1], duration: 1600*/}"><div class="button has-text-weight-light homepage-buttons is-size-5">Learn More</div></router-link>
+            <router-link to="#" v-scroll-to="{element: '#home-mission-statement', easing: [0.65, 0, 0.35, 1], duration: 1600}"><div class="button has-text-weight-light homepage-buttons is-size-5">Learn More</div></router-link>
         </div>
     </section>
     <section id="home-mission-statement" class="hero is-fullheight">
@@ -25,8 +25,10 @@
 
     onMounted(() => {
         const routerLink = document.createElement('router-link')
-    
-        window.addEventListener('transitionend', (event) => {
+        //window.addEventListener('mouseover', generateMission)
+        window.addEventListener('click', generateMission)
+        
+        function generateMission(){
             if(!hasRun){
                 let timerCount = 0
                 for(let i=0; i<mparagraphs.length; i++){
@@ -40,9 +42,9 @@
                 }
                 setTimeout(() => {
                     routerLink.setAttribute('to', '/recipes')
-                    routerLink.classList.add('hvr-fade', 'animate__animated')
+                    routerLink.classList.add('animate__animated')
                     const button = document.createElement('div')
-                    button.classList.add('button', 'has-text-weight-light', 'homepage-buttons', 'is-size-5', 'animate__animated', 'animate__flipInX')
+                    button.classList.add('button', 'has-text-weight-light', 'homepage-buttons', 'is-size-5', 'animate__animated', 'animate__fadeInUp')
                     button.textContent = 'View The Recipes!'
                     routerLink.appendChild(button)
                     toPage.value.appendChild(routerLink)
@@ -50,16 +52,6 @@
                 
                 hasRun = true
             }
-
-        })
-        
-        routerLink.addEventListener('mouseover', () => {
-            routerLink.classList.add('animate__pulse', 'animate__infinite')
-        })
-        
-        routerLink.addEventListener('mouseout', () => {
-            if(routerLink.classList.contains('animate__pulse'))
-                routerLink.classList.remove('animate__pulse', 'animate__infinite')
-        })
+        }
     })
 </script>
