@@ -221,7 +221,7 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     z-index: 2;
     left: 0px;
     top: 0px;
-    animation: pan-overlay 22s infinite linear
+    animation: pan-overlay 30s infinite linear
 }
 
 .screen-content{
