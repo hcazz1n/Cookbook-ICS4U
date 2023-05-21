@@ -11,13 +11,28 @@
 }
 
 #login {
-    background-color: #57273F;
+    background-color: #2F4858;
     color: white;
+    border: none;
+}
+
+.navbar {
+    background-color: #57273F;
+}
+
+a.navbar-item:active {
+    background-color: #57273F;
+    color: white !important;
+}
+
+a.navbar-item:visited {
+    background-color: #57273F;
+    color: white !important;
 }
 
 /* navbar item hover color */
 a.navbar-item:hover {
-    background-color: #fafafa;
+    background-color: #2F4858;
     color: brown !important;
 }
 
@@ -269,8 +284,15 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 .circle {
     width: 200px;
     height: 200px;
-    background: #92961c;
+    background: #5A1F23;
     border-radius: 50%;
-    /* background-image: ; */
     
 }
+
+.circle img{
+    width:inherit;
+    height:inherit;
+    position: absolute;
+    clip-path: circle(50%);
+    object-fit: cover;
+  }
