@@ -300,6 +300,8 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     height: 250px;
     background: #5A1F23;
     border-radius: 50%;
+    border-width: 10px;
+    border-color: #493453;
     
 }
 
@@ -307,7 +309,7 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     width:inherit;
     height:inherit;
     position: absolute;
-    clip-path: circle(50%);
+    clip-path: circle(49%); /** change value for amount of border around image, 50% for none */
     object-fit: cover;
   }
 

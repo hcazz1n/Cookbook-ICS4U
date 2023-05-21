@@ -21,7 +21,7 @@
                     </div>
                     <div id="contact-columns" class="column">
                         <div class="circle">
-                            <img src="../../public/david.jpg">
+                            <img src="../../public/harry.jpg">
                         </div>
                     </div>
                 </div>
