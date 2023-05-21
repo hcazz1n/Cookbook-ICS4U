@@ -27,8 +27,9 @@
                 </div>
         </section>
         <section id="contact-hero" class="hero has-text-centered">
-            <h1 class="title">Contact Us:</h1>
+           
             <div class="container" id="contact-container">
+                <h1 class="title" id="contact-us">Contact Us</h1>
                 <div class="columns">
                     <div id="contact-info-column" class="column">
                         <p class="contact-header">PHONE NUMBER</p>

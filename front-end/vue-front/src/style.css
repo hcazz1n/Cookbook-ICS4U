@@ -32,7 +32,7 @@ a.navbar-item:visited {
 
 /* navbar item hover color */
 a.navbar-item:hover {
-    background-color: #2F4858;
+    background-color: #57273F;
     color: brown !important;
 }
 
@@ -325,6 +325,10 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     color: white;
 }
 
+#contact-us{
+    background-color: #493453;
+}
+
 
 .contact-header{
     color: white;
@@ -332,7 +336,7 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 
 .contact-info{
     color: white;
-    padding-top: 10%;
+    padding-top: 5%;
     font-weight: 500;
     font-size: 30px;
 }
