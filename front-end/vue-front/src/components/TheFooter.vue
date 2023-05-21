@@ -3,25 +3,27 @@
 
 <footer class="footer">
   <div class="content has-text-centered">
-      <strong>COOKBOOK</strong>
-      <span class="icon">
-        <a class="fa-brands fa-facebook"></a>
+      <strong class="title" id="footer-title">COOKBOOK</strong> <span id="white-text"> &#169;</span>
+      <div id="icons">
+        <span class="icon">
+        <a class="fa-brands fa-facebook" target="_blank" style="color: white;"></a>
       </span>
       <span class="icon">
-        <a class="fa-brands fa-twitter"></a>
+        <a class="fa-brands fa-twitter" target="_blank" style="color: white;"></a>
       </span>
       <span class="icon">
-        <a class="fa-brands fa-instagram"></a>
+        <a class="fa-brands fa-instagram" target="_blank" style="color: white;"></a>
       </span>
       <span class="icon">
-        <a href="https://youtu.be/7eWKhurDEDQ" class="fa-brands fa-youtube" target="_blank"></a>
+        <a href="https://youtu.be/7eWKhurDEDQ" class="fa-brands fa-youtube" target="_blank" style="color: white;"></a>
       </span>
       <span class="icon">
-        <a class="fa-brands fa-tiktok"></a>
+        <a class="fa-brands fa-tiktok" target="_blank" style="color: white;"></a>
       </span>
       <span class="icon">
-        <a href="https://github.com/hcazz1n/Cookbook-ICS4U" class="fa-brands fa-github" target="_blank"></a>
+        <a href="https://github.com/hcazz1n/Cookbook-ICS4U" class="fa-brands fa-github" target="_blank" style="color: white;"></a>
       </span>
+    </div>
       
   </div>
 </footer>

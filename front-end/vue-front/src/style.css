@@ -42,6 +42,20 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 
 .footer {
     padding: 1rem;
+    background-color: #57273F;
+}
+
+#white-text{
+    color: white;
+}
+
+#icons{
+    padding-left: 20px;
+}
+
+.icon{
+    font-size: 20px;
+    margin-right: 5px;
 }
 
 /*HomeView*/
@@ -271,7 +285,7 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 }
 
 #contact-hero{
-    min-height: 36.15vh;
+    min-height: 32.23vh;
 }
 
 #contact-columns{
@@ -282,8 +296,8 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 }
 
 .circle {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     background: #5A1F23;
     border-radius: 50%;
     
@@ -296,3 +310,34 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     clip-path: circle(50%);
     object-fit: cover;
   }
+
+#contact-hero{
+    background-color: #37405A !important;
+}
+
+#contact-container{
+    width: 60%;
+    background-color: #493453;
+    margin-bottom: 50px;
+}
+
+.title{
+    color: white;
+}
+
+
+.contact-header{
+    color: white;
+}
+
+.contact-info{
+    color: white;
+    padding-top: 10%;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+#body{
+    background-color: #37405A !important;
+}
+
