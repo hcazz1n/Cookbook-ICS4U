@@ -24,7 +24,10 @@ const recipeSchema = new mongoose.Schema({
         {
             type: String
         }
-    ]
+    ],
+    isDessert: {
+        type: Boolean
+    }
 });
 
 const Recipe = mongoose.model('Recipe', recipeSchema);
