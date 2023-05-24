@@ -42,22 +42,26 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.post('/login', (req, res, next) => {
-  passport.authenticate('local', function (err, user, info) {
-    if (err) {
-      console.log(err)
-      return res.status(400).json({ errors: err })
-    }
-    if (!user) {
-      return res.status(400).json({ errors: 'No user found' })
-    }
-    req.logIn(user, function (err) {
+  if (req.isAuthenticated()) {
+    res.send('you are already logged in')
+  } else {
+    passport.authenticate('local', function (err, user, info) {
       if (err) {
+        console.log(err)
         return res.status(400).json({ errors: err })
       }
-      console.log(user.id)
-      return res.status(200).render('index.ejs')
-    })
-  })(req, res, next)
+      if (!user) {
+        return res.status(400).json({ errors: 'No user found' })
+      }
+      req.logIn(user, function (err) {
+        if (err) {
+          return res.status(400).json({ errors: err })
+        }
+        console.log(user.id)
+        return res.status(200).render('index.ejs')
+      })
+    })(req, res, next)
+  }
 })
 
 //Login and Register endpoints
@@ -82,12 +86,12 @@ app.get('/logout', function (req, res) {
   })
 })
 
-app.get('/secret', (req, res)=>{
-    if(req.isAuthenticated()){
-        res.render('secret.ejs')
-    }else{
-        res.redirect('/')
-    }
+app.get('/secret', (req, res) => {
+  if (req.isAuthenticated()) {
+    res.render('secret.ejs')
+  } else {
+    res.redirect('/')
+  }
 })
 
 //Creates a new user per registration
