@@ -18,7 +18,6 @@ const Post = require('./models/Posts')
 const Favourite = require('./models/Favourites')
 const Comments = require('./models/Comments')
 const { hashSync } = require('bcryptjs')
-const connectEnsureLogin = require('connect-ensure-login')
 
 const app = express()
 app.use(cors())
@@ -40,6 +39,16 @@ app.use(
 
 app.use(passport.initialize())
 app.use(passport.session())
+
+function searchRecipe() {
+  let input = document.getElementById('searchbar').value
+  try {
+    const recipes = Recipe.findById(input)
+    console.log(recipes)
+  } catch (err) {
+    res.status(500).json({ error: err.message })
+  }
+}
 
 app.post('/login', (req, res, next) => {
   if (req.isAuthenticated()) {
@@ -66,7 +75,6 @@ app.post('/login', (req, res, next) => {
 
 //Login and Register endpoints
 app.get('/', (req, res) => {
-  console.log(4)
   res.render('index.ejs')
 })
 app.get('/login', (req, res) => {
@@ -74,6 +82,23 @@ app.get('/login', (req, res) => {
 })
 app.get('/register', (req, res) => {
   res.render('register.ejs')
+})
+
+app.get('/search', (req, res) => {
+  res.render('search.ejs')
+})
+
+app.post('/search', async function (req, res) {
+  console.log(req.body.search)
+  try {
+    Recipe.find({ keywords: req.body.search })
+      .then((recipes) => {
+        console.log(recipes)
+        res.send(recipes)
+      })
+  } catch (err) {
+        res.status(500).json({ errors: 'No recipe' })
+  }
 })
 
 app.get('/logout', function (req, res) {
