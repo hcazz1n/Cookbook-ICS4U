@@ -5,5 +5,5 @@
 </template>
 
 <script setup>
-const index = require('../../../../back-end/server/index'); 
+
 </script>
