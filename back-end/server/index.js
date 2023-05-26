@@ -186,6 +186,15 @@ app.post('/recipe', async (req, res) => {
   }
 })
 
+app.get('/api/recipes', async(req, res)=>{
+  try{
+    const recipes = await Recipe.find({})
+    res.json(recipes)
+  }catch(err){
+    res.status(500).json({error: err.message})
+  }
+})
+
 //Port info
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
