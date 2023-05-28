@@ -18,7 +18,6 @@ const Post = require('./models/Posts')
 const Favourite = require('./models/Favourites')
 const Comments = require('./models/Comments')
 const { hashSync } = require('bcryptjs')
-const connectEnsureLogin = require('connect-ensure-login')
 
 const app = express()
 app.use(cors())
@@ -41,28 +40,41 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session())
 
+function searchRecipe() {
+  let input = document.getElementById('searchbar').value
+  try {
+    const recipes = Recipe.findById(input)
+    console.log(recipes)
+  } catch (err) {
+    res.status(500).json({ error: err.message })
+  }
+}
+
 app.post('/login', (req, res, next) => {
-  passport.authenticate('local', function (err, user, info) {
-    if (err) {
-      console.log(err)
-      return res.status(400).json({ errors: err })
-    }
-    if (!user) {
-      return res.status(400).json({ errors: 'No user found' })
-    }
-    req.logIn(user, function (err) {
+  if (req.isAuthenticated()) {
+    res.send('you are already logged in')
+  } else {
+    passport.authenticate('local', function (err, user, info) {
       if (err) {
+        console.log(err)
         return res.status(400).json({ errors: err })
       }
-      console.log(user.id)
-      return res.status(200).render('index.ejs')
-    })
-  })(req, res, next)
+      if (!user) {
+        return res.status(400).json({ errors: 'No user found' })
+      }
+      req.logIn(user, function (err) {
+        if (err) {
+          return res.status(400).json({ errors: err })
+        }
+        console.log(user.id)
+        return res.status(200).render('index.ejs')
+      })
+    })(req, res, next)
+  }
 })
 
 //Login and Register endpoints
 app.get('/', (req, res) => {
-  console.log(4)
   res.render('index.ejs')
 })
 app.get('/login', (req, res) => {
@@ -70,6 +82,23 @@ app.get('/login', (req, res) => {
 })
 app.get('/register', (req, res) => {
   res.render('register.ejs')
+})
+
+app.get('/search', (req, res) => {
+  res.render('search.ejs')
+})
+
+app.post('/search', async function (req, res) {
+  console.log(req.body.search)
+  try {
+    Recipe.find({ keywords: req.body.search })
+      .then((recipes) => {
+        console.log(recipes)
+        res.send(recipes)
+      })
+  } catch (err) {
+        res.status(500).json({ errors: 'No recipe' })
+  }
 })
 
 app.get('/logout', function (req, res) {
@@ -82,12 +111,12 @@ app.get('/logout', function (req, res) {
   })
 })
 
-app.get('/secret', (req, res)=>{
-    if(req.isAuthenticated()){
-        res.render('secret.ejs')
-    }else{
-        res.redirect('/')
-    }
+app.get('/secret', (req, res) => {
+  if (req.isAuthenticated()) {
+    res.render('secret.ejs')
+  } else {
+    res.redirect('/')
+  }
 })
 
 //Creates a new user per registration
@@ -154,6 +183,15 @@ app.post('/recipe', async (req, res) => {
     res.send(recipe)
   } catch (err) {
     res.status(500).send(err.message)
+  }
+})
+
+app.get('/api/recipes', async(req, res)=>{
+  try{
+    const recipes = await Recipe.find({})
+    res.json(recipes)
+  }catch(err){
+    res.status(500).json({error: err.message})
   }
 })
 
