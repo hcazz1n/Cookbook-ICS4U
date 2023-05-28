@@ -25,7 +25,7 @@
     let hasRun = false;
 
     onMounted(() => {
-        const routerLink = document.createElement('router-link')
+        const routerLink = document.createElement('a')
         //window.addEventListener('mouseover', generateMission)
         window.addEventListener('click', generateMission)
         
@@ -42,7 +42,7 @@
                     timerCount = i
                 }
                 setTimeout(() => {
-                    routerLink.setAttribute('to', '/recipes')
+                    routerLink.setAttribute('href', '/recipeselector')
                     routerLink.classList.add('animate__animated')
                     const button = document.createElement('div')
                     button.classList.add('button', 'has-text-weight-light', 'homepage-buttons', 'is-size-5', 'animate__animated', 'animate__fadeInUp')
