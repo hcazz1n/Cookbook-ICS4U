@@ -16,10 +16,17 @@
             </div>
         </div>
         <div class="recipe-box box">
-            <div class="recipe-title is-size-4">
-                [Furry profile-container] <!--if its longer than X characters, do some kind of scrolling thing or something; also need to access a data file-->
-            </div>
-            <img class="recipe-img" src="macaroncoffeescaled.jpg">
+                <div class="recipe-title is-size-4">
+                    [Recipe Name] <!--if its longer than X characters, do some kind of scrolling thing or something; also need to access a data file-->
+                </div>
+                <div class="ingredients is-size-6">
+                    <div class="ingredient">[Ingredient A]</div>
+                    <div class="ingredient">[Ingredient B]</div>
+                    <div class="ingredient">[Ingredient C]</div>
+                    <div class="ingredient">[Ingredient D]</div>
+                    <div class="ingredient">[Ingredient E]</div>
+                </div>
+                <img class="recipe-img" src="macaroncoffeescaled.jpg">
         </div>
     </section>
 </template>

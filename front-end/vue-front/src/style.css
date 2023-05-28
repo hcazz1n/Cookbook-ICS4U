@@ -355,10 +355,16 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 
 .recipe-img{
     position: absolute;
-    left: 47%;
-    max-width: 50%;
+    top: 1%;
+    left: 59%;
+    max-width: 40%;
     max-height: 35%;
-    border-radius: 2rem;
+    border-radius: 1rem;
+}
+
+.ingredients{
+    position: absolute;
+    top: 12%;
 }
 
 /*Contact Page*/
