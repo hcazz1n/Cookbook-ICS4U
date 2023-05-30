@@ -6,7 +6,7 @@
         @submit.prevent="login"
       >
         <div class="column">
-          <label for="email">Username</label>
+          <label for="username">Username</label>
           <input
             class="input is-danger"
             type="text"
@@ -15,7 +15,7 @@
           />
         </div>
         <div class="column">
-          <label for="Name">Password</label>
+          <label for="password">Password</label>
           <input
             class="input is-danger"
             type="password"

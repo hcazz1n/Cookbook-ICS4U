@@ -7,6 +7,7 @@ const routes = [
     {path: '/recipeselector', name: 'Recipe Selector', component: () => import('../views/RecipeSelector.vue')},
     {path: '/recipes', name: 'Recipes', component: () => import('../views/RecipeView.vue')},
     {path: '/login', name: 'Login', component: () => import('../views/LoginView.vue')},
+    {path: '/register', name: 'Register', component: () => import('../views/RegisterView.vue')},
     {path: '/test', name: 'Test', component: () => import('../views/TestView.vue')},
 ]
 
