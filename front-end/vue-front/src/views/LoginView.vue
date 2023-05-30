@@ -1,7 +1,7 @@
 <template>
     <section class="hero is-fullheight">
             <div class="hero-body is-justify-content-center is-align-items-center">
-                <div class="columns is-flex is-flex-direction-column box">
+                <div class="columns is-flex is-flex-direction-column box" @submit.prevent="login">
                     <div class="column">
                         <label for="email">Username</label>
                         <input class="input is-danger" type="text" placeholder="Username">
@@ -25,5 +25,16 @@
 </template>
 
 <script setup>
+    import {ref} from 'vue'
+    import {useRouter, useRoute} from 'vue-router'
 
+    const username = ref('')
+    const password = ref('')
+    const router = useRouter()
+    const route = useRoute()
+    const login = () => {
+        window.user = username.value
+        const redirectPath = route.query.redirect || '/account'
+        router.push(redirectPath)
+    }
 </script>
