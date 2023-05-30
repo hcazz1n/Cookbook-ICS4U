@@ -28,9 +28,6 @@ const recipeSchema = new mongoose.Schema({
     isDessert: {
         type: Boolean
     },
-    author: {
-        type: String
-    }
 });
 
 const Recipe = mongoose.model('Recipe', recipeSchema);
