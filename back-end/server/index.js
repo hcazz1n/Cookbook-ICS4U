@@ -19,9 +19,6 @@ const Favourite = require('./models/Favourites')
 const Comments = require('./models/Comments')
 const { hashSync } = require('bcryptjs')
 
-//HTML elements
-const dessertCheckbox = document.getElementById('d-check');
-
 const app = express()
 app.use(cors())
 app.use(bodyParser.json())
