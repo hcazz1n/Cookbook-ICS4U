@@ -24,9 +24,9 @@
           
 
           <div class="navbar-item">
-            <a class="button" id="login">
+            <router-link class="button" id="login" to="/login">
               <strong>Sign Up</strong>
-            </a>
+            </router-link>
         </div>
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar">
         <span aria-hidden="true"></span>
