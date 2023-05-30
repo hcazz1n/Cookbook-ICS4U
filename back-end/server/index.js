@@ -19,6 +19,9 @@ const Favourite = require('./models/Favourites')
 const Comments = require('./models/Comments')
 const { hashSync } = require('bcryptjs')
 
+//HTML elements
+const dessertCheckbox = document.getElementById('d-check');
+
 const app = express()
 app.use(cors())
 app.use(bodyParser.json())
@@ -43,7 +46,8 @@ app.use(passport.session())
 function searchRecipe() {
   let input = document.getElementById('searchbar').value
   try {
-    const recipes = Recipe.findById(input)
+
+    const recipes = Recipe.findById()
     console.log(recipes)
   } catch (err) {
     res.status(500).json({ error: err.message })
@@ -171,12 +175,13 @@ app.post('/recipe', async (req, res) => {
   try {
     console.log(req.body)
     const data = {
-      name: req.body.name,
+      name: capitalizeFirst(req.body.name),
       author: req.body.author,
       description: req.body.description,
       ingredients: req.body.ingredients.split(', '),
       keywords: req.body.keywords.split(', '),
       images: req.body.images.split(', '),
+      isDessert: dessertCheckbox.checked
     }
 
     const recipe = await Recipe.create(data)
@@ -200,3 +205,32 @@ const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
+
+// other functions
+
+//capitalize first letter of each word unless it is an article
+function capitalizeFirst(str) {
+  const articles = ['a', 'an', 'the', 'and']; //articles (words that are meant to be left non-capitalized)
+  const words = str.toLowerCase().split(' ');
+
+  //capitalize the first letter of each word, except for the articles
+  var capWrd = words.map((word, index) => {
+    if (index === 0) {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    } else if (index === 0 || !articles.includes(word.toLowerCase())) {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    } else if (articles.includes(word.toLowerCase())) {
+      return word.charAt(0).toLowerCase() + word.slice(1);
+    } else {
+      return word.toLowerCase();
+    }
+  });
+
+  const capStr = capWrd.join(' ');
+
+  return capStr;
+}
+
+console.log(capitalizeFirst('Fig And cheese'));
+console.log(capitalizeFirst('the BIG fast GUY AN rAn'));
+
