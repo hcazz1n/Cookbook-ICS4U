@@ -40,17 +40,6 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session())
 
-function searchRecipe() {
-  let input = document.getElementById('searchbar').value
-  try {
-
-    const recipes = Recipe.findById()
-    console.log(recipes)
-  } catch (err) {
-    res.status(500).json({ error: err.message })
-  }
-}
-
 app.post('/login', (req, res, next) => {
   if (req.isAuthenticated()) {
     res.send('you are already logged in')
@@ -91,8 +80,9 @@ app.get('/search', (req, res) => {
 
 app.post('/search', async function (req, res) {
   console.log(req.body.search)
+
   try {
-    Recipe.find({ keywords: req.body.search })
+    Recipe.find({ name: capitalizeFirst(req.body.search) })
       .then((recipes) => {
         console.log(recipes)
         res.send(recipes)
@@ -132,11 +122,13 @@ app.post('/register', (req, res) => {
         })
         .catch((err) => {
           const user = User.create({
-            name: req.body.Username,
+            name: req.body.name,
+            userName: req.body.Username,
             password: hash,
             isAdmin: true,
             bio: req.body.description,
           })
+          res.send(user)
         })
     })
   } catch (err) {
