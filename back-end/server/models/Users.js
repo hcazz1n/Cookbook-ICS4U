@@ -24,6 +24,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    favouriteRecipes: [
+        {
+            type: String,
+        }
+    ]
 });
 
 const User = mongoose.model('User', userSchema);
