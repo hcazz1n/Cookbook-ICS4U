@@ -14,7 +14,7 @@
               Home
           </router-link>
 
-          <router-link class="navbar-item" to="/recipes" >
+          <router-link class="navbar-item" to="/recipeselector" >
               Recipes
           </router-link>
 
