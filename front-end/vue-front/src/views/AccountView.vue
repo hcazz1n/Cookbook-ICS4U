@@ -13,7 +13,7 @@
 import axios from 'axios';
 
 export default {
-  data() { /*unimportant*/
+  data() {
     return {
       data: [],
     };

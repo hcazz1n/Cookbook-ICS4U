@@ -2,7 +2,7 @@
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <router-link class="navbar-item" to="/">
-          <img src="../../public/placeholder.png" id="logo">
+          <img src="../../public/icon2.png" id="logo">
       </router-link> 
     </div>
 
