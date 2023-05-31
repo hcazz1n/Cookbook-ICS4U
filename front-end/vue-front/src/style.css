@@ -460,13 +460,14 @@ a.navbar-item:focus, a.navbar-item:focus-within{
   }
 
 #contact-hero{
-    background-color: #37405A !important;
+    background-color: #ffffff !important;
 }
 
 #contact-container{
     width: 60%;
-    background-color: #493453;
-    margin-bottom: 50px;
+    background-color: #24475d;
+    margin-bottom: 50px;    
+    border-radius: 4rem;
 }
 
 .title{
@@ -474,7 +475,9 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 }
 
 #contact-us{
-    background-color: #493453;
+    background-color: #24475d;
+    margin-top: 10px;
+    width: 30%;
 }
 
 
@@ -490,6 +493,7 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 }
 
 #body{
-    background-color: #37405A !important;
+    background-color: #ffffff !important;
 }
+
 
