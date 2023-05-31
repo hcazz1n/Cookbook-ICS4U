@@ -1,12 +1,19 @@
 <template>
-  <div class="container">
-    <h1>Account</h1>
+  <section class="hero is-fullheight-with-navbar">
+    <div class="columns">
+      <div class="column is-3">
+        <div class="container" id="account-profile-container">
+          <h1>Account</h1>
     <h1>HELLLLOOOO</h1>
-    <button @click="fetchData">Fetch Data</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- <button @click="fetchData">Fetch Data</button>
     <ul>
       <li v-for="item in data" :key="item.id">{{ item.name }}</li>
-    </ul>
-  </div>
+    </ul> -->
+  </section>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <section class="hero is-fullheight">
+  <section class="hero is-fullheight-with-navbar">
     <div class="hero-body is-justify-content-center is-align-items-center">
       <div
         class="columns is-flex is-flex-direction-column box"
@@ -8,6 +8,7 @@
         <div class="column">
           <label for="username">Username</label>
           <input
+            v-model = "Username"
             class="input is-danger"
             type="text"
             placeholder="Username"
@@ -17,6 +18,7 @@
         <div class="column">
           <label for="password">Password</label>
           <input
+            v-model = "password"
             class="input is-danger"
             type="password"
             placeholder="Password"
@@ -62,15 +64,23 @@ const login = () => {
 }
 
 export default {
+  data(){
+    return{
+      Username: '',
+      password: '',
+    }
+  },
   methods: {
     login() {
       axios
-        .post('http://localhost:3000/login', (req,res,next)=>{
-            console.log("hello")
+        .post('http://localhost:3000/login', {
+           "name": this.Username,
+           "password": this.password
         })
         .then((response) => {
           this.data = response.data
-          console.log(this.data)
+          this.$router.push('/')
+          console.log("logged in")
         })
         .catch((error) => {
           console.log(error)
