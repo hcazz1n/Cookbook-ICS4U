@@ -79,7 +79,9 @@ export default {
         })
         .then((response) => {
           this.data = response.data
-          this.$router.push('/')
+          console.log(this.data)
+          localStorage.setItem('user_id', this.data._id)
+          this.$router.push('/account')
           console.log("logged in")
         })
         .catch((error) => {
