@@ -25,10 +25,12 @@
     let hasRun = false;
 
     onMounted(() => {
+        const homeTitleHero = document.getElementById('home-title-hero')
+        const homeMissionStatement = document.getElementById('home-mission-statement')
         const routerLink = document.createElement('a')
-        //window.addEventListener('mouseover', generateMission)
-        window.addEventListener('click', generateMission)
-        
+        homeTitleHero.addEventListener('click', generateMission)
+        homeMissionStatement.addEventListener('mouseover', generateMission) 
+    
         function generateMission(){
             if(!hasRun){
                 let timerCount = 0
