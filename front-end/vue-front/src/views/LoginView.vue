@@ -1,5 +1,5 @@
 <template>
-  <section class="hero is-fullheight">
+  <section class="hero is-fullheight-with-navbar">
     <div class="hero-body is-justify-content-center is-align-items-center">
       <div
         class="columns is-flex is-flex-direction-column box"
