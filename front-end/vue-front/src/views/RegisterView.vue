@@ -1,33 +1,68 @@
 <template>
-    <section class="hero is-fullheight">
-            <div class="hero-body is-justify-content-center is-align-items-center">
-                <div class="columns is-flex is-flex-direction-column box">
-                    <div class="column">
-                        <label for="email">Name</label>
-                        <input class="input is-danger" type="text" placeholder="ex. Bartholomew He">
-                    </div>
-                    <div class="column">
-                        <label for="email">Username</label>
-                        <input class="input is-danger" type="text" placeholder="ex. Gorlock Devourer of Worlds">
-                    </div>
-                    <div class="column">
-                        <label for="Name">Password</label>
-                        <input class="input is-danger" type="password" placeholder="Password">
-                        <!-- a href="forget.html" class="is-size-7 has-text-primary"></a> -->
-                    </div>
-                    <div class="column">
-                        <button class="button is-danger is-fullwidth" type="submit">Register</button>
-                    </div>
-                    <div class="has-text-centered">
-                        <p class="is-size-7"> Already have an Account? 
-                            <router-link to="login" class="has-text-danger">Login</router-link>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<section class="hero is-fullheight">
+    <div class="hero-body is-justify-content-center is-align-items-center">
+      <div
+        class="columns is-flex is-flex-direction-column box"
+        @submit.prevent="login"
+      >
+        <div class="column">
+          <label for="name">Name</label>
+          <input v-model = "Name" class="input is-danger" type="text" placeholder="Name" name="Name"/>
+        </div>
+        <div class="column">
+          <label for="username">Username</label>
+          <input v-model = "Username" class="input is-danger" type="text" placeholder="Username" name="Username"/>
+        </div>
+        <div class="column">
+          <label for="password">Password</label>
+          <input v-model = "password" class="input is-danger" type="text" placeholder="Password" name="Password"/>
+        </div>
+        <div class="column">
+          <label for="dsecription">Description</label>
+          <input v-model = "description" class="input is-danger" type="text" placeholder="Description" name="description"/>
+        </div>
+        <div class="column">
+          <button class="button is-danger is-fullwidth" type="submit" @click="register()">
+            Login
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
-<script setup>
+<script>
+
+import axios from 'axios'
+
+export default {
+  data(){
+    return{
+      Name: '',
+      Username: '',
+      password: '',
+      description: ''
+    }
+  },
+  methods: {
+    register() {
+      axios
+        .post('http://localhost:3000/register', {
+          "name": this.Name,
+          "Username": this.Username,
+          "password": this.password,
+          "description": this.description
+      })
+        .then((response) => {
+          this.data = response.data
+          console.log(this.data)
+          this.$router.push('/')
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+  },
+}
 
 </script>

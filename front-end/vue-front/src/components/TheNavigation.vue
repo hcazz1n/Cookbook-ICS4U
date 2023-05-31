@@ -14,7 +14,7 @@
               Home
           </router-link>
 
-          <router-link class="navbar-item" to="/recipes" >
+          <router-link class="navbar-item" to="/recipeselector" >
               Recipes
           </router-link>
 
@@ -24,8 +24,8 @@
           
 
           <div class="navbar-item">
-            <router-link class="button" id="login" to="/login">
-              <strong>Account</strong>
+            <router-link class="button" id="login" to="/account">
+              <strong>Sign Up</strong>
             </router-link>
         </div>
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar">

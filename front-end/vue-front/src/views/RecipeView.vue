@@ -5,21 +5,12 @@
             <h2 class="recipe-username">Username</h2>
             <h3 class="recipe-pronouns">He/Him</h3>
         </div>
-        <div class="rating-container">
-            <h1 class="recipe-rating-header">Recipe Rating</h1>
-            <div class="heart-container">
-                <img class="heart-img" src="../../public/heart.png">
-                <img class="heart-img" src="../../public/heart.png">
-                <img class="heart-img" src="../../public/heart.png">
-                <img class="heart-img" src="../../public/heart.png">
-                <img class="heart-img" src="../../public/heart.png">
-            </div>
-        </div>
         
         <div class="recipe-buttons">
-            <div class="button recipe-button"><span class="icon"><i class="fa-solid fa-arrow-left"></i></span></div>
-            <div class="button recipe-button"><span class="icon"><i class="fa-solid fa-arrow-right"></i></span></div>
-            <div class="button recipe-button skip-button"><span class="icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span></div>
+            <div @click="decreasePage" class="button recipe-button"><span class="icon"><i class="fa-solid fa-arrow-left"></i></span></div>
+            <div @click="increasePage" class="button recipe-button"><span class="icon"><i class="fa-solid fa-arrow-right"></i></span></div>
+            <div @click="saveRecipe" class="button recipe-button"><span class="icon"><i class="fa-solid fa-bookmark"></i></span></div>
+            <div @click="nextRecipe" class="button recipe-button skip-button"><span class="icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span></div>
         </div>
         
         <div class="field search">
@@ -29,28 +20,91 @@
                     <i class="fa-solid fa-magnifying-glass search-mag-glass"></i>
                 </span>
             </div>
-        </div>
+        </div>  
         
         <div class="recipe-box box">
-            <img class="recipe-img" src="macaroncoffeescaled.jpg">
-            <div class="recipe-title is-size-1">[Recipe Name]</div>
-                <!-- <div class="recipe-title is-size-4">
-                    [Recipe Name] if its longer than X characters, do some kind of scrolling thing or something; also need to access a data file
-                </div>
-                <div class="ingredients is-size-6">
-                    <div class="ingredient">[Ingredient A]</div>
-                    <div class="ingredient">[Ingredient B]</div>
-                    <div class="ingredient">[Ingredient C]</div>
-                    <div class="ingredient">[Ingredient D]</div>
-                    <div class="ingredient">[Ingredient E]</div>
-                </div> 
-                <img class="recipe-img" src="macaroncoffeescaled.jpg">-->
+            <TheRecipeTitlePage v-if="page == 0"/>
+            <TheIngredients v-else-if="page == 1"/>
+            <TheInstructions v-else-if="page == 2"/>
         </div>
     </section>
 </template>
 
 <script setup>
+    import TheRecipeTitlePage from '../components/TheRecipeTitlePage.vue'
+    import TheIngredients from '../components/TheIngredients.vue'
+    import TheInstructions from '../components/TheInstructions.vue'
+    import axios from 'axios'
+    import {ref} from 'vue'
+    
     window.addEventListener('load', function() {
         window.scrollBy(0, -2000) 
     })
+
+    let page = ref(0)
+    
+    function decreasePage(){
+            if(page.value != 0){
+                page.value--
+                console.log(page.value)
+            }
+        }
+        
+    function increasePage(){
+        if(page.value != 2){
+            page.value++
+            console.log(page.value)
+        }
+    }
+    
+    function saveRecipe(){
+        if(!window.user){
+            createPopup('Hey!', 'Login to save your favourite recipes!', 'is-warning')
+        } else {
+            createPopup('Success!', 'Added to favourites!', 'is-info')
+        }
+    }
+    
+    function nextRecipe(){
+        
+    }
+    
+    function hide(){
+        let popups = document.querySelectorAll("article");
+        setTimeout(() => {
+            popups.forEach((popup) => {
+                popup.remove()
+            })
+        }, 1500)
+    }
+    
+    function createPopup(header, message, color){
+        let popupParent = document.querySelector('.recipe-container')
+        let article = document.createElement('article')
+        article.classList.add('save-popup', 'message', color)
+        let head = document.createElement('div')
+        head.classList.add('message-header')
+        let headText = document.createElement('strong')
+        headText.textContent = header
+        head.append(headText)
+        let content = document.createElement('div')
+        content.classList.add('message-body', color)
+        content.textContent = message
+        article.append(head)
+        article.append(content)
+        popupParent.append(article)
+        hide()
+    }
+    
+    function fetchData(){
+        axios
+        .get('http://localhost:3000/api/recipes')
+        .then(response => {
+          this.data = response.data;
+          console.log(this.data)
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
 </script>

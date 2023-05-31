@@ -40,17 +40,6 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session())
 
-function searchRecipe() {
-  let input = document.getElementById('searchbar').value
-  try {
-
-    const recipes = Recipe.findById()
-    console.log(recipes)
-  } catch (err) {
-    res.status(500).json({ error: err.message })
-  }
-}
-
 app.post('/login', (req, res, next) => {
   if (req.isAuthenticated()) {
     res.send('you are already logged in')
@@ -91,14 +80,14 @@ app.get('/search', (req, res) => {
 
 app.post('/search', async function (req, res) {
   console.log(req.body.search)
+
   try {
-    Recipe.find({ keywords: req.body.search })
-      .then((recipes) => {
-        console.log(recipes)
-        res.send(recipes)
-      })
+    Recipe.find({ name: capitalizeFirst(req.body.search) }).then((recipes) => {
+      console.log(recipes)
+      res.send(recipes)
+    })
   } catch (err) {
-        res.status(500).json({ errors: 'No recipe' })
+    res.status(500).json({ errors: 'No recipe' })
   }
 })
 
@@ -132,11 +121,13 @@ app.post('/register', (req, res) => {
         })
         .catch((err) => {
           const user = User.create({
-            name: req.body.Username,
+            name: req.body.name,
+            userName: req.body.Username,
             password: hash,
             isAdmin: true,
             bio: req.body.description,
           })
+          res.send(user)
         })
     })
   } catch (err) {
@@ -178,7 +169,7 @@ app.post('/recipe', async (req, res) => {
       ingredients: req.body.ingredients.split(', '),
       keywords: req.body.keywords.split(', '),
       images: req.body.images.split(', '),
-      isDessert: dessertCheckbox.checked
+      isDessert: req.body.isDessert.value,
     }
 
     const recipe = await Recipe.create(data)
@@ -188,12 +179,12 @@ app.post('/recipe', async (req, res) => {
   }
 })
 
-app.get('/api/recipes', async(req, res)=>{
-  try{
+app.get('/api/recipes', async (req, res) => {
+  try {
     const recipes = await Recipe.find({})
     res.json(recipes)
-  }catch(err){
-    res.status(500).json({error: err.message})
+  } catch (err) {
+    res.status(500).json({ error: err.message })
   }
 })
 
@@ -207,27 +198,26 @@ app.listen(PORT, () => {
 
 //capitalize first letter of each word unless it is an article
 function capitalizeFirst(str) {
-  const articles = ['a', 'an', 'the', 'and']; //articles (words that are meant to be left non-capitalized)
-  const words = str.toLowerCase().split(' ');
+  const articles = ['a', 'an', 'the', 'and'] //articles (words that are meant to be left non-capitalized)
+  const words = str.toLowerCase().split(' ')
 
   //capitalize the first letter of each word, except for the articles
   var capWrd = words.map((word, index) => {
     if (index === 0) {
-      return word.charAt(0).toUpperCase() + word.slice(1);
+      return word.charAt(0).toUpperCase() + word.slice(1)
     } else if (index === 0 || !articles.includes(word.toLowerCase())) {
-      return word.charAt(0).toUpperCase() + word.slice(1);
+      return word.charAt(0).toUpperCase() + word.slice(1)
     } else if (articles.includes(word.toLowerCase())) {
-      return word.charAt(0).toLowerCase() + word.slice(1);
+      return word.charAt(0).toLowerCase() + word.slice(1)
     } else {
-      return word.toLowerCase();
+      return word.toLowerCase()
     }
-  });
+  })
 
-  const capStr = capWrd.join(' ');
+  const capStr = capWrd.join(' ')
 
-  return capStr;
+  return capStr
 }
 
-console.log(capitalizeFirst('Fig And cheese'));
-console.log(capitalizeFirst('the BIG fast GUY AN rAn'));
-
+console.log(capitalizeFirst('Fig And cheese'))
+console.log(capitalizeFirst('the BIG fast GUY AN rAn'))

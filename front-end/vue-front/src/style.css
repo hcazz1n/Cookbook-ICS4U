@@ -295,15 +295,17 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 /*RecipeView*/
 .recipe-container{
     display: grid;
+    position: relative;
     grid-template-columns: 0.25fr 1fr 0.25fr repeat(2, 2fr) 0.1fr 1.75fr;
     grid-template-rows: 0.5fr 3fr 1.5fr 1.5fr 0.5fr;
 }
 
 .profile-container{
     display: flex;
+    position: relative;
     flex-direction: column;
     grid-column: 2/3;
-    grid-row: 2/3;
+    grid-row: 2/5;
     margin-top: 5%;
     justify-content: center;
     align-items: center;
@@ -328,14 +330,14 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     font-size: 18px;
 }
 
-.rating-container{
+.rating-container{ /*delete*/
     display: grid;
     align-items: center;
     grid-column: 2/3;
     grid-row: 4/5;
 }
 
-.recipe-rating-header{
+.recipe-rating-header{ /*delete*/
     display: flex;
     justify-self: center;
     align-self: flex-end;
@@ -343,13 +345,13 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     font-size: 26px;
 }
 
-.heart-img{
+.heart-img{ /*delete*/
     height: 25%;
     margin-left: 5px;
     width: 20%;
 }
 
-.heart-container{
+.heart-container{ /*delete*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -382,6 +384,26 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     max-height: 66%;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
+}
+
+.ingredient-instruction-title{
+    display: flex;
+    justify-self: center;
+    align-self: flex-start;
+    grid-row: 1/2;
+    grid-column: 1/3;
+}
+
+.ingredient-instruction-list{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+    top: 12%;
+    left: 5%;
+    line-height: 2.5;
+    grid-row: 1/3;
+    grid-column: 1/3;
 }
 
 .recipe-buttons{
@@ -428,6 +450,18 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 
 .search-mag-glass{
     height: 1.5em;
+}
+
+.save-popup{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-end;
+    align-self: flex-end;
+    width: 60%;
+    grid-column: 7/8;
+    grid-row: 4/6;
+    margin-bottom: 0.25rem !important;
 }
 
 /*Contact Page*/
