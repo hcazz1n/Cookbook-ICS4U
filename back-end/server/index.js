@@ -56,8 +56,7 @@ app.post('/login', (req, res, next) => {
         if (err) {
           return res.status(400).json({ errors: err })
         }
-        console.log(user.id)
-        return res.status(200).render('index.ejs')
+        return res.json(user)
       })
     })(req, res, next)
   }
