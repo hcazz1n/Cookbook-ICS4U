@@ -23,14 +23,7 @@
       </div>
     </div>
 
-    <button
-      @click="
-        fetchRecipes();
-        fetchUsers()
-      "
-    >
-      Fetch Data
-    </button>
+
     <ul>
       <li v-for="item in recipes" :key="item.id">{{ item.name }}</li>
       <li v-for="item in user" :key="item.id">{{ item.name }}</li>
@@ -40,6 +33,10 @@
 
 <script>
 import axios from 'axios'
+
+window.addEventListener('load', function() {
+        window.scrollBy(0, -2000) 
+})
 
 export default {
   data() {
@@ -84,5 +81,9 @@ export default {
         })
     },
   },
+  beforeMount(){
+    this.fetchRecipes()
+    this.fetchUsers()
+  }
 }
 </script>

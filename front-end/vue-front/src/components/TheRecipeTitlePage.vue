@@ -24,7 +24,7 @@
             }
         },
         methods:{
-            fetchData(){
+            fetchRecipes(){
                 axios
                 .get('http://localhost:3000/api/recipes')
                 .then(response => {
@@ -37,7 +37,7 @@
             }
         },
         beforeMount(){
-            this.fetchData()
+            this.fetchRecipes()
         }
     }
 </script>
