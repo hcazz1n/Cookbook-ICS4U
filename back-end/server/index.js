@@ -74,7 +74,7 @@ app.get('/search', (req, res) => {
 app.post('/search', async function (req, res) {
   console.log(req.body.search)
   try {
-    Recipe.find({ name: capitalizeFirst(req.body.search) }).then((recipes) => {
+    Recipe.find( { 'name' : {'$regex' : req.body.search, '$options' : 'i' } } ).then((recipes) => {
       console.log(recipes)
       res.send(recipes)
     })
