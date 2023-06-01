@@ -10,7 +10,7 @@
             <div @click="decreasePage" class="button recipe-button"><span class="icon"><i class="fa-solid fa-arrow-left"></i></span></div>
             <div @click="increasePage" class="button recipe-button"><span class="icon"><i class="fa-solid fa-arrow-right"></i></span></div>
             <div @click="saveRecipe" class="button recipe-button"><span class="icon"><i class="fa-solid fa-bookmark"></i></span></div>
-            <div @click="nextRecipe" class="button recipe-button skip-button"><span class="icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span></div>
+            <div @click="fetchData()" class="button recipe-button skip-button"><span class="icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span></div>
         </div>
         
         <div class="field search">
@@ -20,9 +20,8 @@
                     <i class="fa-solid fa-magnifying-glass search-mag-glass"></i>
                 </span>
             </div>
-        </div>  
+        </div> 
         
-        <button @click="fetchData">Fetch Data</button>
         <ul>
           <li v-for="item in data" :key="item.id">{{ item.name }}</li>
         </ul>

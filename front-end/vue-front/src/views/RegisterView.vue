@@ -7,22 +7,26 @@
       >
         <div class="column">
           <label for="name">Name</label>
-          <input v-model = "Name" class="input is-danger" type="text" placeholder="Name" name="Name"/>
+          <input v-model = "name" class="input input-border" type="text" placeholder="e.g. John Smith" name="name"/>
         </div>
         <div class="column">
           <label for="username">Username</label>
-          <input v-model = "Username" class="input is-danger" type="text" placeholder="Username" name="Username"/>
+          <input v-model = "username" class="input input-border" type="text" placeholder="e.g. JohnSmith1234" name="username"/>
         </div>
         <div class="column">
           <label for="password">Password</label>
-          <input v-model = "password" class="input is-danger" type="text" placeholder="Password" name="Password"/>
+          <input v-model = "password" class="input input-border" type="text" placeholder="Enter your password." name="password"/>
         </div>
         <div class="column">
           <label for="dsecription">Description</label>
-          <input v-model = "description" class="input is-danger" type="text" placeholder="Description" name="description"/>
+          <input v-model = "description" class="input input-border" type="text" placeholder="Tell us a little bit about yourself!" name="description"/>
         </div>
         <div class="column">
-          <button class="button is-danger is-fullwidth" type="submit" @click="register()">
+          <label for="username">Profile Picture</label>
+          <input v-model = "pfp" class="input input-border" type="text" placeholder="Paste the image link here." name="pfp"/>
+        </div>
+        <div class="column">
+          <button class="button login-register-button is-fullwidth" type="submit" @click="register()">
             Login
           </button>
         </div>
