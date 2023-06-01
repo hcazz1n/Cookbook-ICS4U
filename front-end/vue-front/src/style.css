@@ -13,13 +13,15 @@
 }
 
 #login {
-    background-color: #24475d;
+    background-color: #2e6b91;
     color: white;
     border: none;
+    transition: color 0.5s;
+    transition: background-color 0.5s;
 }
 
 #login:hover{
-    background-color: #BCA79C;
+    background-color: #e9e3e3;
     color: rgb(0, 0, 0);
 }
 
@@ -40,7 +42,7 @@ a.navbar-item:visited {
 /* navbar item hover color */
 a.navbar-item:hover {
     background-color: #57273F;
-    color: rgb(36, 206, 229) !important;
+    color: rgb(0, 201, 228) !important;
 }
 
 a.navbar-item:focus, a.navbar-item:focus-within{
@@ -53,6 +55,10 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 }
 
 #white-text{
+    color: white;
+}
+
+.title{
     color: white;
 }
 
@@ -464,6 +470,23 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     margin-bottom: 0.25rem !important;
 }
 
+/*Login/Register Page*/
+.login-register-button{
+    border: 1px solid #a10913;
+    background-color: #a10913;
+    color: white;
+    transition: background-color 0.75s
+}
+
+.login-register-button:hover{
+    background-color:#2e6b91;
+    color: white;
+}
+
+.input-border{
+    border: 1px solid #a10913;
+}
+
 /*Contact Page*/
 #contact-hero{
     min-height: 32.23vh;
@@ -499,21 +522,30 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 
 #contact-container{
     width: 60%;
-    background-color: #24475d;
+    background-color: #2e6b91;
     margin-bottom: 50px;    
-    border-radius: 4rem;
+    border-radius: 0.5rem;
 }
 
-.title{
+.contact-title{
+    display: flex;
+    justify-content: center;
     color: white;
+    font-size: 36px;
+    font-weight: bold;
+    margin: auto;
 }
 
 #contact-us{
-    background-color: #24475d;
+    background-color: #2e6b91;
     margin-top: 10px;
     width: 30%;
 }
 
+.phone-email{
+    margin-top: 3%;
+    padding-bottom: 5%;
+}
 
 .contact-header{
     color: white;

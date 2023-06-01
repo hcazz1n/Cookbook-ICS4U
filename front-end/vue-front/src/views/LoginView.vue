@@ -9,7 +9,7 @@
           <label for="username">Username</label>
           <input
             v-model = "Username"
-            class="input is-danger"
+            class="input input-border"
             type="text"
             placeholder="Username"
             name="Username"
@@ -19,7 +19,7 @@
           <label for="password">Password</label>
           <input
             v-model = "password"
-            class="input is-danger"
+            class="input input-border"
             type="password"
             placeholder="Password"
             name="password"
@@ -28,7 +28,7 @@
         </div>
         <div class="column">
           <button
-            class="button is-danger is-fullwidth"
+            class="button is-fullwidth login-register-button"
             type="submit"
             @click="login()"
           >
@@ -39,7 +39,7 @@
           <p class="is-size-7">
             Don't have an account?
             <router-link to="register" class="has-text-danger"
-              >Register</router-link
+              >Register Now</router-link
             >
           </p>
         </div>
