@@ -53,10 +53,6 @@ import axios from 'axios'
 import { ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
-window.addEventListener('load', function() {
-        window.scrollBy(0, -2000) 
-})
-
 const username = ref('')
 const password = ref('')
 const router = useRouter()
@@ -86,6 +82,7 @@ export default {
           console.log(this.data)
           localStorage.setItem('user_id', this.data._id)
           localStorage.setItem('userName', this.data.userName)
+          localStorage.setItem('userDescription', this.data.bio)
           this.$router.push('/account')
           console.log("logged in")
         })

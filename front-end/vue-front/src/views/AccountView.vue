@@ -4,12 +4,9 @@
       <div class="column is-3 is-offset-1" id="profile-column">
         <div class="container" id="account-profile-container">
           <div class="profile-circle"></div>
-          <h1 class="username"> username </h1>
+          <h1 class="username">{{ this.user.userName }}</h1>
           <h2 class="biography"> Biography</h2>
-          <p class="biography-content"> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Quod maxime culpa officia voluptatum neque omnis aut eos asperiores 
-            assumenda, ab nam doloribus architecto a assumenda, itaque facere vel 
-            earum nulla maiores reprehenderit odit illum accusantium?</p>
+          <p class="biography-content"> {{this.user.bio}}</p>
         </div>
       </div>
       <div class="column is-8" id="favourite-recipes">
@@ -43,10 +40,6 @@
 
 <script>
 import axios from 'axios'
-
-window.addEventListener('load', function() {
-        window.scrollBy(0, -2000) 
-})
 
 export default {
   data() {

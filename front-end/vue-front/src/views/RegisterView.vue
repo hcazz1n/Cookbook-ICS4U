@@ -11,7 +11,7 @@
         </div>
         <div class="column">
           <label for="Username">Username</label>
-          <input v-model = "Username" class="input input-border" type="text" placeholder="e.g. JohnSmith1234" name="username"/>
+          <input v-model = "userName" class="input input-border" type="text" placeholder="e.g. JohnSmith1234" name="username"/>
         </div>
         <div class="column">
           <label for="password">Password</label>
@@ -39,15 +39,11 @@
 
 import axios from 'axios'
 
-window.addEventListener('load', function() {
-        window.scrollBy(0, -2000) 
-})
-
 export default {
   data(){
     return{
       name: '',
-      Username: '',
+      userName: '',
       password: '',
       bio: '',
       profilePic: '',
@@ -56,12 +52,12 @@ export default {
   methods: {
     register() {
       console.log(this.name)
-      console.log(this.Username)
+      console.log(this.userName)
       console.log(this.bio)
       axios
         .post('http://localhost:3000/register', {
             "name": this.name,
-            "userName": this.Username,
+            "userName": this.userName,
             "password": this.password,
             "profilePic": this.profilePic,
             "bio": this.bio,
