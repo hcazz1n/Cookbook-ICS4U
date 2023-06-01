@@ -471,11 +471,12 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     border: 1px solid #a10913;
     background-color: #a10913;
     color: white;
-    transition: background-color 0.75s
+    transition: border 0.5s, background-color 0.75s;
 }
 
 .login-register-button:hover{
     background-color:#2e6b91;
+    border: 1px solid #2e6b91;
     color: white;
 }
 
@@ -558,13 +559,17 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     background-color: #ffffff;
 }
 
+.logout{
+    font-size: 20px;
+    padding-top: 0.25%;
+    padding-bottom: 0.5%
+}
+
 #account-profile-container{
     background-color: #e7d9cd;
     border-radius: 3rem;
-    margin-top: 7.5rem;
-    padding-top: 15px;  
-
-
+    margin-top: 10.5rem;
+    padding-top: 15px;
 }
 
 #account-favourite-recipe{
@@ -572,8 +577,6 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     border-radius: 3rem;
     padding-top: 15px;  
     padding-bottom: 55vh;
-
-
 }
 
 .profile-circle {
@@ -584,9 +587,7 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     border-width: 10px;
     border-color: #493453;
     margin:auto;
-    
 }
-
 
 #account-columns{
     width: 100%;
@@ -609,8 +610,15 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     padding: 20px 30px 30px;
 }
 
+#profile-column{
+    display: flex;
+    align-items: center;
+}
+
 #favourite-recipes{
     margin-top: 8.25rem;
+    display: flex;
+    align-items: center;
 }
 
 /* .screen1-profile{

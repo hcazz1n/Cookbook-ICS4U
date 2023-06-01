@@ -1,7 +1,7 @@
 <template>
     <div class="ingredient-instruction-title is-size-1 has-text-black">Ingredients</div>
     <ul v-if="recipe" class="ingredient-instruction-list">
-        <li v-for="ingredient in recipe" :key="ingredient.id"></li>
+        <li v-for="ingredient in recipe.ingredients" :key="ingredient.id">{{ ingredient }}</li>
     </ul>
 </template>
 

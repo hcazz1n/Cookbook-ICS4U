@@ -1,6 +1,6 @@
 <template>
     <router-view >
-        <section class="hero is-halfheight" id="body" >
+            <section class="hero is-halfheight" id="body" >
                 <div class="columns">
 
                     <div id="contact-columns" class="column">
