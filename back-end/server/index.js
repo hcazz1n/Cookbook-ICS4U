@@ -74,7 +74,7 @@ app.get('/search', (req, res) => {
 app.post('/search', async function (req, res) {
   console.log(req.body.search)
   try {
-    Recipe.find({ name: capitalizeFirst(req.body.search) }).then((recipes) => {
+    Recipe.find( { 'name' : {'$regex' : req.body.search, '$options' : 'i' } } ).then((recipes) => {
       console.log(recipes)
       res.send(recipes)
     })
@@ -159,7 +159,6 @@ app.post('/recipe', async (req, res) => {
     const data = {
       name: capitalizeFirst(req.body.name),
       author: req.body.author,
-      description: req.body.description,
       ingredients: req.body.ingredients.split(', '),
       keywords: req.body.keywords.split(', '),
       images: req.body.images,
