@@ -10,17 +10,11 @@
 
       <div class="navbar-end">
           
-          <router-link class="navbar-item" to="/" >
-              Home
-          </router-link>
+          <router-link class="navbar-item" to="/" >Home</router-link>
 
-          <router-link class="navbar-item" to="/recipeselector" >
-              Recipes
-          </router-link>
+          <router-link class="navbar-item" to="/recipeselector" >Recipes</router-link>
 
-          <router-link class="navbar-item" to="/contact" >
-              Contact Us
-          </router-link>
+          <router-link class="navbar-item" to="/contact" >Contact Us</router-link>
           
 
           <div class="navbar-item">
@@ -28,13 +22,25 @@
               <strong>Account</strong>
             </router-link>
         </div>
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
+        
       </div>
+      
     </div>
+    <!-- <div class="parent">
+          <div class="parent">
+            <div class="body">
+                <label>
+                    <input type="checkbox">
+                    <span class="menu"> <span class="hamburger"></span> </span>
+                        <ul>
+                            <li><router-link class="navbar-item" to="/" >Home</router-link></li>
+                            <li><router-link class="navbar-item" to="/recipeselector" >Recipes</router-link></li>
+                            <li><router-link class="navbar-item" to="/contact" >Contact Us</router-link></li>
+                        </ul>
+                    </label>
+            </div>
+            </div>
+            </div> -->
   </nav>
 </template>
 

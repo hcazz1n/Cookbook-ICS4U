@@ -622,67 +622,139 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     align-items: center;
 }
 
-/* .screen1-profile{
-    position: relative;
-    display: flex;
-    width: 90%;
-    height: 60vh;
-    border: 3px solid rgba(79, 34, 0, 0.8);
-    aspect-ratio: 10/16;
-    border-radius: 1rem;
-    background-color: rgb(79, 34, 0, 0.15);
-    overflow: hidden;
-    transition: transform 0.5s, box-shadow 0.5s;
+/* *, *:before, *:after 
+{ box-sizing: border-box; }
+
+html { font-size: 18px; }
+
+.body {
+   display: none;
+   color: #e0e4cc;
+   font-size: 1.2em;
+   line-height: 1.6;
+   background: #4F4846;
+   overflow-x: hidden;
 }
 
-.screen1-profile > .screen1-image-profile{
-    position: absolute;
-    background-image: url("https://images.squarespace-cdn.com/content/53b839afe4b07ea978436183/1608506201082-GU22QYZJC5TWXRSY24RX/traditional-food-around-the-world-Travlinmad.jpg?content-type=image%2Fjpeg");
-    height: 100%;
-    width: 100%;
-    background-size: 100%;
-    background-position: 95% 0%;
-    filter: sepia(25%);
+label .menu {
+  position: absolute;
+  right: -100px;
+  top: -100px;
+  z-index: 100;
+  width: 190px;
+  height: 157px;
+  background: #57273F;
+  border-radius: 50% 50% 50% 50%;
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  box-shadow: 0 0 0 0 #57273F, 0 0 0 0 #57273F;
+  cursor: pointer;
+  
 }
 
-.screen1-profile:hover{
-    transform: scale(1.05);
-    box-shadow: rgba(87, 39, 63, 0.4) 5px 5px, 
-    rgba(87, 39, 63, 0.3) 10px 10px, 
-    rgba(87, 39, 63, 0.2) 15px 15px, 
-    rgba(87, 39, 63, 0.1) 20px 20px, 
-    rgba(87, 39, 63, 0.05) 25px 25px;
+label .hamburger {
+  position: absolute;
+  top: 130px;
+  left: 40px;
+  width: 30px;
+  height: 2px;
+  background: #266150;
+  display: block;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
 }
 
-
-.screen-overlay-profile{
-    position: absolute;
-    background: linear-gradient(
-        rgb(79, 34, 0, 0.15),
-        rgb(79, 34, 0, 0.15) 3px,
-        transparent 3px,
-        transparent 9px 
-    );
-    background-size: 100% 9px;
-    height: 100%;
-    width: 100%;
-    z-index: 2;
-    left: 0px;
-    top: 0px;
-    animation: pan-overlay 30s infinite linear
+label .hamburger:after, label .hamburger:before {
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #266150;
 }
 
-.screen-content-profile{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: 3rem;
-    margin: 1rem;
-    z-index: 3;
-    border: 1px solid rgb(79, 34, 0);
-    border-radius: 0.6rem;
-    color: rgb(255, 255, 255);
-    font-size: 45px;
-    flex-grow: 1;
-} */
+label .hamburger:before { top: -10px; }
+
+label .hamburger:after { bottom: -10px; }
+
+label input { display: none; }
+
+label input:checked + .menu {
+  box-shadow: 0 0 0 100vw #57273F, 0 0 0 100vh #57273F;
+  border-radius: 0;
+  
+}
+
+label input:checked + .menu .hamburger {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  
+}
+
+label input:checked + .menu .hamburger:after {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  bottom: 0;
+  
+}
+
+label input:checked + .menu .hamburger:before {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  top: 0;
+  
+}
+
+label input:checked + .menu + ul { opacity: 1; }
+
+label ul {
+  z-index: 200;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  -webkit-transition: .25s 0s ease-in-out;
+  transition: 0.25s 0.15s ease-in-out;
+  background-color: #FDF8F5;
+  border-radius: 30px;
+}
+
+label ul li {
+   margin: 10px 20px 10px 20px !important;
+}
+
+label a {
+  margin-bottom: 1em;
+  display: block;
+  color: #4F4846;
+  text-decoration: none;
+
+}
+
+@media(max-width:1145px){
+
+ 
+     .body{
+       display: contents;
+     }
+ 
+     .navbar ul{
+       flex-direction: column;
+       align-items: center;
+     }
+ 
+     .navbar .container li{
+       display: none;
+     }
+ 
+ 
+     
+     
+    
+ } */
