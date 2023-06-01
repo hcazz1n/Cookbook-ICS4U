@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
     {path: '/', name: 'Home', component: () => import('../views/HomeView.vue')},
-    {path: '/account', name: 'Account', component: () => import('../views/AccountView.vue'), meta: {requiresAccount: true}},
+    {path: '/account', name: 'Account', component: () => import('../views/AccountView.vue'), meta: {requiresAccount: false}},
     {path: '/contact', name: 'Contact Us', component: () => import('../views/ContactView.vue')},
     {path: '/recipeselector', name: 'Recipe Selector', component: () => import('../views/RecipeSelector.vue')},
     {path: '/recipes', name: 'Recipes', component: () => import('../views/RecipeView.vue')},

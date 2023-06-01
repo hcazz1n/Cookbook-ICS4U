@@ -87,8 +87,7 @@ app.get('/logout', function (req, res) {
     if (err) {
       return next(err)
     }
-    console.log('logged out')
-    res.redirect('/')
+    res.send('logout')
   })
 })
 app.get('/secret', (req, res) => {
