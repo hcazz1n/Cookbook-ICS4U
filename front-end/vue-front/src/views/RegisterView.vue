@@ -65,7 +65,11 @@ export default {
         .then((response) => {
           this.data = response.data
           console.log(this.data)
-          this.$router.push('/')
+          sessionStorage.setItem('user_id', this.data._id)
+          sessionStorage.setItem('userName', this.data.userName)
+          sessionStorage.setItem('userDescription', this.data.bio)
+          sessionStorage.setItem('loggedIn', true)
+          this.$router.push('/account')
         })
         .catch((error) => {
           console.log(error)

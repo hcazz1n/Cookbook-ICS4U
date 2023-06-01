@@ -80,9 +80,10 @@ export default {
         .then((response) => {
           this.data = response.data
           console.log(this.data)
-          localStorage.setItem('user_id', this.data._id)
-          localStorage.setItem('userName', this.data.userName)
-          localStorage.setItem('userDescription', this.data.bio)
+          sessionStorage.setItem('user_id', this.data._id)
+          sessionStorage.setItem('userName', this.data.userName)
+          sessionStorage.setItem('userDescription', this.data.bio)
+          sessionStorage.setItem('loggedIn', true)
           this.$router.push('/account')
           console.log("logged in")
         })

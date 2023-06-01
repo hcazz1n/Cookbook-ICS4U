@@ -23,7 +23,10 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from) =>{
-    if(to.meta.requiresAccount && !window.user){
+    if(sessionStorage.getItem('loggedIn')== null){
+        sessionStorage.setItem('loggedIn', false)
+    }
+    if(to.meta.requiresAccount && (JSON.parse(sessionStorage.getItem('loggedIn'))==false)){
         return {path: '/login', query:{redirect: to.fullPath}}
     }
 })

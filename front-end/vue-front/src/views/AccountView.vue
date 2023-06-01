@@ -1,6 +1,6 @@
 <template>
   <section class="hero is-fullheight-with-navbar has-text-centered" id="account-profile-hero">
-    <button class="login-register-button logout">Logout</button>
+    <button class="login-register-button logout" @click = "logout()">Logout</button>
     <div class="columns" id="account-columns">
       <div class="column is-3 is-offset-1" id="profile-column">
         <div class="container" id="account-profile-container">
@@ -24,11 +24,6 @@
       </div>
     </div>
 
-
-    <ul>
-      <li v-for="item in recipes" :key="item.id">{{ item.name }}</li>
-      <li v-for="item in user" :key="item.id">{{ item.name }}</li>
-    </ul>
   </section>
 </template>
 
@@ -50,7 +45,7 @@ export default {
   },
   methods: {
     fetchRecipes() {
-      var userName = localStorage.getItem('userName')
+      var userName = sessionStorage.getItem('userName')
       axios
         .get('http://localhost:3000/api/recipes')
         .then((response) => {
@@ -68,7 +63,7 @@ export default {
         })
     },
     fetchUsers() {
-      var user_id = localStorage.getItem('user_id')
+      var user_id = sessionStorage.getItem('user_id')
       axios
         .get(`http://localhost:3000/api/users/${user_id}`)
         .then((response) => {
@@ -80,7 +75,20 @@ export default {
         .catch((error) => {
           console.log(error)
         })
-    },
+    },logout(){
+      axios
+      .get('http://localhost:3000/logout')
+      .then((response)=>{
+        console.log(response)
+        sessionStorage.setItem('user_id', '');
+        sessionStorage.setItem('userDescription', '');
+        sessionStorage.setItem('userName', '');
+        sessionStorage.setItem('loggedIn', false)
+        this.$router.push('/')
+      }).catch((error)=>{
+        console.log(error);
+      })
+    }
   },
   beforeMount(){
     this.fetchRecipes()

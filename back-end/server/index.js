@@ -74,7 +74,7 @@ app.get('/search', (req, res) => {
 app.post('/search', async function (req, res) {
   console.log(req.body.search)
   try {
-    Recipe.find({ name: capitalizeFirst(req.body.search) }).then((recipes) => {
+    Recipe.find( { 'name' : {'$regex' : req.body.search, '$options' : 'i' } } ).then((recipes) => {
       console.log(recipes)
       res.send(recipes)
     })
@@ -87,8 +87,7 @@ app.get('/logout', function (req, res) {
     if (err) {
       return next(err)
     }
-    console.log('logged out')
-    res.redirect('/')
+    res.send('logout')
   })
 })
 app.get('/secret', (req, res) => {
@@ -104,12 +103,14 @@ app.post('/register', (req, res) => {
     bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
       User.findOne({ userName: req.body.userName })
         .then((existUser) => {
+          console.log('hello1')
           if (existUser.userName === req.body.userName) {
             res.status(500).json({ errors: 'Username already exists' })
             //get front end to display text
           }
         })
-        .catch((err) => {
+        .catch((err)=>{
+          console.log('hello')
           const user = User.create({
             name: req.body.name,
             userName: req.body.userName,
@@ -119,7 +120,10 @@ app.post('/register', (req, res) => {
             bio: req.body.bio,
             favouriteRecipes: [],
           })
-          res.send(user)
+          .then((response)=>{
+            console.log(response)
+            res.json(response)
+          })
         })
     })
   } catch (err) {
@@ -155,7 +159,6 @@ app.post('/recipe', async (req, res) => {
     const data = {
       name: capitalizeFirst(req.body.name),
       author: req.body.author,
-      description: req.body.description,
       ingredients: req.body.ingredients.split(', '),
       keywords: req.body.keywords.split(', '),
       images: req.body.images,
