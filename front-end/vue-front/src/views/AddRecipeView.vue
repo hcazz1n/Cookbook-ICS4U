@@ -53,5 +53,3 @@
         </form>
     </div>
 </template>
-
-<script src="/back-end/server/index.js" type="text/javascript"></script>
