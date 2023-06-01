@@ -112,18 +112,23 @@ app.get('/secret', (req, res) => {
 app.post('/register', (req, res) => {
   try {
     bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
-      User.findOne({ name: req.body.Username })
+      User.findOne({ userName: req.body.Username })
         .then((existUser) => {
-          if (existUser.name === req.body.Username) {
+          if (existUser.userName === req.body.Username) {
             res.status(500).json({ errors: 'Username already exists' })
           }
         })
         .catch((err) => {
+          console.log(req.body.name)
+          console.log(req.body.Username);
+          console.log(req.body.description);
+          console.log(req.body.profilePic)
           const user = User.create({
             name: req.body.name,
             userName: req.body.Username,
             password: hash,
             isAdmin: true,
+            profilePic: req.body.profilePic,
             bio: req.body.description,
             favouriteRecipes: []
           })
