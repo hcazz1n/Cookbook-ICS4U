@@ -9,7 +9,7 @@
             <div @click="decreasePage" class="button recipe-button"><span class="icon"><i class="fa-solid fa-arrow-left"></i></span></div>
             <div @click="increasePage" class="button recipe-button"><span class="icon"><i class="fa-solid fa-arrow-right"></i></span></div>
             <div @click="saveRecipe" class="button recipe-button"><span class="icon"><i class="fa-solid fa-bookmark"></i></span></div>
-            <div @click="saveRecipe" class="button recipe-button skip-button"><span class="icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span></div>
+            <div @click="nextRecipe" class="button recipe-button skip-button"><span class="icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span></div>
         </div>
         
         <div class="field search">
@@ -70,6 +70,9 @@
                 } else {
                     createPopup('Success!', 'Added to favourites!', 'is-info')
                 }
+            },
+            nextRecipe(){
+                console.log(1234)
             },
             fetchRecipes(){
                 axios

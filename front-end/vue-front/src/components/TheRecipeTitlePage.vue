@@ -1,5 +1,5 @@
 <template>
-    <img v-if="recipe" class="recipe-img" src='noodlesscaled.jpg'>
+    <img v-if="recipe" class="recipe-img animate__animated animate__fadeIn" :src="`${this.recipe.images}`">
     <div v-if="recipe" class="recipe-title is-size-1 has-text-black animate__animated animate__fadeIn" :key="recipe.id">{{ recipe.name }}</div>
 </template>
 
@@ -24,11 +24,6 @@
             }
         },
         methods:{
-            changeImgSrc(){
-                const img = document.querySelector('.recipe-img')
-                const src = `${this.recipe.images}`
-                img.setAttribute('src', src)
-            },
             fetchRecipes(){
                 axios
                 .get('http://localhost:3000/api/recipes')
