@@ -53,6 +53,10 @@ import axios from 'axios'
 import { ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
+window.addEventListener('load', function() {
+        window.scrollBy(0, -2000) 
+})
+
 const username = ref('')
 const password = ref('')
 const router = useRouter()

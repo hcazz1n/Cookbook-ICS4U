@@ -47,4 +47,8 @@
 </template>
 
 <script setup>
+
+window.addEventListener('load', function() {
+        window.scrollBy(0, -2000) 
+})
 </script>

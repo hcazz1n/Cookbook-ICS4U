@@ -1,17 +1,45 @@
 <template>
     <div class="ingredient-instruction-title is-size-1 has-text-black">Ingredients</div>
-    <ul class="ingredient-instruction-list">
-        <li>[Ingredient A]</li> <!--do a v-for here with new data-->
-        <li>[Ingredient B]</li>
-        <li>[Ingredient C]</li>
-        <li>[Ingredient D]</li>
-        <li>[Ingredient E]</li>
-        <li>[Ingredient F]</li>
-        <li>[Ingredient G]</li>
-        <li>[Ingredient H]</li>
+    <ul v-if="recipe" class="ingredient-instruction-list">
+        <li v-for="ingredient in recipe" :key="recipe.id"></li>
     </ul>
 </template>
 
-<script setup>
-
+<script>
+    import axios from 'axios'
+    
+    export default{
+        data(){
+            return{
+                data: [],
+                page: 0
+            }
+        },
+        props:{
+            id: {type: Number, required: true}
+        },
+        computed: {
+            recipe(){
+                return this.data.find(
+                    (recipe) => recipe.id === this.id
+                )
+            }
+        },
+        methods:{
+            fetchData(){
+                axios
+                .get('http://localhost:3000/api/recipes')
+                .then(response => {
+                  this.data = response.data;
+                  console.log(this.data)
+                })
+                .catch(error => {
+                  console.log(error);
+                });
+            }
+        },
+        beforeMount(){
+            this.fetchData()
+        }
+    }
 </script>

@@ -44,6 +44,10 @@
 <script>
 import axios from 'axios'
 
+window.addEventListener('load', function() {
+        window.scrollBy(0, -2000) 
+})
+
 export default {
   data() {
     /*unimportant*/

@@ -16,6 +16,31 @@
     </ul>
 </template>
 
-<script setup>
+<script>
+    import axios from 'axios'
 
+    export default{
+        data(){
+            return{
+                data: [],
+                page: 0
+            }
+        },
+        methods:{
+            fetchData(){
+                axios
+                .get('http://localhost:3000/api/recipes')
+                .then(response => {
+                  this.data = response.data;
+                  console.log(this.data)
+                })
+                .catch(error => {
+                  console.log(error);
+                });
+            }
+        },
+        beforeMount(){
+            this.fetchData()
+        }
+    }
 </script>

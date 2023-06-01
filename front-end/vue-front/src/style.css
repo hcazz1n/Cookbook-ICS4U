@@ -332,10 +332,6 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     font-size: 24px;
 }
 
-.recipe-pronouns{
-    font-size: 18px;
-}
-
 .rating-container{ /*delete*/
     display: grid;
     align-items: center;

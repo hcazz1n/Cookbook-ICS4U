@@ -1,16 +1,15 @@
 <template>
-    <section class="recipe-container hero is-fullheight-with-navbar has-background-lighter">
+    <section v-if="recipe" class="recipe-container hero is-fullheight-with-navbar has-background-lighter">
         <div class="profile-container">
             <div class="c-recipe"></div>
-            <h2 class="recipe-username">Username</h2>
-            <h3 class="recipe-pronouns">He/Him</h3>
+            <h2 class="recipe-username" :key="recipe.id">{{ recipe.author }}</h2>
         </div>
         
         <div class="recipe-buttons">
             <div @click="decreasePage" class="button recipe-button"><span class="icon"><i class="fa-solid fa-arrow-left"></i></span></div>
             <div @click="increasePage" class="button recipe-button"><span class="icon"><i class="fa-solid fa-arrow-right"></i></span></div>
             <div @click="saveRecipe" class="button recipe-button"><span class="icon"><i class="fa-solid fa-bookmark"></i></span></div>
-            <div @click="fetchData()" class="button recipe-button skip-button"><span class="icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span></div>
+            <div @click="saveRecipe" class="button recipe-button skip-button"><span class="icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span></div>
         </div>
         
         <div class="field search">
@@ -21,10 +20,6 @@
                 </span>
             </div>
         </div> 
-        
-        <ul>
-          <li v-for="item in data" :key="item.id">{{ item.name }}</li>
-        </ul>
         
         <div class="recipe-box box">
             <TheRecipeTitlePage v-if="page == 0"/>
@@ -48,8 +43,15 @@
                 page: 0
             }
         },
+        props:{
+            id: {type: Number, required: true}
+        },
         computed: {
-
+            recipe(){
+                return this.data.find(
+                    (recipe) => recipe.id === this.id
+                )
+            }
         },
         methods: {
             decreasePage(){
@@ -81,6 +83,9 @@
                 });
             }
         },
+        beforeMount(){
+            this.fetchData()
+        }
     }
     
     function hide(){
