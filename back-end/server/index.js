@@ -103,12 +103,14 @@ app.post('/register', (req, res) => {
     bcrypt.hash(req.body.password, saltRounds, (err, hash) => {
       User.findOne({ userName: req.body.userName })
         .then((existUser) => {
+          console.log('hello1')
           if (existUser.userName === req.body.userName) {
             res.status(500).json({ errors: 'Username already exists' })
             //get front end to display text
           }
         })
-        .catch((err) => {
+        .catch((err)=>{
+          console.log('hello')
           const user = User.create({
             name: req.body.name,
             userName: req.body.userName,
@@ -118,7 +120,10 @@ app.post('/register', (req, res) => {
             bio: req.body.bio,
             favouriteRecipes: [],
           })
-          res.send(user)
+          .then((response)=>{
+            console.log(response)
+            res.json(response)
+          })
         })
     })
   } catch (err) {

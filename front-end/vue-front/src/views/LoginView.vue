@@ -83,6 +83,7 @@ export default {
           sessionStorage.setItem('user_id', this.data._id)
           sessionStorage.setItem('userName', this.data.userName)
           sessionStorage.setItem('userDescription', this.data.bio)
+          sessionStorage.setItem('loggedIn', true)
           this.$router.push('/account')
           console.log("logged in")
         })

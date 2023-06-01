@@ -83,6 +83,8 @@ export default {
         sessionStorage.setItem('user_id', '');
         sessionStorage.setItem('userDescription', '');
         sessionStorage.setItem('userName', '');
+        sessionStorage.setItem('loggedIn', false)
+        this.$router.push('/')
       }).catch((error)=>{
         console.log(error);
       })
