@@ -179,7 +179,7 @@ app.post('/recipe', async (req, res) => {
     res.status(500).send(err.message)
   }
 
-
+  sessionStorage.setItem('steps', req.body.steps); //steps for /instructions
 })
 
 app.get('/api/recipes', async (req, res) => {
@@ -193,6 +193,10 @@ app.get('/api/recipes', async (req, res) => {
 
 app.get('/instructions', (req, res) => {
   res.render('instructions.ejs');
+})
+
+app.post('/instructions', (req, res) => {
+
 })
 
 //Port info
