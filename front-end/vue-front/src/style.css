@@ -531,7 +531,114 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 }
 
 #account-profile-container{
-    background-color: #BCA79C;
+    background-color: #e7d9cd;
+    border-radius: 3rem;
+    margin-top: 7.5rem;
+    padding-top: 15px;  
+
+
 }
 
 
+
+.profile-circle {
+    width: 200px;
+    height: 200px;
+    background: #5A1F23;
+    border-radius: 50%;
+    border-width: 10px;
+    border-color: #493453;
+    margin:auto;
+    
+}
+
+
+#account-columns{
+    width: 100%;
+}
+
+.username{
+    font-weight: 500;
+    font-size: 40px;
+    padding: 10px 10px 0px;
+}
+
+.biography{
+    font-weight: 500;
+    font-size: 25px;
+}
+
+.biography-content{
+    font-weight: 500;
+    font-size: 13px;
+    padding: 20px 30px 30px;
+}
+
+#favourite-recipes{
+    margin-top: 8.25rem;
+}
+
+/* .screen1-profile{
+    position: relative;
+    display: flex;
+    width: 90%;
+    height: 60vh;
+    border: 3px solid rgba(79, 34, 0, 0.8);
+    aspect-ratio: 10/16;
+    border-radius: 1rem;
+    background-color: rgb(79, 34, 0, 0.15);
+    overflow: hidden;
+    transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.screen1-profile > .screen1-image-profile{
+    position: absolute;
+    background-image: url("https://images.squarespace-cdn.com/content/53b839afe4b07ea978436183/1608506201082-GU22QYZJC5TWXRSY24RX/traditional-food-around-the-world-Travlinmad.jpg?content-type=image%2Fjpeg");
+    height: 100%;
+    width: 100%;
+    background-size: 100%;
+    background-position: 95% 0%;
+    filter: sepia(25%);
+}
+
+.screen1-profile:hover{
+    transform: scale(1.05);
+    box-shadow: rgba(87, 39, 63, 0.4) 5px 5px, 
+    rgba(87, 39, 63, 0.3) 10px 10px, 
+    rgba(87, 39, 63, 0.2) 15px 15px, 
+    rgba(87, 39, 63, 0.1) 20px 20px, 
+    rgba(87, 39, 63, 0.05) 25px 25px;
+}
+
+
+.screen-overlay-profile{
+    position: absolute;
+    background: linear-gradient(
+        rgb(79, 34, 0, 0.15),
+        rgb(79, 34, 0, 0.15) 3px,
+        transparent 3px,
+        transparent 9px 
+    );
+    background-size: 100% 9px;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    left: 0px;
+    top: 0px;
+    animation: pan-overlay 30s infinite linear
+}
+
+.screen-content-profile{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 3rem;
+    margin: 1rem;
+    z-index: 3;
+    border: 1px solid rgb(79, 34, 0);
+    border-radius: 0.6rem;
+    color: rgb(255, 255, 255);
+    font-size: 45px;
+    flex-grow: 1;
+} */
