@@ -163,11 +163,12 @@ app.post('/recipe', async (req, res) => {
       keywords: req.body.keywords.split(', '),
       images: req.body.images,
       isDessert: req.body.isDessert,
+      instructions: []
     }
-    const recipe = await Recipe.create(data)
-    res.send(recipe)
+    const recipe = await Recipe.create(data);
+    res.send(recipe);
   } catch (err) {
-    res.status(500).send(err.message)
+    res.status(500).send(err.message);
   }
 })
 app.get('/api/recipes', async (req, res) => {
@@ -179,10 +180,6 @@ app.get('/api/recipes', async (req, res) => {
   }
 })
 
-app.get('/instructions', (req, res) => {
-  res.render('instructions.ejs')
-})
-app.post('/instructions', (req, res) => {})
 
 //Port info
 const PORT = process.env.PORT || 3000
@@ -192,22 +189,22 @@ app.listen(PORT, () => {
 // other functions
 //capitalize first letter of each word unless it is an article
 function capitalizeFirst(str) {
-  const articles = ['a', 'an', 'the', 'and'] //articles (words that are meant to be left non-capitalized)
-  const words = str.toLowerCase().split(' ')
+  const articles = ['a', 'an', 'the', 'and']; //articles (words that are meant to be left non-capitalized)
+  const words = str.toLowerCase().split(' ');
   //capitalize the first letter of each word, except for the articles
   var capWrd = words.map((word, index) => {
     if (index === 0) {
-      return word.charAt(0).toUpperCase() + word.slice(1)
+      return word.charAt(0).toUpperCase() + word.slice(1);
     } else if (index === 0 || !articles.includes(word.toLowerCase())) {
-      return word.charAt(0).toUpperCase() + word.slice(1)
+      return word.charAt(0).toUpperCase() + word.slice(1);
     } else if (articles.includes(word.toLowerCase())) {
-      return word.charAt(0).toLowerCase() + word.slice(1)
+      return word.charAt(0).toLowerCase() + word.slice(1);
     } else {
-      return word.toLowerCase()
+      return word.toLowerCase();
     }
   })
-  const capStr = capWrd.join(' ')
+  const capStr = capWrd.join(' ');
   return capStr
 }
-console.log(capitalizeFirst('Fig And cheese'))
-console.log(capitalizeFirst('the BIG fast GUY AN rAn'))
+console.log(capitalizeFirst('Fig And cheese'));
+console.log(capitalizeFirst('the BIG fast GUY AN rAn'));
