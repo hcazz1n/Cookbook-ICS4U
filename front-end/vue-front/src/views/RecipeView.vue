@@ -22,6 +22,11 @@
             </div>
         </div>  
         
+        <button @click="fetchData">Fetch Data</button>
+        <ul>
+          <li v-for="item in data" :key="item.id">{{ item.name }}</li>
+        </ul>
+        
         <div class="recipe-box box">
             <TheRecipeTitlePage v-if="page == 0"/>
             <TheIngredients v-else-if="page == 1"/>
@@ -30,43 +35,53 @@
     </section>
 </template>
 
-<script setup>
-    import TheRecipeTitlePage from '../components/TheRecipeTitlePage.vue'
-    import TheIngredients from '../components/TheIngredients.vue'
-    import TheInstructions from '../components/TheInstructions.vue'
+<script>
     import axios from 'axios'
-    import {ref} from 'vue'
-    
+
     window.addEventListener('load', function() {
         window.scrollBy(0, -2000) 
     })
 
-    let page = ref(0)
-    
-    function decreasePage(){
-            if(page.value != 0){
-                page.value--
-                console.log(page.value)
+    export default{
+        data(){
+            return{
+                data: [],
+                page: 0
             }
-        }
-        
-    function increasePage(){
-        if(page.value != 2){
-            page.value++
-            console.log(page.value)
-        }
-    }
-    
-    function saveRecipe(){
-        if(!window.user){
-            createPopup('Hey!', 'Login to save your favourite recipes!', 'is-warning')
-        } else {
-            createPopup('Success!', 'Added to favourites!', 'is-info')
-        }
-    }
-    
-    function nextRecipe(){
-        
+        },
+        computed: {
+
+        },
+        methods: {
+            decreasePage(){
+                if(this.page != 0){
+                    this.page--
+                }
+            },
+            increasePage(){
+                if(this.page != 2){
+                    this.page++
+                }
+            },
+            saveRecipe(){
+                if(!window.user){
+                    createPopup('Hey!', 'Login to save your favourite recipes!', 'is-warning')
+                } else {
+                    createPopup('Success!', 'Added to favourites!', 'is-info')
+                }
+            },
+            fetchData(){
+                axios
+                .get('http://localhost:3000/api/recipes')
+                .then(response => {
+                  this.data = response.data;
+                  console.log(this.data)
+                })
+                .catch(error => {
+                  console.log(error);
+                });
+            }
+        },
     }
     
     function hide(){
@@ -77,7 +92,6 @@
             })
         }, 1500)
     }
-    
     function createPopup(header, message, color){
         let popupParent = document.querySelector('.recipe-container')
         let article = document.createElement('article')
@@ -94,17 +108,5 @@
         article.append(content)
         popupParent.append(article)
         hide()
-    }
-    
-    function fetchData(){
-        axios
-        .get('http://localhost:3000/api/recipes')
-        .then(response => {
-          this.data = response.data;
-          console.log(this.data)
-        })
-        .catch(error => {
-          console.log(error);
-        });
     }
 </script>
