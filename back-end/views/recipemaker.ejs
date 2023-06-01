@@ -28,15 +28,15 @@
     <div>
         <label for="isDessert">Dessert?</label>
         <select name="isDessert" id="isDessert">
-            <option value="1" name="dessert1">Yes</option>
-            <option value="2" name="dessert2">No</option>
+            <option value=true>Yes</option>
+            <option value=false>No</option>
         </select>
     </div>
     <h2>Instructions</h2>   
     <div>
         <span>Step 1 </span><input type="text" id="instructions" name="instructions" required>
     </div>
-    <button onclick="">Add Step</button>
+    <button onclick="addStep();">Add Step</button>
     <br>
     <button type="submit">Upload</button>
 </form>

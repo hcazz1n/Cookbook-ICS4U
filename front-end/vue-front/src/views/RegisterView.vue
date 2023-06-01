@@ -6,28 +6,28 @@
         @submit.prevent="login"
       >
         <div class="column">
-          <label for="name">Name</label>
+          <label for="Name">Name</label>
           <input v-model = "name" class="input input-border" type="text" placeholder="e.g. John Smith" name="name"/>
         </div>
         <div class="column">
-          <label for="username">Username</label>
-          <input v-model = "username" class="input input-border" type="text" placeholder="e.g. JohnSmith1234" name="username"/>
+          <label for="Username">Username</label>
+          <input v-model = "Username" class="input input-border" type="text" placeholder="e.g. JohnSmith1234" name="username"/>
         </div>
         <div class="column">
           <label for="password">Password</label>
           <input v-model = "password" class="input input-border" type="text" placeholder="Enter your password." name="password"/>
         </div>
         <div class="column">
-          <label for="dsecription">Description</label>
-          <input v-model = "description" class="input input-border" type="text" placeholder="Tell us a little bit about yourself!" name="description"/>
+          <label for="description">Description</label>
+          <input v-model = "bio" class="input input-border" type="text" placeholder="Tell us a little bit about yourself!" name="description"/>
         </div>
         <div class="column">
-          <label for="username">Profile Picture</label>
-          <input v-model = "pfp" class="input input-border" type="text" placeholder="Paste the image link here." name="pfp"/>
+          <label for="profilePic">Profile Picture</label>
+          <input v-model = "profilePic" class="input input-border" type="text" placeholder="Paste the image link here." name="pfp"/>
         </div>
         <div class="column">
           <button class="button login-register-button is-fullwidth" type="submit" @click="register()">
-            Login
+            Register
           </button>
         </div>
       </div>
@@ -46,20 +46,25 @@ window.addEventListener('load', function() {
 export default {
   data(){
     return{
-      Name: '',
+      name: '',
       Username: '',
       password: '',
-      description: ''
+      bio: '',
+      profilePic: '',
     }
   },
   methods: {
     register() {
+      console.log(this.name)
+      console.log(this.Username)
+      console.log(this.bio)
       axios
         .post('http://localhost:3000/register', {
-          "name": this.Name,
-          "Username": this.Username,
-          "password": this.password,
-          "description": this.description
+            "name": this.name,
+            "userName": this.Username,
+            "password": this.password,
+            "profilePic": this.profilePic,
+            "bio": this.bio,
       })
         .then((response) => {
           this.data = response.data
