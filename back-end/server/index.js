@@ -154,7 +154,6 @@ app.post('/recipe', async (req, res) => {
     const data = {
       name: capitalizeFirst(req.body.name),
       author: req.body.author,
-      description: req.body.description,
       ingredients: req.body.ingredients.split(', '),
       keywords: req.body.keywords.split(', '),
       images: req.body.images,

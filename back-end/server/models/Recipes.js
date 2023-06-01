@@ -12,9 +12,6 @@ const recipeSchema = new mongoose.Schema({
         type: String,
         },
     ],
-    description: {
-        type: String,
-    },
     keywords: [
         {
         type: String,
