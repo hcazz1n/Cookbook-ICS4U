@@ -401,7 +401,7 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     display: flex;
     flex-direction: column;
     justify-self: flex-start;
-    top: 12%;
+    top: 13%;
     left: 5%;
     line-height: 2.5;
     grid-row: 1/3;
