@@ -81,6 +81,7 @@ export default {
           this.data = response.data
           console.log(this.data)
           localStorage.setItem('user_id', this.data._id)
+          localStorage.setItem('userName', this.data.userName)
           this.$router.push('/account')
           console.log("logged in")
         })
