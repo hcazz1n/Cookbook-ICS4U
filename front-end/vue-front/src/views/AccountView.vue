@@ -47,6 +47,7 @@ export default {
           this.user=response.data
           console.log(this.user.userName);
           console.log(this.user.bio)
+          console.log(this.user.favouriteRecipes)
         })
         .catch(error=>{
           console.log(error);

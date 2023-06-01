@@ -125,6 +125,7 @@ app.post('/register', (req, res) => {
             password: hash,
             isAdmin: true,
             bio: req.body.description,
+            favouriteRecipes: []
           })
           res.send(user)
         })
