@@ -178,6 +178,8 @@ app.post('/recipe', async (req, res) => {
   } catch (err) {
     res.status(500).send(err.message)
   }
+
+
 })
 
 app.get('/api/recipes', async (req, res) => {
@@ -187,6 +189,10 @@ app.get('/api/recipes', async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: err.message })
   }
+})
+
+app.get('/instructions', (req, res) => {
+  res.render('instructions.ejs');
 })
 
 //Port info
