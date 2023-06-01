@@ -168,10 +168,9 @@ app.post('/recipe', async (req, res) => {
       description: req.body.description,
       ingredients: req.body.ingredients.split(', '),
       keywords: req.body.keywords.split(', '),
-      images: req.body.images.split(', '),
+      images: req.body.images,
       isDessert: req.body.isDessert.value,
     }
-
     const recipe = await Recipe.create(data)
     res.send(recipe)
   } catch (err) {
