@@ -71,6 +71,11 @@
 </template>
 
 <script setup>
+
+    window.addEventListener('load', function() {
+            window.scrollBy(0, -2000) 
+    })
+    
     function clear1(){  
         let name = document.getElementById('name')
         let author = document.getElementById('author')

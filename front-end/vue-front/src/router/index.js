@@ -8,7 +8,7 @@ const routes = [
     {path: '/recipes', name: 'Recipes', component: () => import('../views/RecipeView.vue')},
     {path: '/login', name: 'Login', component: () => import('../views/LoginView.vue')},
     {path: '/register', name: 'Register', component: () => import('../views/RegisterView.vue')},
-    {path: '/addrecipe', name: 'Add Recipe', component: () => import('../views/AddRecipeView.vue')},
+    {path: '/addrecipe', name: 'Add Recipe', component: () => import('../views/AddRecipeView.vue'), meta: {requiresAccount: true}},
     {path: '/test', name: 'Test', component: () => import('../views/TestView.vue')},
 ]
 
