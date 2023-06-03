@@ -163,7 +163,7 @@ app.post('/recipe', async (req, res) => {
       keywords: req.body.keywords.split(', '),
       images: req.body.images,
       isDessert: req.body.isDessert,
-      instructions: []
+      instructions: req.body.instructions.split(/\r?\n/) //splits the parsed new line 
     }
     const recipe = await Recipe.create(data);
     res.send(recipe);
