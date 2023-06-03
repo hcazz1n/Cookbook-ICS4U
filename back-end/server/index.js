@@ -97,6 +97,11 @@ app.get('/secret', (req, res) => {
     res.redirect('/')
   }
 })
+
+app.get('/update', (req, res)=>{
+  res.render('update.ejs')
+})
+
 //Creates a new user per registration
 app.post('/register', (req, res) => {
   try {
@@ -110,12 +115,14 @@ app.post('/register', (req, res) => {
           }
         })
         .catch((err)=>{
-          console.log('hello')
+          let admin;
+          if(req.body.userName === "Cookbook"&& req.body.password === "Cookbook") admin = true;
+          else admin = false;
           const user = User.create({
             name: req.body.name,
             userName: req.body.userName,
             password: hash,
-            isAdmin: true,
+            isAdmin: admin,
             profilePic: req.body.profilePic,
             bio: req.body.bio,
             favouriteRecipes: [],
