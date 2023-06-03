@@ -155,6 +155,23 @@ app.get('/api/users/:id', async (req, res) => {
     res.status(500).json({ error: err.message })
   }
 })
+
+app.put('/api/:user', function (req, res) {
+  var user = req.user;
+  user = _.extend(user, req.body);
+
+  user.save(function(err) {
+    if (err) {
+      return res.send('/user', {
+        errors: err.errors,
+        user: user
+      });
+    } else {
+      res.jsonp(user);
+    }   
+  });
+});
+
 // Recipe methods
 app.get('/addrecipe', (req, res) => {
   console.log('zzzzz')
