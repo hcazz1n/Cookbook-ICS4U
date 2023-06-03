@@ -37,7 +37,7 @@
                     </div>
                     <div id="contact-info-column" class="column">
                         <p class="contact-header">EMAIL ADDRESS</p>
-                        <p class="contact-info">ihate@petahgriffin.com</p>
+                        <p class="contact-info">ihate@petah.com</p>
                     </div>
                 </div>
                 
