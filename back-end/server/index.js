@@ -155,6 +155,23 @@ app.get('/api/users/:id', async (req, res) => {
     res.status(500).json({ error: err.message })
   }
 })
+
+app.put('/api/:user', function (req, res) {
+  var user = req.user;
+  user = _.extend(user, req.body);
+
+  user.save(function(err) {
+    if (err) {
+      return res.send('/user', {
+        errors: err.errors,
+        user: user
+      });
+    } else {
+      res.jsonp(user);
+    }   
+  });
+});
+
 // Recipe methods
 app.get('/recipe', (req, res) => {
   console.log('zzzzz')
@@ -167,7 +184,6 @@ app.post('/recipe', async (req, res) => {
       name: capitalizeFirst(req.body.name),
       author: req.body.author,
       ingredients: req.body.ingredients.split(', '),
-      keywords: req.body.keywords.split(', '),
       images: req.body.images,
       isDessert: req.body.isDessert,
       instructions: req.body.instructions.split(/\r?\n/) //splits the parsed new line 
