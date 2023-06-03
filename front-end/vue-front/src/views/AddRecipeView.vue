@@ -29,13 +29,6 @@
                     
                     <div class="field add-recipe-field">
                         <div class="control has-icons-right">
-                            <label for="keywords" class="label">Keywords</label>
-                            <input id="keywords" name="keywords" class="input input-border" type="text" @keyup="canSubmit()">
-                        </div>
-                    </div>
-                    
-                    <div class="field add-recipe-field">
-                        <div class="control has-icons-right">
                             <label for="Images" class="label">Image</label>
                             <input id="images" name="images" class="input input-border" type="text" @keyup="canSubmit()">
                         </div>
@@ -122,14 +115,12 @@
             let name = document.getElementById('name')
             let author = document.getElementById('author')
             let ingredients = document.getElementById('ingredients')
-            let keywords = document.getElementById('keywords')
             let instructions = document.getElementById('instructions')
             let image = document.getElementById('images')
         
             name.value = ''
             author.value = ''
             ingredients.value = ''
-            keywords.value = ''
             instructions.value = ''
             image.value = ''
         },
@@ -137,11 +128,10 @@
             let name = document.getElementById('name')
             let author = document.getElementById('author')
             let ingredients = document.getElementById('ingredients')
-            let keywords = document.getElementById('keywords')
             let instructions = document.getElementById('instructions')
             let image = document.getElementById('images')
         
-            if(name.value != '' && author.value != '' && ingredients.value != '' && keywords.value != '' && instructions.value != '' && image.value != '')
+            if(name.value != '' && author.value != '' && ingredients.value != '' && instructions.value != '' && image.value != '')
                 document.getElementById('submit-button').disabled = false
             else
                 document.getElementById('submit-button').disabled = true
