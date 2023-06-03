@@ -485,6 +485,38 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     border: 1px solid #a10913;
 }
 
+.input-border:hover{
+    border: 1px solid #2e6b91;
+}
+
+/*AddRecipe Page*/
+
+.select:not(.is-multiple):not(.is-loading)::after{
+    border-color: #a10913;
+}
+
+.add-recipe-panel{
+    width: 70%;
+    margin: 5% auto;
+}
+
+#clear-button{
+    background-color: rgb(254, 236, 236);
+    color: #a10913;
+}
+
+#submit-button{
+    background-color: #bf313a;
+    color: white;
+    margin-left: 10px;
+}
+
+.add-recipe-field{
+    width: 93.5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /*Contact Page*/
 #contact-hero{
     min-height: 32.23vh;
