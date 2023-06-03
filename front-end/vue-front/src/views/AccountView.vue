@@ -36,7 +36,6 @@ window.addEventListener('load', function() {
 
 export default {
   data() {
-    /*unimportant*/
     return {
       recipes: [],
       filteredRecipes: [],

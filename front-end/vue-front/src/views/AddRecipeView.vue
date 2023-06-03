@@ -70,40 +70,82 @@
     </div>
 </template>
 
-<script setup>
+<script>
+    import axios from 'axios'
 
     window.addEventListener('load', function() {
             window.scrollBy(0, -2000) 
     })
     
-    function clear1(){  
-        let name = document.getElementById('name')
-        let author = document.getElementById('author')
-        let ingredients = document.getElementById('ingredients')
-        let keywords = document.getElementById('keywords')
-        let instructions = document.getElementById('instructions')
-        let image = document.getElementById('images')
-    
-        name.value = ''
-        author.value = ''
-        ingredients.value = ''
-        keywords.value = ''
-        instructions.value = ''
-        image.value = ''
+    export default {
+      data() {
+        return {
+          recipes: [],
+          filteredRecipes: [],
+          user: [],
+        }
+      },
+      methods: {
+        fetchRecipes() {
+          var userName = sessionStorage.getItem('userName')
+          axios
+            .get('http://localhost:3000/api/recipes')
+            .then((response) => {
+              this.recipes = response.data
+              console.log(this.recipes)
+              for (let i = 0; i < this.recipes.length; i++) {
+                if (this.recipes[i].author === userName) {
+                  this.filteredRecipes = [...this.filteredRecipes, this.recipes[i]]
+                }
+              }
+              console.log(this.filteredRecipes)
+            })
+            .catch((error) => {
+              console.log(error)
+            })
+        },
+        fetchUsers() {
+          var user_id = sessionStorage.getItem('user_id')
+          axios
+            .get(`http://localhost:3000/api/users/${user_id}`)
+            .then((response) => {
+              this.user = response.data
+              console.log(this.user.userName)
+              console.log(this.user.bio)
+              console.log(this.user.favouriteRecipes)
+            })
+            .catch((error) => {
+              console.log(error)
+            })
+        },
+        clear1(){  
+            let name = document.getElementById('name')
+            let author = document.getElementById('author')
+            let ingredients = document.getElementById('ingredients')
+            let keywords = document.getElementById('keywords')
+            let instructions = document.getElementById('instructions')
+            let image = document.getElementById('images')
+        
+            name.value = ''
+            author.value = ''
+            ingredients.value = ''
+            keywords.value = ''
+            instructions.value = ''
+            image.value = ''
+        },
+        canSubmit(){
+            let name = document.getElementById('name')
+            let author = document.getElementById('author')
+            let ingredients = document.getElementById('ingredients')
+            let keywords = document.getElementById('keywords')
+            let instructions = document.getElementById('instructions')
+            let image = document.getElementById('images')
+        
+            if(name.value != '' && author.value != '' && ingredients.value != '' && keywords.value != '' && instructions.value != '' && image.value != '')
+                document.getElementById('submit-button').disabled = false
+            else
+                document.getElementById('submit-button').disabled = true
+        }
+      }
     }
-    
-    function canSubmit(){
-        let name = document.getElementById('name')
-        let author = document.getElementById('author')
-        let ingredients = document.getElementById('ingredients')
-        let keywords = document.getElementById('keywords')
-        let instructions = document.getElementById('instructions')
-        let image = document.getElementById('images')
-    
-        if(name.value != '' && author.value != '' && ingredients.value != '' && keywords.value != '' && instructions.value != '' && image.value != '')
-            document.getElementById('submit-button').disabled = false
-        else
-            document.getElementById('submit-button').disabled = true
-    }
-
 </script>
