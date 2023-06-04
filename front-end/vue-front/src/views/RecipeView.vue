@@ -51,6 +51,7 @@
 
 <script>
 import axios from 'axios'
+import TheRecipeTitlePageVue from '../components/TheRecipeTitlePage.vue'
 
 window.addEventListener('load', function () {
   window.scrollBy(0, -2000)
@@ -108,7 +109,7 @@ export default {
       }
     },
     nextRecipe() {
-      console.log(1234)
+      this.recipe.id++
     },
     fetchRecipes() {
       axios
@@ -121,9 +122,24 @@ export default {
           console.log(error)
         })
     },
-  },
+    fetchUsers(){
+      var user_id = sessionStorage.getItem('user_id')
+      axios
+        .get(`http://localhost:3000/api/users/${user_id}`)
+        .then((response) => {
+          this.user = response.data
+          console.log(this.user.userName)
+          console.log(this.user.bio)
+          console.log(this.user.favouriteRecipes)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    }
+  },  
   beforeMount() {
     this.fetchRecipes()
+    this.fetchUsers()
   },
 }
 
