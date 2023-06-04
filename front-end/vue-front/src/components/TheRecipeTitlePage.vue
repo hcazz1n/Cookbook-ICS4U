@@ -14,7 +14,7 @@
             }
         },
         props:{
-            id: {type: Number, required: true}
+            id: {type: Number, required: true},
         },
         computed: {
             recipe(){
@@ -24,6 +24,10 @@
             }
         },
         methods:{
+            nextRecipe(){
+                this.recipe.id++
+                console.log(1234)
+            },
             fetchRecipes(){
                 axios
                 .get('http://localhost:3000/api/recipes')
