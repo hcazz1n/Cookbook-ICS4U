@@ -1,7 +1,7 @@
 <template>
     <div class="ingredient-instruction-title is-size-1 has-text-black">Instructions</div>
     <ul v-if="recipe" class="ingredient-instruction-list">
-        <li class="animate__animated animate__fadeIn is-size-6" v-for="instruction in recipe.instructions" :key="instruction.id">{{ instructions }}</li>
+        <li class="animate__animated animate__fadeIn is-size-6" v-for="instruction in recipe.instructions" :key="instruction.id">{{ instruction }}</li>
     </ul>
 </template>
 
@@ -12,7 +12,17 @@
         data(){
             return{
                 data: [],
-                page: 0
+                page: 2
+            }
+        },
+        props:{
+            id: {type: Number, required: true}
+        },
+        computed: {
+            recipe(){
+                return this.data.find(
+                    (recipe) => recipe.id === this.id
+                )
             }
         },
         methods:{

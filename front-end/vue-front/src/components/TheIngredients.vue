@@ -12,7 +12,7 @@
         data(){
             return{
                 data: [],
-                page: 0
+                page: 1
             }
         },
         props:{

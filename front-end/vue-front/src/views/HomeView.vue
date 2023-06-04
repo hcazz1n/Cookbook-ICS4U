@@ -45,7 +45,7 @@
                 }
                 setTimeout(() => {
                     routerLink.setAttribute('href', '/recipeselector')
-                    routerLink.classList.add('animate__animated')
+                    routerLink.classList.add('animate__animated', 'animate__fadeInUp')
                     const button = document.createElement('div')
                     button.classList.add('button', 'has-text-weight-light', 'homepage-buttons', 'is-size-5', 'animate__animated', 'animate__fadeInUp')
                     button.textContent = 'View The Recipes!'

@@ -100,12 +100,11 @@ export default {
     saveRecipe() {
       if (!window.user) {
         createPopup(
-          'Hey!',
           'Login to save your favourite recipes!',
           'is-warning'
         )
       } else {
-        createPopup('Success!', 'Added to favourites!', 'is-info')
+        createPopup('Added to favourites!', 'is-info')
       }
     },
     nextRecipe() {
@@ -136,19 +135,13 @@ function hide() {
     })
   }, 1500)
 }
-function createPopup(header, message, color) {
+function createPopup(message, color) {
   let popupParent = document.querySelector('.recipe-container')
   let article = document.createElement('article')
   article.classList.add('save-popup', 'message', color)
-  let head = document.createElement('div')
-  head.classList.add('message-header')
-  let headText = document.createElement('strong')
-  headText.textContent = header
-  head.append(headText)
   let content = document.createElement('div')
-  content.classList.add('message-body', color)
+  content.classList.add('message-body', 'has-text-centered', color)
   content.textContent = message
-  article.append(head)
   article.append(content)
   popupParent.append(article)
   hide()
