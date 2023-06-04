@@ -576,7 +576,7 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 #account-profile-container{
     background-color: #e7d9cd;
     border-radius: 3rem;
-    margin-top: 10.5rem;
+    /* margin-top: 10.5rem; */
     padding-top: 15px;
 }
 
@@ -585,6 +585,11 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     border-radius: 3rem;
     padding-top: 15px;  
     padding-bottom: 55vh;
+}
+
+#account-profile-hero{
+    justify-content:center;
+    align-items: center;
 }
 
 .profile-circle {
@@ -624,144 +629,12 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 }
 
 #favourite-recipes{
-    margin-top: 8.25rem;
+    /* margin-top: 8.25rem; */
     display: flex;
     align-items: center;
 }
 
-/* *, *:before, *:after 
-{ box-sizing: border-box; }
-
-html { font-size: 18px; }
-
-.body {
-   display: none;
-   color: #e0e4cc;
-   font-size: 1.2em;
-   line-height: 1.6;
-   background: #4F4846;
-   overflow-x: hidden;
+#logout{
+    width: 100%;
+    margin-bottom: 10px;
 }
-
-label .menu {
-  position: absolute;
-  right: -100px;
-  top: -100px;
-  z-index: 100;
-  width: 190px;
-  height: 157px;
-  background: #57273F;
-  border-radius: 50% 50% 50% 50%;
-  -webkit-transition: .5s ease-in-out;
-  transition: .5s ease-in-out;
-  box-shadow: 0 0 0 0 #57273F, 0 0 0 0 #57273F;
-  cursor: pointer;
-  
-}
-
-label .hamburger {
-  position: absolute;
-  top: 130px;
-  left: 40px;
-  width: 30px;
-  height: 2px;
-  background: #266150;
-  display: block;
-  -webkit-transform-origin: center;
-  transform-origin: center;
-  -webkit-transition: .5s ease-in-out;
-  transition: .5s ease-in-out;
-}
-
-label .hamburger:after, label .hamburger:before {
-  -webkit-transition: .5s ease-in-out;
-  transition: .5s ease-in-out;
-  content: "";
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: #266150;
-}
-
-label .hamburger:before { top: -10px; }
-
-label .hamburger:after { bottom: -10px; }
-
-label input { display: none; }
-
-label input:checked + .menu {
-  box-shadow: 0 0 0 100vw #57273F, 0 0 0 100vh #57273F;
-  border-radius: 0;
-  
-}
-
-label input:checked + .menu .hamburger {
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-  
-}
-
-label input:checked + .menu .hamburger:after {
-  -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
-  bottom: 0;
-  
-}
-
-label input:checked + .menu .hamburger:before {
-  -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
-  top: 0;
-  
-}
-
-label input:checked + .menu + ul { opacity: 1; }
-
-label ul {
-  z-index: 200;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  -webkit-transition: .25s 0s ease-in-out;
-  transition: 0.25s 0.15s ease-in-out;
-  background-color: #FDF8F5;
-  border-radius: 30px;
-}
-
-label ul li {
-   margin: 10px 20px 10px 20px !important;
-}
-
-label a {
-  margin-bottom: 1em;
-  display: block;
-  color: #4F4846;
-  text-decoration: none;
-
-}
-
-@media(max-width:1145px){
-
- 
-     .body{
-       display: contents;
-     }
- 
-     .navbar ul{
-       flex-direction: column;
-       align-items: center;
-     }
- 
-     .navbar .container li{
-       display: none;
-     }
- 
- 
-     
-     
-    
- } */

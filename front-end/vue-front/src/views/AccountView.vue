@@ -1,6 +1,6 @@
 <template>
+   <button id="logout" class="login-register-button logout" @click = "logout()">Logout</button>
   <section class="hero is-fullheight-with-navbar has-text-centered" id="account-profile-hero">
-    <button class="login-register-button logout" @click = "logout()">Logout</button>
     <div class="columns" id="account-columns">
       <div class="column is-3 is-offset-1" id="profile-column">
         <div class="container" id="account-profile-container">

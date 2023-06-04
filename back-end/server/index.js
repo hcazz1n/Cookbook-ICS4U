@@ -155,24 +155,43 @@ app.get('/api/users/:id', async (req, res) => {
     res.status(500).json({ error: err.message })
   }
 })
+
+app.put('/api/:user', function (req, res) {
+  var user = req.user;
+  user = _.extend(user, req.body);
+
+  user.save(function(err) {
+    if (err) {
+      return res.send('/user', {
+        errors: err.errors,
+        user: user
+      });
+    } else {
+      res.jsonp(user);
+    }   
+  });
+});
+
 // Recipe methods
-app.get('/recipe', (req, res) => {
+app.get('/addrecipe', (req, res) => {
   console.log('zzzzz')
   res.render('recipemaker.ejs')
 })
-app.post('/recipe', async (req, res) => {
+app.post('/addrecipe', async (req, res) => {
+  console.log(req.body)
+  console.log(req.body.ingredients.split(', '));
+  console.log(req.body.instructions);
   try {
-    console.log(req.body)
     const data = {
       name: capitalizeFirst(req.body.name),
       author: req.body.author,
       ingredients: req.body.ingredients.split(', '),
-      keywords: req.body.keywords.split(', '),
       images: req.body.images,
       isDessert: req.body.isDessert,
       instructions: req.body.instructions.split(/\r?\n/) //splits the parsed new line 
     }
     const recipe = await Recipe.create(data);
+    console.log("made it")
     res.send(recipe);
   } catch (err) {
     res.status(500).send(err.message);
