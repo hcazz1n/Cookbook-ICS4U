@@ -58,9 +58,6 @@
               <li class="animate__animated animate__fadeIn is-size-6" v-for="instruction in recipe.instructions" :key="instruction.id">{{ instruction }}</li>
           </ul>
       </div>
-      <!-- <TheRecipeTitlePage v-if="page == 0" />
-      <TheIngredients v-else-if="page == 1" />
-      <TheInstructions v-else-if="page == 2" /> -->
     </div>
   </section>
 </template>

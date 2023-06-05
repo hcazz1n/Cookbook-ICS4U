@@ -29,6 +29,11 @@
     background-color: #57273F;
 }
 
+a.navbar-item{
+    background-color: #57273F;
+    color: white !important;
+}
+
 a.navbar-item:active {
     background-color: #57273F;
     color: white !important;
@@ -48,6 +53,7 @@ a.navbar-item:hover {
 a.navbar-item:focus, a.navbar-item:focus-within{
     color: #343434;
 }
+
 
 .footer {
     padding: 1rem;

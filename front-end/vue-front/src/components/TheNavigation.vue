@@ -14,7 +14,7 @@
 
           <router-link class="navbar-item" to="/recipeselector" >Recipes</router-link>
 
-          <router-link class="navbar-item" to="/contact" >Contact Us</router-link>
+          <router-link class="navbar-item contact-us-navbar-link" to="/contact" >Contact Us</router-link>
           
 
           <div class="navbar-item">
