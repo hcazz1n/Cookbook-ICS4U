@@ -2,59 +2,21 @@
     <section id="home-title-hero" class="hero is-fullheight">
         <div class="homepage-container container">
             <h1 class="homepage-title has-text-white">COOKBOOK</h1>
-            <router-link to="#" v-scroll-to="{element: '#home-mission-statement', easing: [0.65, 0, 0.35, 1], duration: 1600}"><div class="button has-text-weight-light homepage-buttons is-size-5">Learn More</div></router-link>
+            <router-link to="#" v-scroll-to="{element: '#home-mission-statement', easing: [0.65, 0, 0.35, 1], duration: 1600}"><div class="button has-text-weight-light homepage-buttons is-size-5">Let's Go!</div></router-link>
         </div>
     </section>
     <section ref="missBackground" id="home-mission-statement" class="hero is-fullheight">
         <div class="homepage-container-2 container">
-            <h2 class="mission-title">Our Mission</h2>
-            <div ref="mission" class="mission">
-            </div>
-            <div ref="toPage" style="display: flex; justify-content: center; padding-top: 25px;"></div>
+            <router-link to="recipes">
+                <div class="screen">
+                    <div class="screen-image" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=962&q=80"></div>
+                    <div class="screen-overlay"></div>
+                    <div class="screen-content">Recipes</div>
+                </div>
+            </router-link>
         </div>
     </section>
 </template>
 
 <script setup> 
-    import {ref, onMounted} from 'vue'
-
-    const mission = ref()
-    const toPage = ref()
-    const missBackground = ref()
-    let mparagraphs = ['Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, esse quisquam quaerat repudiandae nostrum possimus deleniti ab fuga at dolore. Voluptatum, necessitatibus. Suscipit, consequuntur voluptates quibusdam saepe vel tempora, porro quo blanditiis esse officiis perferendis nihil quidem odit laboriosam? Adipisci ex aspernatur cupiditate omnis voluptas quibusdam? Nam esse omnis saepe animi odit eum cupiditate, vel doloribus quod architecto asperiores, tempora quis laboriosam sapiente Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, esse quisquam quaerat repudiandae nostrum possimus deleniti ab fuga at dolore.', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, esse quisquam quaerat repudiandae nostrum possimus deleniti ab fuga at dolore. Voluptatum, necessitatibus. Suscipit, consequuntur voluptates quibusdam saepe vel tempora, porro quo blanditiis esse officiis perferendis nihil quidem odit laboriosam? Adipisci ex aspernatur cupiditate omnis voluptas quibusdam? Nam esse omnis saepe animi odit eum cupiditate, vel doloribus quod architecto asperiores, tempora quis laboriosam sapiente Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, esse quisquam quaerat repudiandae nostrum possimus deleniti ab fuga at dolore.', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, esse quisquam quaerat repudiandae nostrum possimus deleniti ab fuga at dolore. Voluptatum, necessitatibus. Suscipit, consequuntur voluptates quibusdam saepe vel tempora, porro quo blanditiis esse officiis perferendis nihil quidem odit laboriosam? Adipisci ex aspernatur cupiditate omnis voluptas quibusdam? Nam esse omnis saepe animi odit eum cupiditate, vel doloribus quod architecto asperiores, tempora quis laboriosam sapiente Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi, esse quisquam quaerat repudiandae nostrum possimus deleniti ab fuga at dolore.']
-    let hasRun = false;
-
-    onMounted(() => {
-        const homeTitleHero = document.getElementById('home-title-hero')
-        const homeMissionStatement = document.getElementById('home-mission-statement')
-        const routerLink = document.createElement('a')
-        homeTitleHero.addEventListener('click', generateMission)
-        homeMissionStatement.addEventListener('mouseover', generateMission) 
-    
-        function generateMission(){
-            if(!hasRun){
-                let timerCount = 0
-                for(let i=0; i<mparagraphs.length; i++){
-                    setTimeout(() => {
-                    const p = document.createElement('p')
-                    p.textContent = mparagraphs[i]
-                    p.classList.add('animate__animated', 'animate__fadeInUp', 'mission-p')
-                    mission.value.appendChild(p)
-                    }, i*500 + 400)
-                    timerCount = i
-                }
-                setTimeout(() => {
-                    routerLink.setAttribute('href', '/recipeselector')
-                    routerLink.classList.add('animate__animated', 'animate__fadeInUp')
-                    const button = document.createElement('div')
-                    button.classList.add('button', 'has-text-weight-light', 'homepage-buttons', 'is-size-5', 'animate__animated', 'animate__fadeInUp')
-                    button.textContent = 'View The Recipes!'
-                    routerLink.appendChild(button)
-                    toPage.value.appendChild(routerLink)
-                }, timerCount*500 + 900)
-                
-                hasRun = true
-            }
-        }
-    })
 </script>
