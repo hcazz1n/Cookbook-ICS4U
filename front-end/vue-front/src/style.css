@@ -388,6 +388,20 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     grid-column: 1/3;
 }
 
+.title-page-recipe-view{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    grid-row: 2/3;
+    grid-column: 1/3;
+}
+
+.ingredient-instruction-title-recipe-view{
+    display: flex;
+    justify-content: center;
+    grid-column: 1/3;
+}
+
 .recipe-buttons{
     display: flex;
     flex-direction: column;
@@ -409,6 +423,19 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 .recipe-button:hover{
     border: 1px solid #ffffff;
     background-color: #37405A;
+    color: #ffffff;
+}
+
+.delete-button{
+    color: #a10913;
+    border: 1px solid #a10913;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.delete-button:hover{
+    border: 1px solid #ffffff;
+    background-color: #a10913;
     color: #ffffff;
 }
 

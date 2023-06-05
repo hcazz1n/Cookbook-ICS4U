@@ -18,10 +18,12 @@
       <div @click="saveRecipe" class="button recipe-button">
         <span class="icon"><i class="fa-solid fa-bookmark"></i></span>
       </div>
+      <div @click="deleteRecipe" class="button recipe-button delete-button">
+        <span class="icon"><i class="fa-solid fa-x"></i></span>
+      </div>
       <div @click="nextRecipe" class="button recipe-button skip-button">
         <span class="icon"
-          ><i class="fa-solid fa-arrow-right-from-bracket"></i
-        ></span>
+          ><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
       </div>
     </div>
 
@@ -42,17 +44,17 @@
     </div>
 
     <div class="recipe-box box">
-      <div v-if="page == 0">
+      <div class="title-page-recipe-view" v-if="page == 0">
         <img v-if="recipe" class="recipe-img animate__animated animate__fadeIn" :src="`${this.recipe.images}`">
         <div v-if="recipe" class="recipe-title is-size-1 has-text-black animate__animated animate__fadeIn" :key="recipe.id">{{ recipe.name }}</div>
       </div>
-      <div v-else-if="page == 1">
+      <div class="ingredient-instruction-title-recipe-view" v-else-if="page == 1">
         <div class="ingredient-instruction-title is-size-1 has-text-black animate__animated animate__fadeIn">Ingredients</div>
         <ul v-if="recipe" class="ingredient-instruction-list">
             <li class="animate__animated animate__fadeIn is-size-6" v-for="ingredient in recipe.ingredients" :key="ingredient.id">{{ ingredient }}</li>
         </ul>
       </div>
-      <div v-else-if="page == 2">
+      <div class="ingredient-instruction-title-recipe-view" v-else-if="page == 2">
         <div class="ingredient-instruction-title is-size-1 has-text-black animate__animated animate__fadeIn">Instructions</div>
           <ul v-if="recipe" class="ingredient-instruction-list">
               <li class="animate__animated animate__fadeIn is-size-6" v-for="instruction in recipe.instructions" :key="instruction.id">{{ instruction }}</li>
