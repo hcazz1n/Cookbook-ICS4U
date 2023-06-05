@@ -34,16 +34,6 @@
                     </div>
                     
                     <div class="field add-recipe-field">
-                        <label for="isDessert" class="label">Indicate if your recipe is a dessert:</label>
-                        <div class="select dessert-select">
-                            <select v-model = "isDessert" name="isDessert" id="isDessert">
-                                <option value="true">Yes</option>
-                                <option value="false">No</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="field add-recipe-field">
                         <label for="instructions" class="label">Instructions</label>
                         <textarea v-model = "instructions" id="instructions" name="instructions" class="textarea input-border" @keyup="canSubmit()" placeholder="Enter each step on a new line from the previous (Hit 'Enter')." rows="10"></textarea>
                     </div>
@@ -75,7 +65,6 @@
             author: '',
             ingredients: '',
             images: '',
-            isDessert: '',
             instructions: '',
         }
       },
@@ -85,7 +74,6 @@
             console.log(this.author);
             console.log(this.ingredients);
             console.log(this.images);
-            console.log(this.isDessert);
             console.log(this.instructions);
             axios
             .post("http://localhost:3000/addrecipe", {
@@ -93,7 +81,6 @@
                 "author": this.author,
                 "ingredients": this.ingredients,
                 "images": this.images,
-                "isDessert": this.isDessert,
                 "instructions": this.instructions
             })
             .then((response)=>{
