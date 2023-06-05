@@ -85,6 +85,7 @@
             })
             .then((response)=>{
                 console.log(response)
+                this.$router.push('/recipes')
             })
             .catch((err)=>{
                 console.log(err)

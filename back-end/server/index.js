@@ -74,10 +74,12 @@ app.get('/search', (req, res) => {
 app.post('/search', async function (req, res) {
   console.log(req.body.search)
   try {
-    Recipe.find( { 'name' : {'$regex' : req.body.search, '$options' : 'i' } } ).then((recipes) => {
-      console.log(recipes)
-      res.send(recipes)
-    })
+    Recipe.find({ name: { $regex: req.body.search, $options: 'i' } }).then(
+      (recipes) => {
+        console.log(recipes)
+        res.send(recipes)
+      }
+    )
   } catch (err) {
     res.status(500).json({ errors: 'No recipe' })
   }
@@ -85,7 +87,7 @@ app.post('/search', async function (req, res) {
 app.get('/logout', function (req, res) {
   req.logout(function (err) {
     if (err) {
-      return next(err)
+      return err
     }
     res.send('logout')
   })
@@ -98,7 +100,7 @@ app.get('/secret', (req, res) => {
   }
 })
 
-app.get('/update', (req, res)=>{
+app.get('/update', (req, res) => {
   res.render('update.ejs')
 })
 
@@ -114,10 +116,14 @@ app.post('/register', (req, res) => {
             //get front end to display text
           }
         })
-        .catch((err)=>{
-          let admin;
-          if(req.body.userName === "Cookbook"&& req.body.password === "Cookbook") admin = true;
-          else admin = false;
+        .catch((err) => {
+          let admin
+          if (
+            req.body.userName === 'Cookbook' &&
+            req.body.password === 'Cookbook'
+          )
+            admin = true
+          else admin = false
           const user = User.create({
             name: req.body.name,
             userName: req.body.userName,
@@ -126,8 +132,7 @@ app.post('/register', (req, res) => {
             profilePic: req.body.profilePic,
             bio: req.body.bio,
             favouriteRecipes: [],
-          })
-          .then((response)=>{
+          }).then((response) => {
             console.log(response)
             res.json(response)
           })
@@ -156,21 +161,26 @@ app.get('/api/users/:id', async (req, res) => {
   }
 })
 
-app.put('/api/:user', function (req, res) {
-  var user = req.user;
-  user = _.extend(user, req.body);
+app.delete('/api/recipes/:id', (req, res) => {
+  try {
+    User.deleteOne(req.params.id)
+  } catch (error) {
+    res.status(500).send(err.message)
+  }
+})
 
-  user.save(function(err) {
-    if (err) {
-      return res.send('/user', {
-        errors: err.errors,
-        user: user
-      });
-    } else {
-      res.jsonp(user);
-    }   
-  });
-});
+app.put('/api/users/:id', async (req, res) => {
+  const userId = req.params.id
+  try{
+    const result = await User.updateOne(
+      { _id: userId },
+      { $push: { favouriteRecipes: [req.body.favouriteRecipe] } }
+    )
+    console.log(result)
+  }catch(err){
+    console.log(err)
+  }
+})
 
 // Recipe methods
 app.get('/addrecipe', (req, res) => {
@@ -179,24 +189,24 @@ app.get('/addrecipe', (req, res) => {
 })
 app.post('/addrecipe', async (req, res) => {
   console.log(req.body)
-  console.log(req.body.ingredients.split(', '));
-  console.log(req.body.instructions);
+  console.log(req.body.ingredients.split(', '))
+  console.log(req.body.instructions)
   try {
     const data = {
       name: capitalizeFirst(req.body.name),
       author: req.body.author,
       ingredients: req.body.ingredients.split(', '),
       images: req.body.images,
-      isDessert: req.body.isDessert,
-      instructions: req.body.instructions.split(/\r?\n/) //splits the parsed new line 
+      instructions: req.body.instructions.split(/\r?\n/), //splits the parsed new line
     }
-    const recipe = await Recipe.create(data);
-    console.log("made it")
-    res.send(recipe);
+    const recipe = await Recipe.create(data)
+    console.log('made it')
+    res.send(recipe)
   } catch (err) {
-    res.status(500).send(err.message);
+    res.status(500).send(err.message)
   }
 })
+
 app.get('/api/recipes', async (req, res) => {
   try {
     const recipes = await Recipe.find({})
@@ -206,7 +216,6 @@ app.get('/api/recipes', async (req, res) => {
   }
 })
 
-
 //Port info
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
@@ -215,22 +224,22 @@ app.listen(PORT, () => {
 // other functions
 //capitalize first letter of each word unless it is an article
 function capitalizeFirst(str) {
-  const articles = ['a', 'an', 'the', 'and']; //articles (words that are meant to be left non-capitalized)
-  const words = str.toLowerCase().split(' ');
+  const articles = ['a', 'an', 'the', 'and'] //articles (words that are meant to be left non-capitalized)
+  const words = str.toLowerCase().split(' ')
   //capitalize the first letter of each word, except for the articles
   var capWrd = words.map((word, index) => {
     if (index === 0) {
-      return word.charAt(0).toUpperCase() + word.slice(1);
+      return word.charAt(0).toUpperCase() + word.slice(1)
     } else if (index === 0 || !articles.includes(word.toLowerCase())) {
-      return word.charAt(0).toUpperCase() + word.slice(1);
+      return word.charAt(0).toUpperCase() + word.slice(1)
     } else if (articles.includes(word.toLowerCase())) {
-      return word.charAt(0).toLowerCase() + word.slice(1);
+      return word.charAt(0).toLowerCase() + word.slice(1)
     } else {
-      return word.toLowerCase();
+      return word.toLowerCase()
     }
   })
-  const capStr = capWrd.join(' ');
+  const capStr = capWrd.join(' ')
   return capStr
 }
-console.log(capitalizeFirst('Fig And cheese'));
-console.log(capitalizeFirst('the BIG fast GUY AN rAn'));
+console.log(capitalizeFirst('Fig And cheese'))
+console.log(capitalizeFirst('the BIG fast GUY AN rAn'))

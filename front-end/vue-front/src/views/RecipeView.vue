@@ -113,14 +113,17 @@ export default {
       }
     },
     saveRecipe() {
-      if (!window.user) {
-        createPopup(
-          'Login to save your favourite recipes!',
-          'is-warning'
-        )
-      } else {
-        createPopup('Added to favourites!', 'is-info')
-      }
+      var user_id = sessionStorage.getItem('user_id')
+      console.log(this.recipe);
+      axios
+      .put(`http://localhost:3000/api/users/${user_id}`, {
+        favouriteRecipe: this.recipe
+      })
+      .then((response)=>{
+        console.log(response);
+      }).catch((err)=>{
+        console.log(err);
+      })
     },
     nextRecipe() {
       this.recipe.id++
