@@ -312,6 +312,18 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     border-color: #493453;
 }
 
+.control{
+    display: grid;
+}
+
+.searchbutton{
+    grid-column: 2/3;
+}
+
+.search-mag-glass{
+    margin-right: 3px;
+}
+
 .recipe-username{
     margin-left: 4%;
     font-size: 24px;

@@ -28,14 +28,9 @@
     </div>
 
     <div class="field search">
-      <div class="control has-icons-right">
-        <input
-          class="input"
-          type="text"
-          placeholder="Search"
-          v-model="search"
-        />
-        <div @click="searchRecipe()" class = "button">
+      <div class="control has-icons-right searchsearch">
+        <input class="input searchbar" type="text" placeholder="Search" v-model="search"/>
+        <div @click="searchRecipe()" class = "button searchbutton">
           <span class="icon is-small is-right">
               <i class="fa-solid fa-magnifying-glass search-mag-glass"></i>
           </span>
@@ -97,6 +92,9 @@ export default {
         .then((response) => {
           this.recipes = response.data
           console.log(this.recipes)
+          while(this.recipe.name != this.recipes[0].name){
+            this.recipe.id++
+          }
         })
         .catch((err) => {
           console.log(err)
