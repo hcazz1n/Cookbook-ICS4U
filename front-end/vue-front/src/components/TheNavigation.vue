@@ -12,7 +12,7 @@
           
           <router-link class="navbar-item" to="/" >Home</router-link>
 
-          <router-link class="navbar-item" to="/recipeselector" >Recipes</router-link>
+          <router-link class="navbar-item" to="/recipes" >Recipes</router-link>
 
           <router-link class="navbar-item contact-us-navbar-link" to="/contact" >Contact Us</router-link>
           
