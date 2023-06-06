@@ -18,8 +18,11 @@
       <div @click="saveRecipe" class="button recipe-button">
         <span class="icon"><i class="fa-solid fa-bookmark"></i></span>
       </div>
-      <div @click="deleteRecipe" class="button recipe-button delete-button">
+      <div @click="deleteRecipe()" class="button recipe-button delete-button">
         <span class="icon"><i class="fa-solid fa-x"></i></span>
+      </div>
+      <div @click="deleteRecipe" class="button recipe-button">
+        <span class="icon"><i class="fa-solid fa-bookmark"></i></span>
       </div>
       <div @click="nextRecipe" class="button recipe-button skip-button">
         <span class="icon"
@@ -109,6 +112,16 @@ export default {
       if (this.page != 2) {
         this.page++
       }
+    },
+    deleteRecipe(){
+      var recipeId = this.recipe._id;
+      console.log(recipeId)
+      axios
+      .delete(`http://localhost:3000/api/recipes/${recipeId}`)
+      .then((response)=>{
+        console.log(response)
+        location.reload();
+      })
     },
     saveRecipe() {
       var user_id = sessionStorage.getItem('user_id')

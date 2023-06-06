@@ -23,6 +23,7 @@
     "mongodb": "^5.2.0",
     "mongoose": "^7.0.3",
     "nodemon": "^2.0.22",
+    "objectid": "^3.2.1",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0"
   }

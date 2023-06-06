@@ -18,6 +18,7 @@ const Post = require('./models/Posts')
 const Favourite = require('./models/Favourites')
 const Comments = require('./models/Comments')
 const { hashSync } = require('bcryptjs')
+var ObjectId = require('mongodb').ObjectID
 const app = express()
 app.use(cors())
 app.use(bodyParser.json())
@@ -170,11 +171,13 @@ app.get('/api/recipes/:id', async (req, res)=>{
   }
 })
 
-app.delete('/api/recipes/:id', (req, res) => {
+app.delete('/api/recipes/:id', async (req, res) => {
   try {
-    Recipe.deleteOne(req.params.id)
+    const recipeId = req.params.id
+    const result = await Recipe.deleteOne({_id: recipeId})
+    console.log(result)
   } catch (error) {
-    res.status(500).send(err.message)
+    res.status(500).send(error.message)
   }
 })
 
