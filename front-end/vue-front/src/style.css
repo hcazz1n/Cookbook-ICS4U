@@ -282,6 +282,7 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     }
 }
 
+
 /*RecipeView*/
 .recipe-container{
     display: grid;
@@ -661,3 +662,67 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     width: 100%;
     margin-bottom: 10px;
 }
+
+
+input[type=checkbox] {
+    display: none;
+  } 
+  
+  .burger {
+    color: white;
+    display: none;
+    font-size: 24px;
+    user-select: none;
+    margin-right: 20px;
+  }
+  
+  .nav-links{
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+   .menu {
+      display:none;
+      position: absolute;
+      background-color: rgba(87,39,63,.5);
+      right: 0;
+      left: 0;
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .navbar-brand .navbar-item, .navbar-tabs .navbar-item {
+        justify-content: space-evenly;
+    }
+
+    .nav-links{
+        margin-left: auto;
+        display: block;
+        justify-content: center;
+      }
+  
+    .menu li:hover {
+      display: inline-block;
+      background-color:#4c9e9e;
+      transition: 0.3s ease;
+    }
+  
+    .menu li + li {
+      margin-top: 12px;
+    }
+  
+    input[type=checkbox]:checked ~ .menu {
+      display: block;
+    }
+  
+    .burger {
+      display: flex;
+      justify-content: flex-end;
+    }
+  
+    .dropdown {
+      left: 50%;
+      top: 30px;
+      transform: translateX(35%);
+    }
+  }
