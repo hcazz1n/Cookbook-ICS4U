@@ -9,10 +9,10 @@
         <input type="checkbox" id="checkbox_toggle" />
         <label for="checkbox_toggle" class="burger">&#9776;</label>
       <div class="menu">
-          <router-link class="navbar-item" to="/" @click="reloadPage">Home</router-link>
-          <router-link class="navbar-item" to="/recipes" @click="reloadPage">Recipes</router-link>
-          <router-link class="navbar-item contact-us-navbar-link" to="/contact" @click="reloadPage">Contact Us</router-link>
-          <router-link class="navbar-item" to="/account" @click="reloadPage">Account</router-link>
+          <router-link class="navbar-item" to="/">Home</router-link>
+          <router-link class="navbar-item" to="/recipes">Recipes</router-link>
+          <router-link class="navbar-item contact-us-navbar-link" to="/contact">Contact Us</router-link>
+          <router-link class="navbar-item" to="/account">Account</router-link>
       </div>
     </ul>
 

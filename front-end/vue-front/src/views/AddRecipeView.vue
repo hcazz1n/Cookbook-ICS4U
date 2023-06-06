@@ -8,14 +8,14 @@
                     <div class="field add-recipe-field">
                         <div class="control has-icons-right">
                             <label for="name" class="label">Recipe Name</label>
-                            <input v-model = "name" id="name" name="name" class="input input-border" type="text" @keyup="canSubmit()">
+                            <input v-model = "name" id="name" name="name" class="input input-border" type="text" @keyup="canSubmit()" placeholder="What will you name this masterpiece?">
                         </div>
                     </div>
                     
                     <div class="field add-recipe-field">
                         <div class="control has-icons-right">
                             <label for="author" class="label">Author</label>
-                            <input v-model = "author" id="author" name="author" class="input input-border" type="text" @keyup="canSubmit()">
+                            <input v-model = "author" id="author" name="author" class="input input-border" type="text" @keyup="canSubmit()" placeholder="Just to make sure its you... or to let you pick that stage name you've always dreamed about!">
                         </div>
                     </div>
                     
@@ -29,7 +29,7 @@
                     <div class="field add-recipe-field">
                         <div class="control has-icons-right">
                             <label for="Images" class="label">Image</label>
-                            <input v-model = "images" id="images" name="images" class="input input-border" type="text" @keyup="canSubmit()">
+                            <input v-model = "images" id="images" name="images" class="input input-border" type="text" @keyup="canSubmit()" placeholder="Paste an image link here to show the world what brilliant delicacies they'll be making!">
                         </div>
                     </div>
                     

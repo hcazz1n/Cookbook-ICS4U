@@ -4,7 +4,8 @@
     class="recipe-container hero is-fullheight-with-navbar has-background-lighter"
   >
     <div class="profile-container">
-      <div class="c-recipe"></div>
+      <img class="c-recipe" :src="`${this.recipe.images}`">
+      <h2 class="recipe-username-header">Curated By:</h2>
       <h2 class="recipe-username" :key="recipe.id">{{ recipe.author }}</h2>
     </div>
 
@@ -18,11 +19,8 @@
       <div @click="saveRecipe" class="button recipe-button">
         <span class="icon"><i class="fa-solid fa-bookmark"></i></span>
       </div>
-      <div @click="deleteRecipe()" class="button recipe-button delete-button">
+      <div @click="deleteRecipe" class="button recipe-button delete-button">
         <span class="icon"><i class="fa-solid fa-x"></i></span>
-      </div>
-      <div @click="deleteRecipe" class="button recipe-button">
-        <span class="icon"><i class="fa-solid fa-bookmark"></i></span>
       </div>
       <div @click="nextRecipe" class="button recipe-button skip-button">
         <span class="icon"
@@ -32,7 +30,7 @@
 
     <div class="field search">
       <div class="control has-icons-right searchsearch">
-        <input class="input searchbar" type="text" placeholder="Search" v-model="search"/>
+        <input class="input searchbar" type="text" placeholder="Search Recipes..." v-model="search"/>
         <div @click="searchRecipe()" class = "button searchbutton">
           <span class="icon is-small is-right">
               <i class="fa-solid fa-magnifying-glass search-mag-glass"></i>
@@ -44,16 +42,16 @@
     <div class="recipe-box box">
       <div class="title-page-recipe-view" v-if="page == 0">
         <img v-if="recipe" class="recipe-img animate__animated animate__fadeIn" :src="`${this.recipe.images}`">
-        <div v-if="recipe" class="recipe-title is-size-1 has-text-black animate__animated animate__fadeIn" :key="recipe.id">{{ recipe.name }}</div>
+        <div v-if="recipe" class="recipe-title has-text-black animate__animated animate__fadeIn" :key="recipe.id">{{ recipe.name }}</div>
       </div>
       <div class="ingredient-instruction-title-recipe-view" v-else-if="page == 1">
-        <div class="ingredient-instruction-title is-size-1 has-text-black animate__animated animate__fadeIn">Ingredients</div>
+        <div class="ingredient-instruction-title has-text-black animate__animated animate__fadeIn">Ingredients</div>
         <ul v-if="recipe" class="ingredient-instruction-list">
             <li class="animate__animated animate__fadeIn is-size-6" v-for="ingredient in recipe.ingredients" :key="ingredient.id">{{ ingredient }}</li>
         </ul>
       </div>
       <div class="ingredient-instruction-title-recipe-view" v-else-if="page == 2">
-        <div class="ingredient-instruction-title is-size-1 has-text-black animate__animated animate__fadeIn">Instructions</div>
+        <div class="ingredient-instruction-title has-text-black animate__animated animate__fadeIn">Instructions</div>
           <ul v-if="recipe" class="ingredient-instruction-list">
               <li class="animate__animated animate__fadeIn is-size-6" v-for="instruction in recipe.instructions" :key="instruction.id">{{ instruction }}</li>
           </ul>
@@ -68,6 +66,8 @@ import axios from 'axios'
 window.addEventListener('load', function () {
   window.scrollBy(0, -2000)
 })
+
+
 
 export default {
   data() {
@@ -116,12 +116,18 @@ export default {
     deleteRecipe(){
       var recipeId = this.recipe._id;
       console.log(recipeId)
-      axios
-      .delete(`http://localhost:3000/api/recipes/${recipeId}`)
-      .then((response)=>{
-        console.log(response)
-        location.reload();
-      })
+      if(sessionStorage.getItem('userName') == 'Cookbook'){
+        axios
+        .delete(`http://localhost:3000/api/recipes/${recipeId}`)
+        .then((response)=>{
+          console.log(response)
+          location.reload();
+        })
+        this.recipe.id++
+        this.page = 0
+      } else {
+        console.log('Nothing will happen unless you are the ADMIN.')
+      }
     },
     saveRecipe() {
       var user_id = sessionStorage.getItem('user_id')
@@ -137,7 +143,10 @@ export default {
       })
     },
     nextRecipe() {
-      this.recipe.id++
+      if(this.recipe.name != 'You Reached the End Of the Recipes! Congrats!'){
+        this.recipe.id++
+      }
+      this.page = 0
     },
     fetchRecipes() {
       axios
@@ -163,31 +172,11 @@ export default {
         .catch((error) => {
           console.log(error)
         })
-    }
+    },
   },  
   beforeMount() {
     this.fetchRecipes()
     this.fetchUsers()
   },
-}
-
-function hide() {
-  let popups = document.querySelectorAll('article')
-  setTimeout(() => {
-    popups.forEach((popup) => {
-      popup.remove()
-    })
-  }, 1500)
-}
-function createPopup(message, color) {
-  let popupParent = document.querySelector('.recipe-container')
-  let article = document.createElement('article')
-  article.classList.add('save-popup', 'message', color)
-  let content = document.createElement('div')
-  content.classList.add('message-body', 'has-text-centered', color)
-  content.textContent = message
-  article.append(content)
-  popupParent.append(article)
-  hide()
 }
 </script>
