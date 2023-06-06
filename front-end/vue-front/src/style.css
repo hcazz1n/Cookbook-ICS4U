@@ -233,11 +233,11 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 
 .screen:hover{
     transform: scale(1.05);
-    box-shadow: rgba(87, 39, 63, 0.4) 5px 5px, 
-    rgba(87, 39, 63, 0.3) 10px 10px, 
-    rgba(87, 39, 63, 0.2) 15px 15px, 
-    rgba(87, 39, 63, 0.1) 20px 20px, 
-    rgba(87, 39, 63, 0.05) 25px 25px;
+    box-shadow: rgba(79, 34, 0, 0.4) 5px 5px, 
+    rgba(79, 34, 0, 0.3) 10px 10px, 
+    rgba(79, 34, 0, 0.2) 15px 15px, 
+    rgba(79, 34, 0, 0.1) 20px 20px, 
+    rgba(79, 34, 0, 0.05) 25px 25px;
 }
 
 .screen-overlay{
