@@ -161,6 +161,15 @@ app.get('/api/users/:id', async (req, res) => {
   }
 })
 
+app.get('/api/recipes/:id', async (req, res)=>{
+  try{
+    const recipe = await Recipe.findById(req.params.id)
+    res.json(recipe);
+  }catch(err){
+    res.status(500).json({error: err.message})
+  }
+})
+
 app.delete('/api/recipes/:id', (req, res) => {
   try {
     Recipe.deleteOne(req.params.id)
