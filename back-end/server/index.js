@@ -163,7 +163,7 @@ app.get('/api/users/:id', async (req, res) => {
 
 app.delete('/api/recipes/:id', (req, res) => {
   try {
-    User.deleteOne(req.params.id)
+    Recipe.deleteOne(req.params.id)
   } catch (error) {
     res.status(500).send(err.message)
   }
