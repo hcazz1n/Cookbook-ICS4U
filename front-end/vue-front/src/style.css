@@ -99,27 +99,11 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     background-size: 105%;
     background-color: rgba(0,0,0,1);
     background-blend-mode: multiply;
-
 }
 
 .homepage-title{
     font-size: 150px;
     font-weight: 700;
-}
-
-.mission-title{
-    font-size: 75px;
-    padding-top: 4%;
-    font-weight: 700;
-}
-
-.mission{
-    padding-top: 2%;
-    line-height: 25px;
-}
-
-.mission-p{
-    padding-bottom: 25px;
 }
 
 .homepage-container{
@@ -679,50 +663,77 @@ input[type=checkbox] {
   .nav-links{
     display: none;
   }
-
-  @media (max-width: 768px) {
-   .menu {
-      display:none;
-      position: absolute;
-      background-color: rgba(87,39,63,.5);
-      right: 0;
-      left: 0;
-      text-align: center;
-      margin-top: 15px;
-    }
-
-    .navbar-brand .navbar-item, .navbar-tabs .navbar-item {
+  
+  /*Media Queries*/
+  
+  @media (max-width: 1024px) {
+    .menu {
+       display:none;
+       position: absolute;
+       background-color: rgba(74, 6, 40, 0.75);
+       right: 0;
+       left: 0;
+       text-align: center;
+       margin-top: 15px;
+     }
+ 
+     .navbar-brand .navbar-item, .navbar-tabs .navbar-item {
         justify-content: space-evenly;
-    }
-
-    .nav-links{
-        margin-left: auto;
-        display: block;
-        justify-content: center;
-      }
+     }
+ 
+     .nav-links{
+         margin-left: auto;
+         display: block;
+         justify-content: center;
+       }
+   
+     .menu li:hover {
+       display: inline-block;
+       background-color:rgb(0, 201, 228);
+     }
+   
+     .menu li + li {
+       margin-top: 12px;
+     }
+   
+     input[type=checkbox]:checked ~ .menu {
+       display: block;
+     }
+   
+     .burger {
+       display: flex;
+       margin-top: 20%;
+     }
+     
+     .burger:hover{
+        color: rgb(0, 201, 228)
+     }
+   
+     .dropdown {
+       left: 50%;
+       top: 30px;
+       transform: translateX(35%);
+     }
+   }
   
-    .menu li:hover {
-      display: inline-block;
-      background-color:#4c9e9e;
-      transition: 0.3s ease;
+  @media(max-width: 911px){
+    .homepage-title{
+        font-size: 100px;
+        font-weight: 700;
     }
-  
-    .menu li + li {
-      margin-top: 12px;
+    
+    #home-title-hero{
+        background-size: 200%;
     }
+  }
   
-    input[type=checkbox]:checked ~ .menu {
-      display: block;
+  @media(max-width: 611px){
+    .homepage-title{
+        font-size: 60px;
+        font-weight: 700;
     }
-  
-    .burger {
-      display: flex;
-      justify-content: flex-end;
-    }
-  
-    .dropdown {
-      left: 50%;
-      top: 30px;
-      transform: translateX(35%);
+    
+    #home-title-hero{
+        background-size: 250%;
     }
   }
