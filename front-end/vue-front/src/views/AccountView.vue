@@ -99,13 +99,17 @@ export default {
               .get(`http://localhost:3000/api/recipes/${recipeId}`)
               .then((response) => {
                 console.log(response.data)
+                if(response.data == null){
+                  console.log("hello")
+                }else{
                 this.objectFavouritedRecipes = [
                   ...this.objectFavouritedRecipes,
                   response.data,
                 ]
-                console.log(this.objectFavouritedRecipes)
+                }
               })
           }
+          console.log(this.objectFavouritedRecipes)
         })
         .catch((error) => {
           console.log(error)
