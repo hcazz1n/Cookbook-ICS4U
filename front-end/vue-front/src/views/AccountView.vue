@@ -1,18 +1,28 @@
 <template>
-   <button id="logout" class="login-register-button logout" @click = "logout()">Logout</button>
-  <section class="hero is-fullheight-with-navbar has-text-centered" id="account-profile-hero">
+  <button id="logout" class="login-register-button logout" @click="logout()">
+    Logout
+  </button>
+  <section
+    class="hero is-fullheight-with-navbar has-text-centered"
+    id="account-profile-hero"
+  >
     <div class="columns" id="account-columns">
       <div class="column is-3 is-offset-1" id="profile-column">
         <div class="container" id="account-profile-container">
           <div class="profile-circle"></div>
           <h1 class="username">{{ this.user.userName }}</h1>
-          <h2 class="biography"> Biography</h2>
-          <p class="biography-content"> {{this.user.bio}}</p>
+          <h2 class="biography">Biography</h2>
+          <p class="biography-content">{{ this.user.bio }}</p>
         </div>
       </div>
       <div class="column is-8" id="favourite-recipes">
         <div class="container" id="account-favourite-recipe">
-          <h1 class="title"> Favourites </h1>
+          <h1 class="title">Favourites</h1>
+          <ul>
+            <li v-for="recipe in objectFavouritedRecipes" :key="recipe.name">
+              Recipe: {{ recipe.name }}
+            </li>
+          </ul>
         </div>
         <!-- <router-link to="recipes">
             <div class="screen1-profile">
@@ -23,15 +33,14 @@
         </router-link> -->
       </div>
     </div>
-
   </section>
 </template>
 
 <script>
 import axios from 'axios'
 
-window.addEventListener('load', function() {
-        window.scrollBy(0, -2000) 
+window.addEventListener('load', function () {
+  window.scrollBy(0, -2000)
 })
 
 export default {
@@ -39,6 +48,8 @@ export default {
     return {
       recipes: [],
       filteredRecipes: [],
+      favouritedRecipes: [],
+      objectFavouritedRecipes: [],
       user: [],
     }
   },
@@ -69,29 +80,60 @@ export default {
           this.user = response.data
           console.log(this.user.userName)
           console.log(this.user.bio)
-          console.log(this.user.favouriteRecipes)
+          for (let i = 0; i < this.user.favouriteRecipes.length; i++) {
+            if (
+              this.favouritedRecipes.includes(this.user.favouriteRecipes[i])
+            ) {
+              console.log('has already')
+            } else {
+              this.favouritedRecipes = [
+                ...this.favouritedRecipes,
+                this.user.favouriteRecipes[i],
+              ]
+            }
+          }
+          console.log(this.favouritedRecipes)
+          for (let i = 0; i < this.favouritedRecipes.length; i++) {
+            let recipeId = this.favouritedRecipes[i]
+            axios
+              .get(`http://localhost:3000/api/recipes/${recipeId}`)
+              .then((response) => {
+                console.log(response.data)
+                if(response.data == null){
+                  console.log("hello")
+                }else{
+                this.objectFavouritedRecipes = [
+                  ...this.objectFavouritedRecipes,
+                  response.data,
+                ]
+                }
+              })
+          }
+          console.log(this.objectFavouritedRecipes)
         })
         .catch((error) => {
           console.log(error)
         })
-    },logout(){
+    },
+    logout() {
       axios
-      .get('http://localhost:3000/logout')
-      .then((response)=>{
-        console.log(response)
-        sessionStorage.setItem('user_id', '');
-        sessionStorage.setItem('userDescription', '');
-        sessionStorage.setItem('userName', '');
-        sessionStorage.setItem('loggedIn', false)
-        this.$router.push('/')
-      }).catch((error)=>{
-        console.log(error);
-      })
-    }
+        .get('http://localhost:3000/logout')
+        .then((response) => {
+          console.log(response)
+          sessionStorage.setItem('user_id', '')
+          sessionStorage.setItem('userDescription', '')
+          sessionStorage.setItem('userName', '')
+          sessionStorage.setItem('loggedIn', false)
+          this.$router.push('/')
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
   },
-  beforeMount(){
+  beforeMount() {
     this.fetchRecipes()
     this.fetchUsers()
-  }
+  },
 }
 </script>
