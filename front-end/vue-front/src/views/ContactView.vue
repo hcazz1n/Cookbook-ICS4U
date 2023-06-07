@@ -4,25 +4,32 @@
                 <div class="columns">
 
                     <div id="contact-columns" class="column">
-                        <div class="circle">
-                            <img src="../../public/david.jpg">
-                        </div>
-                        
+                        <a href="https://www.youtube.com/watch?v=HlBYdiXdUa8">
+                            <div class="circle">
+                                <img src="../../public/david.jpg">
+                            </div>
+                        </a>    
                     </div>
                     <div id="contact-columns" class="column">
-                        <div class="circle">
-                            <img src="../../public/fred.jpg">
-                        </div>
+                        <a href="https://www.youtube.com/watch?v=HhrbbYD5ScI">
+                            <div class="circle">
+                                <img src="../../public/fred.jpg">
+                            </div>
+                        </a>
                     </div>
                     <div id="contact-columns" class="column">
-                        <div class="circle">
-                            <img src="../../public/kyle.jpg">
-                        </div>
+                        <a href="https://www.youtube.com/watch?v=JyUqV9I_lb8">
+                            <div class="circle">
+                                <img src="../../public/kyle.jpg">
+                            </div>
+                        </a>
                     </div>
                     <div id="contact-columns" class="column">
-                        <div class="circle">
-                            <img src="../../public/harry.jpg">
-                        </div>
+                        <a href="https://www.youtube.com/watch?v=Fi98-2DLh20">
+                            <div class="circle">
+                                <img src="../../public/harry.jpg">
+                            </div>
+                        </a>
                     </div>
                 </div>
         </section>

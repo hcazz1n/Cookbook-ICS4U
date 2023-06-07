@@ -312,11 +312,14 @@ a.navbar-item:focus, a.navbar-item:focus-within{
 
 .recipe-username-header{
     font-size: 20px;
+    text-align: center;
+    color: black;
 }
 
 .recipe-username{
     font-size: 28px;
     text-align: center;
+    color: black;
 }
 
 .recipe-box{
@@ -528,6 +531,11 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     border-radius: 50%;
     border-width: 10px;
     border-color: #493453;
+    transition: transform 0.5s;
+}
+
+.circle:hover{
+    transform: scale(1.1);
 }
 
 .circle img{
@@ -693,7 +701,14 @@ input[type=checkbox] {
   
   /*Media Queries*/
   
-  @media (max-width: 1024px) {
+  @media(max-width: 1100px){
+    .circle{
+        width: 200px;
+        height: 200px;
+    }
+  }
+  
+  @media (max-width: 1023px) {
     .menu {
        display:none;
        position: absolute;
@@ -736,6 +751,19 @@ input[type=checkbox] {
      .burger:hover{
         color: rgb(0, 201, 228)
      }
+     
+     .c-recipe{
+        width: 100px;
+        height: 100px;
+     }
+     
+     .recipe-username{
+        font-size: 18px;
+     }
+     
+     .recipe-username-header{
+        font-size: 14px;
+     }
    }
   
   @media(max-width: 911px){
@@ -758,11 +786,62 @@ input[type=checkbox] {
     #account-favourite-recipe{
         margin-left: 10%;
     }
+    
+    .circle{
+        width: 170px;
+        height: 170px;
+    }
   }
   
   @media(max-width: 768px){
-    .recipe-title, .ingredient-instruction-title{
-        font-size: 36px
+    .recipe-container{
+        grid-template-columns: 0.25fr 1fr 0.25fr repeat(2, 2fr) 0.1fr 0.25fr;
+        grid-template-rows: 0.5fr 1fr 3fr 0.5fr;
+    }
+  
+    .recipe-box{
+        grid-row: 3/4;
+        grid-column: 2/6;
+    }
+    
+    .recipe-img{
+        max-height: 75%;
+    }
+    
+    .recipe-title{
+        align-self: flex-end;
+    }
+    
+    .search{
+        grid-column: 1/8;
+    }
+    
+    .recipe-buttons{
+        grid-row: 3/4;
+    }
+    
+    .profile-container{
+        margin-top: 0;
+        grid-row: 2/3;
+        grid-column: 2/7;
+        flex-direction: row;
+    }
+    
+    .c-recipe{
+        display: none;
+    }
+    
+    .recipe-username{
+        font-weight: 700;
+        font-size: 48px;
+    }
+    
+    .recipe-username-header{
+        display: none;
+    }
+    
+    .ingredient-instruction-title{
+        font-size: 36px;
     }
     
     #account-favourite-recipe{
@@ -773,9 +852,14 @@ input[type=checkbox] {
         width: 250px;
         height: 250px;
     }
+    
+    .circle{
+        width: 250px;
+        height: 250px;
+    }
   }
   
-  @media(max-width: 611px){
+  @media(max-width: 691px){
     .homepage-title{
         font-size: 60px;
         font-weight: 700;
@@ -783,5 +867,14 @@ input[type=checkbox] {
     
     #home-title-hero{
         background-size: 250%;
+    }
+  }
+  
+  @media(max-width: 600px){
+  }
+  
+  @media(max-width: 560px){
+    #home-title-hero{
+        background-size: 400%;
     }
   }
