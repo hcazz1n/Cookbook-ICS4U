@@ -12,12 +12,6 @@
                         </div>
                     </div>
                     
-                    <div class="field add-recipe-field">
-                        <div class="control has-icons-right">
-                            <label for="author" class="label">Author</label>
-                            <input v-model = "author" id="author" name="author" class="input input-border" type="text" @keyup="canSubmit()" placeholder="Just to make sure its you... or to let you pick that stage name you've always dreamed about!">
-                        </div>
-                    </div>
                     
                     <div class="field add-recipe-field">
                         <div class="control has-icons-right">
@@ -62,7 +56,6 @@
       data() {
         return {
             name: '',
-            author: '',
             ingredients: '',
             images: '',
             instructions: '',
@@ -70,15 +63,12 @@
       },
       methods: {
         uploadRecipe(){
-            console.log(this.name);
-            console.log(this.author);
-            console.log(this.ingredients);
-            console.log(this.images);
-            console.log(this.instructions);
+            let userName = sessionStorage.getItem('userName')
+            console.log(userName)
             axios
             .post("http://localhost:3000/addrecipe", {
                 "name": this.name,
-                "author": this.author,
+                "author": userName,
                 "ingredients": this.ingredients,
                 "images": this.images,
                 "instructions": this.instructions
@@ -93,25 +83,22 @@
         },  
         clear1(){  
             let name = document.getElementById('name')
-            let author = document.getElementById('author')
             let ingredients = document.getElementById('ingredients')
             let instructions = document.getElementById('instructions')
             let image = document.getElementById('images')
         
             name.value = ''
-            author.value = ''
             ingredients.value = ''
             instructions.value = ''
             image.value = ''
         },
         canSubmit(){
             let name = document.getElementById('name')
-            let author = document.getElementById('author')
             let ingredients = document.getElementById('ingredients')
             let instructions = document.getElementById('instructions')
             let image = document.getElementById('images')
         
-            if(name.value != '' && author.value != '' && ingredients.value != '' && instructions.value != '' && image.value != '')
+            if(name.value != '' && ingredients.value != '' && instructions.value != '' && image.value != '')
                 document.getElementById('submit-button').disabled = false
             else
                 document.getElementById('submit-button').disabled = true

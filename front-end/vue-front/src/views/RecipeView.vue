@@ -143,9 +143,9 @@ export default {
       })
     },
     nextRecipe() {
-      if(this.recipe.name != 'You Reached the End Of the Recipes! Congrats!'){
-        this.recipe.id++
-      }
+      //if(this.recipe.name != 'You Reached the End Of the Recipes! Congrats!'){
+      //}
+      this.recipe.id++
       this.page = 0
     },
     fetchRecipes() {
