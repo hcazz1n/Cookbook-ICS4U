@@ -41,7 +41,7 @@
 
     <div class="recipe-box box">
       <div class="title-page-recipe-view" v-if="page == 0">
-        <img v-if="recipe" class="recipe-img animate__animated animate__fadeIn" :src="`${this.recipe.images}`">
+        <img v-if="recipe" class="recipe-img animate__animated animate__fadeIn" :src="`${this.recipe.images}`" alt="Recipe Image Goes Here">
         <div v-if="recipe" class="recipe-title has-text-black animate__animated animate__fadeIn" :key="recipe.id">{{ recipe.name }}</div>
       </div>
       <div class="ingredient-instruction-title-recipe-view" v-else-if="page == 1">

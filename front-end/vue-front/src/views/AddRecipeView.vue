@@ -12,7 +12,6 @@
                         </div>
                     </div>
                     
-                    
                     <div class="field add-recipe-field">
                         <div class="control has-icons-right">
                             <label for="ingredients" class="label">Ingredients</label>

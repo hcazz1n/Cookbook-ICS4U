@@ -473,6 +473,23 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     color: white;
 }
 
+.add-r{
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 20px;
+    border: 1px solid #a10913;
+    background-color: #a10913;
+    color: white;
+    transition: border 0.5s, background-color 0.75s;
+}
+
+.add-r:hover{
+    background-color:#2e6b91;
+    border: 1px solid #2e6b91;
+    color: white;
+}
+
 .input-border{
     border: 1px solid #a10913;
 }
@@ -660,7 +677,7 @@ a.navbar-item:focus, a.navbar-item:focus-within{
     align-items: center;
 }
 
-#logout{
+#logout, #add-r{
     width: 100%;
     margin-bottom: 10px;
 }

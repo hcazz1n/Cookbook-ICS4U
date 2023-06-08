@@ -1,4 +1,7 @@
 <template>
+  <router-link to="/addrecipe">
+    <button id="addr" class="add-r">Add Recipe</button>
+  </router-link>
   <button id="logout" class="login-register-button logout" @click="logout()">
     Logout
   </button>
